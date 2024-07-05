@@ -127,7 +127,7 @@ garageScene.environment = new THREE.CubeTextureLoader().setPath("skybox/").load(
 const material = new Material()
 const geometry = new Geometry()
 
-let plane = new THREE.Mesh(geometry.plane(100, 100), material.generate("standard", 0x2f4d13, 0, 1))
+let plane = new THREE.Mesh(geometry.plane(100, 100), material.generate("standard", 0x2f4d13))
 plane.receiveShadow = true
 
 /*const mtl = new MTLLoader()
