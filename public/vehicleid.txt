@@ -1,0 +1,1016 @@
+1   Leichttraktor
+2   MS-1
+3   T1 Cunningham
+4   Renault FT
+5   Vickers Medium Mk.I
+6   Cruiser Mk. I
+7   Renault NC-31
+8   Renault Otsu
+9   Kolohousenka
+10  4TP
+11  Strv fm/21
+12  Fiat 3000
+
+13  MKA
+14  Pz.Kpfw. 35(t)
+15  Pz.Kpfw. 35R
+16  Pz.Kpfw 38H 735(f)
+17  Pz.Kpfw. I
+18  Pz.Kpfw. II
+19  Pz.Kpfw. II Ausf. D
+20  Panzerjäger I
+21  G.Pz. Mk. VI (e)
+22  BT-2
+23  T-26
+24  T-45
+25  T-60
+26  Tetrach
+27  AT-1
+28  SU-18
+29  M2 Light Tank
+30  T1E6
+31  T2 Light Tank
+32  T7 Combat Car
+33  T2 Medium Tank
+34  T18
+35  T3 HMC
+36  T1 HMC
+37  T57
+38  AM 39 Gendron-Somua
+39  AMR 35
+40  D1
+41  FCM 36
+42  Hotchkiss H35
+43  Renault R35
+44  Renault Ft AC
+45  Renault FT 75 BS
+46  Cruiser Mk. II
+47  Light Mk. VIC
+48  M2
+49  Vickers Medium Mk. II
+50  Universal Carrier 2-pdr
+51  Loyd Gun Carriage
+52  T-26 CN
+53  Vickers 6 ton
+54  Vickers Mk. E Type B
+55  T-26G FT
+56  Type 95 Ha-Go
+57  Type 97 Te-Ke
+58  Chi-Ni
+59  Type 89 I-Go/Chi-Ro
+60  LT vz. 35
+61  7TP
+62  TKS z n.k.m 20 mm
+63  L-60
+64  Strv m/38
+65  Pvlvv fm/42
+66  L6/40
+67  M14/41
+
+68  43 M. Toldi III
+69  Pz.Kpfw. 38(t)
+70  Pz.Kpfw. I Ausf. C
+71  Pz.Kpfw. II Ausf. G
+72  Pz.Kpfw. II Ausf. J
+73  Pz.Kpfw. III Ausf. E
+74  Pz.Kpfw. M 15
+75  Pz.Kpfw. T 15
+76  Großtraktor - Krupp
+77  Pz.Kpfw. IV Ausf. A
+78  Pz.Kpfw. S35 739 (f)
+79  Marder II
+80  Sturmpanzer I Bison
+81  Wespe
+82  BT-5
+83  BT-7 artillery
+84  BT-SV
+85  LTP
+86  M3 Light
+87  T-116
+88  T-127
+89  T-46
+90  T-70
+91  T-29
+92  SU-76I
+93  SU-26
+94  M22 Locust
+95  M3 Stuart
+96  MTLS-1G14
+97  Convert. Medium Tank T3
+98  M2 Medium Tank
+99  T56 GMC
+100 M7 Priest
+101 T18 HMC
+102 AMX 38
+103 D2
+104 Somua S35
+105 FCM 2C
+106 FCM 36 Pak 40
+107 Renault UE 57
+108 Lorraine 39L AM
+109 A7E3
+110 Cruiser Mk. III
+111 Stuart I-IV
+112 Valentine
+113 Vickers Medium Mk. III
+114 Sexton I
+115 Sexton II
+116 Type 2597 Chi-Ha
+117 M3G FT
+118 Type 97 Chi-Ha
+119 Type 98 Ke-Ni
+120 Type 87 Ke-Ni Otsu
+121 Type 91 Heavy
+122 LT vz. 38
+123 Panzerwagen 39
+124 10TP
+125 Lago M38
+126 Strv m/40L
+127 Ikv 72
+128 M15/42
+129 M16/43 Sahariano
+
+130 Pz.Kpfw. 38 (t) n.A.
+131 Pz.Kpfw. II Luchs
+133 Pz.Kpfw. III Ausf. J
+134 Pz.Kpfw. IV Ausf. D
+135 VK 20.01 (D)
+136 Durchbruchswagen 2
+137 Pz.Kpfw. B2 740 (f)
+138 Jagdpanzer 38(t) Hetzer
+139 Marder 38T
+140 Pz.Sfl. IC
+141 StuG III Ausf. B
+142 Pz.Sfl. IVb
+143 Sturmpanzer II
+144 BT-7
+145 T-80
+146 Valentine II
+147 A-32
+148 IT-3
+149 T-28
+150 T-28E with F-30
+151 T-34 with L-11
+152 SU-76M
+153 SU-85B
+154 SU-5
+155 M5 Stuart
+156 M3 Lee
+157 T6 Medium
+158 M8A1
+159 T40
+160 M37
+161 T82 HMC
+162 AMX 40
+163 SARL 42
+164 B1
+165 Somua SAu 40
+166 AMX 105 AM mle. 47
+167 A25 Harry Hopkins I
+168 Cruiser Mk. IV
+169 AC 1 Sentinel
+170 Grant
+171 Matilda
+172 Matilda LVT
+173 Alecto
+174 Valentine AT
+175 Birch Gun
+176 M5A1 Stuart
+177 SU-76G FT
+178 Type 5 Ke-Ho
+179 Type 1 Chi-He
+180 Type 95 Heavy
+181 ST vz. 39
+182 14TP
+183 Lago
+184 Sav m/43
+185 P26/40
+
+186 BT-42
+187 Vk 16.02 Leopard
+188 Pz.Kpfw. III Ausf. K
+189 Pz.Kpfw. III/IV
+190 Pz.Kpfw. IV
+191 Pz.Kpfw. IV Ausf. F2
+192 Pz.Kpfw. IV Ausf. H
+193 Pz.Kpfw. IV Ausf. H Ankou
+194 Pz.Kpfw. IV hydrostat.
+195 Pz.Kpfw. T 25
+196 Pz.Kpfw. V/IV
+197 Pz.Kpfw. V/IV Alpha
+198 Turán III prototípus
+199 VK 30.01 (H)
+200 Pz.Kpfw. KW I (r)
+201 VK 65.01 (H)
+202 Pz-Sfl. IVc
+203 StuG III Ausf. G
+204 StuG IV
+205 Grille
+206 A-20
+208 T-50
+209 M4-85
+210 Matilda IV
+211 T-34
+212 T-34 shielded
+213 Churchill III
+214 KV-1
+215 KV-1 shielded
+216 KV-1SA
+217 KV-220-2
+218 KV-220-2 Beta Test
+219 SU-2-122
+220 SU-85
+221 SU-85I
+222 SU-122A
+223 M24 CHaffee
+224 M24 Chaffee No. 594
+225 M7
+226 ARMT
+227 M4 Improved
+228 M4A1 Sherman
+229 M4A2E4 Sherman
+230 Ram II
+231 T1 Heavy Tank
+232 T14
+233 M10 Wolverine
+234 T67
+235 M41 HMC
+236 AMX 13 (FL 11)
+237 AMX ELC bis
+238 Renault G1
+239 BDR G1 B
+240 M10 RBFM
+241 S35 CA
+242 leFH18B2
+243 AMX 13 105 AM mle. 50
+244 Covenanter
+245 AEC Armoured Car
+246 Cavalier
+247 Matilda Black Prince
+248 Shermann III
+249 Valiant
+250 Excelsior
+251 Churchill I
+252 Archer
+253 AT 2
+254 Bishop
+255 Type T-34
+256 60G FT
+257 Type 3 Chi-Nu
+258 Type 3 Chi-Nu Kai
+259 Mitsu 108
+260 O-I Experimental
+261 Type 3 Ho-Ni III
+262 WIP
+263 Škoda T 24
+264 25TP KSUST II
+265 DS PZInż
+266 SDP 40 Zadymka
+267 Strv m/42
+268 Ikv 103
+269 P.43
+270 Semovente M41
+
+271 VK 28.01
+272 VK 28.01 mit 10,5 cm L/28
+273 Pz. V Berge-Panther Alpha
+274 Pz.Kpfw. IV Schmalturm
+275 Pz.Kpfw. V Berge-Panther
+276 VK 30.01 (D)
+277 VK 30.02 (M)
+278 Tiger 131
+279 Tiger 217
+280 VK 30.01 (P)
+281 VK 36.01 (H)
+282 Dicker Max
+283 Jagdpanzer IV
+284 Nashorn
+285 Hummel
+286 MT-25
+287 T-50-2
+288 A-43
+289 Loza's M4-A2 Sherman
+290 T-34-85
+291 T-34-85 Rudy
+292 T-34-85M
+293 KV-1S
+294 KV-2
+295 KV-2 (R)
+296 KV-85
+297 Object 244
+298 T-150
+299 SU-100
+300 SU-100Y
+301 SU-8
+302 M24E2 Super Chaffee
+303 T21
+304 T37
+305 M4A3E2 Sherman Jumbo
+306 M4A3E8 Sherman
+307 M4A3E8 Thunderbolt VII
+308 M6
+309 Pawlack Tank
+310 M18 Hellcat
+311 M36 Jackson
+312 T78
+313 M44
+314 AMX 12 T
+315 Panhard AMD 178B
+316 Bretagne Panther
+317 M4A1 FL 10
+318 ARL 44
+319 ARL V39
+320 AMX 13 F3 AM
+321 A46
+322 Crusader
+323 AC 4 Experimental
+324 Cromwell
+325 Cromwell B
+326 Sherman Firefly
+327 Sherman VC Firefly
+328 Staghound Mk. III
+329 A43 BP prototype
+330 Churchill VII
+331 TOG II*
+332 Achilles
+333 AT 8
+334 Excalibur
+335 Churchill Gun Carrier
+336 FV304
+337 59-16
+338 Type 64
+339 Type 58
+340 WZ-131G FT
+341 Type 4 Chi-To
+342 Heavy Tank No. VI
+343 O-I
+344 Type 3 Ju-Nu
+345 Type 95 Ji-Ro
+346 WIP
+347 Škoda T 25
+348 Škoda T 40
+349 40TP Habicha
+350 B.U.G.I.
+351 Pudel
+352 T-34-85 Rudy
+353 SDP 44 Burza
+354 Strv 74
+355 Strv m/42-57 Alt A.2
+356 Ikv 65 Alt II
+357 P.43 bis
+358 Semovente M43 Bassotto
+
+359 Auflklärungspanzer Panther
+360 Spähpanzer SP I C
+361 Panther
+362 Panther/M10
+363 VK 30.02 (D)
+364 Tiger (P)
+365 Tiger I
+366 Tiger I L/56
+367 Tiger II (H)
+368 Tiger II (T)
+369 VK 45.02 (P) Audf. B7
+370 VK 45.03
+371 E 25
+372 Jagdpanther
+373 Krupp-Steyr Waffenträger
+374 Sturer Emil
+375 G.W. Panther
+376 LTG
+377 A-44
+378 KV-13
+379 T34M-54
+380 T-43
+381 T-44-122
+382 T-44-122A
+383 T-44-85
+384 IS
+385 IS-2
+386 IS-2 shielded
+387 IS-2M
+388 KV-122
+389 KV-3
+390 ISU-122S
+391 SU-100M1
+392 SU-122-44
+393 SU-152
+394 S-51
+395 SU-14-1
+396 T71 CMCD
+397 T71 CMCD P
+398 T71 DA
+399 T20
+400 T23E3
+401 T26E3 Eagle 7
+402 King Tiger (Captured)
+403 M-II-Y
+404 T29
+405 M56 Scorpion
+406 Super Hellcat
+407 T25 AT
+408 T25/2
+409 T28 Concept
+410 M12
+411 AMX 13 57
+412 AMX 13 57 GF
+413 AMX 13 75
+414 Hotchkiss EBR
+415 AMX M4 mle. 45
+416 AMX AC mle. 46
+417 Lorraine 155 mle. 50
+418 GSR 3301 Setter
+419 Comet
+420 FSV Scheme A
+421 Black Prince
+422 FV201 (A45)
+423 AT 15A
+424 AT 7
+425 Challenger
+426 Crusader 5.5-in. SP
+427 Type 62
+428 WZ-131
+429 T-34-1
+430 BZ-58
+431 IS-2
+432 T-34-2G FT
+433 Type 5 Chi-Ri
+434 O-Ni
+435 Type 4 Ju-To
+436 Chi-To SP
+437 WIP
+438 Konštrukta T-34/100
+439 Škoda T 45
+440 Vz. 44-1
+441 CS-44
+442 45TP Habicha
+443 SDP 57 Gowika
+444 Leo
+445 Ikv 90 Typ B
+446 P.43 ter
+447 Carro d'assalto P.88
+448 SMV CC-56
+
+449 Aufklärungspanzer V
+450 HWK 12
+451 HWK 30
+452 leKpz M 41 90 mm
+453 leKpz M 41 90 mm GF
+454 Indien-Panzer
+455 Kampfpanzer 07 RH
+456 M48A2 Räumpanzer
+457 Mittlerer Kpz. Pr. 68 (P)
+458 Panther II
+459 Panther mit 8,8 cm L/71
+460 Panzer 58
+461 Panzer 58 FL
+462 Panzer 58 Mutz
+463 Schwarzpanzer 58
+464 E 75 TS
+465 Löwe
+466 Löwe FL
+467 TIger II
+468 Tiger II FL
+469 VK 100.01 (P)
+470 VK 100.01 Ausf. B
+471 VK 168.01 (P)
+472 VK 168.01 Mauerbrecher
+473 VK 45.02 (P) Ausf. A
+474 VK 75.01 (K)
+475 8,8 cm Pak 43 Jagdtiger
+476 Ferdinand
+477 Ferdinand FL
+478 Jagdpanther II
+479 Jagdtiger prototype
+480 Kanonejagdpanzer
+481 Kanonejagdpanzer 105
+482 Rheinmetall Skorpion
+483 Rheinmetall Skorpion G
+484 Rhm.-Borsig Waffenträger
+485 G.W. Tiger (P)
+486 LT-432
+487 LTS-85
+488 LTTB
+489 T-44 lightweight
+490 Object 168 German
+491 Object 274a
+490 Object 416
+491 Obsidian
+492 ST-62 Version 2
+493 STG
+494 STG Guard
+495 T-44
+496 T-44 FL
+497 T-44-100
+499 T-44-100 Igrovoy
+500 T-54 first prototype
+501 T-54 first prototype FL
+502 TITT Rozanov
+503 IS-2-II
+504 IS-3
+505 IS-3A
+506 IS-3A (T)
+507 IS-3A Sapsan
+508 IS-5 (Object 730)
+509 IS-6
+510 IS-6 B
+511 IS-6 FL
+512 IS-M
+513 K-2
+514 Kirovets-1
+515 KV-4
+516 KV-4 Kreslavskiy
+517 KV-5
+518 Object 252U
+519 Object 252U Defender
+520 Object 259A
+521 Object 701
+522 Object 703 Version II
+523 Object 703-II (100)
+524 Udarniy
+525 Forest Spirit
+526 ISU-122-2
+527 ISU-130
+528 ISU-152
+529 ISU-152K
+530 KV-4 KTTS
+531 SU-101
+532 SU-122V
+533 SU-130PM
+534 T-103
+535 SU-14-2
+536 M41 Walker Bulldog
+537 M41 Walker Bulldog FL
+538 T92
+539 AAT60
+540 Alembic
+541 AMBT
+542 ASTRON Rex 150mm
+543 Chrysler MTC 2TC
+544 M26 Pershing
+545 M46 Patton KR
+546 M47 Iron Arnie
+547 M47 Patton Improved
+548 T25 Pilot Number 1
+549 T26E4 SuperPershing
+550 T26E4 SuperPershing FL
+551 T42
+552 T69
+553 T95E2
+554 TL-1 LPC
+555 Chrysler K
+556 Chrysler K GF
+557 M-III-Y
+558 M-IV-Y
+559 M54 Renegade
+560 M6A2E1
+561 T-832
+562 T26E5
+563 T26E5 FL
+564 T26E5 Patriot
+565 T32
+566 T32 FL
+567 T32M
+568 T34
+569 T34 B
+570 T34 FL
+571 T77
+572 TS-54
+573 T28
+574 T28 Prototype
+575 TS-5
+576 XM66F
+577 M40/M43
+578 Bat.-Châtillon 12 t
+579 ELC EVEN 90
+580 ELC EVEN 90 FL
+581 Panhard AML Lynx 6x6
+582 Panhard EBR 75 (FL 10)
+583 AltProto AMX 30
+584 AMX Chasseur de chars
+585 Bat.-Châtillon Bourrasque
+586 Lorraine 40 t
+587 M4A1 Revalorisé
+588 M4A1 Revalorisé FL
+589 Miel
+590 AMX 50 100
+591 AMX 65 t
+592 AMX M4 mle. 49
+593 AMX M4 mle. 49 FL
+594 AMX M4 mle. 49 Liberté
+595 FCM 50 t
+596 Somua SM
+597 AMX AC mle. 48
+598 AMX AC mle. 48 FL
+599 AMX Canon d'assaut 105
+600 Lorraine 155 mle. 51
+601 FV1066 Senlac
+602 LHMTV
+603 Centurion Mk. 5/1 RAAC
+604 Centurion Mk. I
+605 FV4202
+606 FV4202 FL
+607 FV601 Saladin
+608 GSOR 1010 FB
+609 Chieftain/T95
+610 Chimera
+611 Nemesis
+612 Caernarvon
+613 Caernarvon Action X
+614 Caliban
+615 Gonsalo
+616 Charlemagne
+617 AT 15
+618 GSOR 1008
+619 Charioteer
+620 Charioteer Nomad
+621 Turtle Mk. I
+622 FV207
+623 M41D
+624 WZ-132
+625 WZ-132 FL
+626 122 TM
+627 59-Patton
+628 T-34-2
+629 T-34-3
+630 Type 59
+631 Type 59 G
+632 110
+633 112
+634 112 FL
+635 BZ-166
+636 BZ-176
+637 WZ-111
+638 WZ-111 Alpine Tiger
+639 WZ-111 model 6
+640 WZ-113-II
+641 WZ-111-1G FT
+642 WZ-120-1G FT
+643 WZ-120-1G FT FL
+644 Edelweiss
+645 STA-1
+646 STA-2
+647 Karachun
+648 Nameless
+649 O-Ho
+650 Type 57
+651 Type 63
+652 Ho-Ri 2
+653 Type 5 Ka-Ri
+654 WIP
+655 Škoda T 27
+656 TVP VTU Koncept
+657 Škoda T 56
+658 TNH 105/1000
+659 ShPTK-TVP 100
+660 CS-52 C
+661 CS-52 LIS
+662 CS-53
+663 50TP prototyp
+664 50TP Resilient
+665 53TP Markowskiego
+666 56TP
+667 SDP 58 Kilana
+668 Lansen C
+669 Primo Victoria
+670 Strv 81
+671 UDES 14 Alt 5
+672 Bofors Tornvagn
+673 EMIL 1951
+674 Emil I
+675 Strv S1
+676 Strv S1 FL
+677 UDES 03
+678 Mars
+679 P.44 Pantera
+680 Progetto M35 mod. 46
+681 Bisonte C45
+682 Progetto CC55 mod. 54
+683 SMV CC-64 Vipera
+684 SMV CC-67
+
+685 Spähpanzer Ru 251
+686 E 50
+687 E 50 FL
+688 Kampfpanzer 50 t
+689 Kunze Panzer
+690 Leopard Prototyp A
+691 T 54D
+692 T 55A
+693 E 75
+694 Mäuschen
+695 Tiger-Maus
+696 VK 45.02 (P) Ausf. B
+697 Jagdtiger
+698 Jagdtiger FL
+699 KJPZ TIII Jäger
+700 KPz 3 Projekt 07 HK
+701 Waffenträger auf Pz. IV
+702 G.W. Tiger
+703 T-54 ltwt.
+704 K-91 Version II
+705 Object 283
+706 Object 430
+707 Object 430 Version II
+708 Object 590
+709 T-54
+710 T-54 FL
+711 IS-3-II
+712 Object 257
+713 Object 705
+714 Object 752
+715 Object 777 Version II
+716 ST-I
+717 T-10
+718 K-91-PT
+719 Object 263
+720 Object 704
+721 SU-122-54
+722 212A
+723 T49
+724 M46 Patton
+725 M46 Patton FL
+726 Patton the Tank
+727 AE Phase I
+728 Concept 1B
+729 M-VI-Y
+730 M103
+731 T54 Heavy Tank
+732 T54E1
+733 T30
+734 T30 FL
+735 T95
+736 TL-7
+737 TS-60
+738 M53/M55
+739 AMX 13 90
+740 Char Mle. 75
+741 Panhard EBR 90
+742 AMX 30 1er prototype
+743 Bat.-Châtillon 25 t AP
+744 Char Futur 4
+745 AMX 50 120
+746 AMX M4 mle. 51
+747 AMX M4 mle. 51 FL
+748 Lorraine 50 t
+749 AMX 50 Foch
+750 Bat.-Châtillon 155 55
+751 GSOR3301 AVR FS
+752 Centurion Mk. 7/1
+753 Cobra
+754 GSOR 1006 Scheme 7
+755 Conqueror
+756 Conqueror FL
+757 FV4201 Chieftain Proto
+758 FV4004 Conway
+759 Tortoise
+760 FV3805
+761 WZ-132A
+762 WZ-120
+763 BZ-58-2
+764 BZ-68
+765 WZ-111 model 1-4
+766 WZ-114
+767 WZ-111G FT
+768 WZ-120G FT
+769 Type 61
+770 Type 4 Heavy
+771 Type 68
+772 Ho-Ri 1
+773 WIP
+774 Škoda T 50
+775 TNH T Vz. 51
+776 TT-130M
+777 CS-59
+778 50TP Tyszkiewicza
+779 SDP 60 Gonkiewicza
+780 UDES 03 Alt 3
+781 UDES 16
+782 Emil II
+783 Strv K
+784 Lätt Stridsfordon 120
+785 Strv 103-0
+786 Strv 103-0 FL
+787 Prototipo Standard B
+788 Progetto C50 mod. 66
+789 Controcarro 1 Mk. 2
+
+790 LKpz.70 K
+791 Rheinmetall Panzerwagen
+792 E 50 Aust. M
+793 E 50 Ausf. M 7v7
+794 Leopard 1
+795 Leopard 1 BB
+796 E 100
+797 Kampfpanzer 07 P(E)
+798 Maus
+799 Maus 7v7
+800 Pz.Kpfw VII
+801 VK 72.01 (K)
+802 Grille 15
+803 Jagdpanzer E 100
+804 Waffenträger auf E 100
+805 Waffenträger auf E 100 (P) Mod
+806 WT 12
+807 G.W. E 100
+808 T-100 LT
+809 (R) T-62A
+810 K-91
+811 Object 140
+812 Object 140 CL
+813 Object 430B
+814 Object 430U
+815 Object 907
+816 Object 907A
+817 T-22 medium
+818 T-62A
+819 (R) IS-7
+820 IS-4
+821 IS-4 7v7
+822 IS-7
+823 Object 257 (PA)
+824 Object 260
+825 Object 277
+826 Object 279 early
+827 Object 452K
+828 Object 705A
+829 Object 777 Dynamic
+830 Object 780
+831 ST-II
+832 Object 263B
+833 Object 268
+834 Object 268 Version 4
+835 Object 268 Version 4 7v7
+836 Object 268 Version V
+837 Object 261
+838 XM551 Sheridan
+839 M48A2/T54E2/T123E6
+840 M48A5 Patton
+841 M48A5 Patton 7v7
+842 M60
+843 T95E6
+844 M-V-Y
+845 MBT-B
+846 T110E5
+847 T110E5 CL
+848 T57 Heavy Tank
+849 T110E3
+850 T110E4
+851 T110E4 7v7
+852 T92 HMC
+853 AMX 13 105
+854 AMX 13 105 7v7
+855 Panhard EBR 105
+856 AMX 30 B
+857 Bat.-Châtillon 25 t
+858 (R) AMX 50 B
+859 AMX 50 B
+860 AMX M4 mle. 54
+861 AMX M4 mle. 54 7v7
+862 AMX 50 Foch (155)
+863 AMX 50 Foch B
+864 AMX 50 Foch B 7v7
+865 Bat.-Châtillon 155 58
+866 Manticore
+867 Centurion Action X
+868 Concept No. 5
+869 FV4202
+870 Vickers MBT Mk. 3
+871 FV215b
+872 Chieftain Mk. 6
+873 Super Conqueror
+874 T95/FV4201 Chieftain
+875 T95/Chieftain
+876 FV215b (183)
+877 FV217 Badger
+878 FV217 Badger 7v7
+879 FV4005 Stage II
+880 Conqueror Gun Carriage
+881 WZ-132-1
+882 121
+883 121B
+884 Monkey King
+885 113
+886 113
+887 113 Beijing Opera
+888 116-F3
+889 BZ-72-1
+890 BZ-75
+891 BZ-75 7v7
+892 WZ-111 model 5A
+893 WZ-111 model 5A 7v7
+894 WZ-111 Qilin
+895 WZ-111 TEST 
+896 114 SP2
+897 WZ-113G FT
+898 STB-1
+899 STB-1 7v7
+900 Type 5 Heavy
+901 Type 71
+902 Ho-Ri 3
+903 WIP
+904 TVP T 50/51
+905 Vz. 55
+906 Vz. 55 Gothic Warrior
+907 CS-63
+908 CS-63 7v7
+909 Hurricane
+910 60TP Lewandowskiego
+911 NC 70 Błyskawica
+912 UDES 15/16
+913 UDES 15/16 7v7
+914 Kranvagn
+915 Kranvagn BB
+916 Strv 103B
+917 Carro da Combattimento 45 t
+918 Lion
+919 Progetto M40 mod. 65
+920 Progetto M40 mod. 65 BB
+921 Rinoceronte
+922 Controcarro 3 7v7
+923 Controcarro 3 Minotauro
+
+--- STEEL HUNTER ---
+
+1001 Varyag
+1002 Raven
+1003 Arlequin
+1004 Walküre
+1005 Harbinger Mk. IV
+1006 Bái Láng
+1007 Huragan
+1008 Beowulf
+
+--- TOPOGRAPHY ---
+
+T-34 (tr.)
+T14 (tr.)
+T-43 (tr.)
+Tiger I (tr.)
+Light Tank IV
+Medium Tank IV
+Heavy Tank IV
+Tank Destroyer IV
+SPG IV
+Light Tank VI
+Medium Tank VI
+Heavy Tank VI
+Tank Destroyer VI
+SPG VI
+
+--- MIRNY ---
+
+Tier 1
+
+Fireball
+Hedgehog
+
+Tier 4
+
+Rabbit
+
+Tier 6
+
+Guard 40TP
+Guard P.43 bis
+Guard Sherman
+Guard Churchill
+Mosquito
+
+Tier 7
+
+Guard Leo
+Guard P.43 ter
+Guard 45TP
+Guard Churchill BP
+
+Tier 8
+
+Guard P.44 Pantera
+Guard Pershing
+Guard UDES 14 Alt 5
+Hunter Panther II
+Guard 53TP
+Guard Caernarvon
+Alpha Skorpion
+Alpha T28 Prot.
+
+Tier 9
+
+Hunter E 50
+Cerberus
+Guard Patton
+Guard UDES 16
+Malachite
+Grenadier
+Hornet
+Goliath
+Guard 50TP
+Alpha Conway
+Alpha T30
+
+Tier 10
+
+Hunter E 50 M
+Alpha FV4005
+The Immortal

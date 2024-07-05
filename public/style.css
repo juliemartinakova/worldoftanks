@@ -1,0 +1,2648 @@
+*
+{
+    font-family: 'Warhelios';
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none !important;
+}
+#garage, #battle
+{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+#garage
+{
+    cursor: url("../cursors/wot_move.cur"), move;
+}
+html
+{
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'WarheliosBold';
+    font-weight: 500;
+}
+button
+{
+    background: initial;
+    outline: none;
+    border: none;
+}
+@font-face
+{
+    font-family: Warhelios;
+    src: url(../fonts/Warhelios-Regular.ttf);
+}
+@font-face
+{
+    font-family: WarheliosBold;
+    src: url(../fonts/Warhelios-Bold.ttf);
+}
+img
+{  
+    pointer-events: none;
+}
+p
+{
+    color: #ccc;
+}
+a
+{
+    cursor: url(../cursors/wot_link.cur), pointer;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none
+}
+a:focus
+{
+    box-shadow: 0 1px 0 0 #f9b723;
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px #f9b723;
+    outline: none;
+}
+body
+{
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    cursor: url(../cursors/wot_arrow.cur), pointer;
+    overscroll-behavior-y: contain;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+input
+{
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+label
+{
+    pointer-events: none;
+}
+input[type="range"]
+{
+    width: 100%;
+    height: 1px;
+    cursor: url(../cursors/wot_link.cur), grab;
+    appearance: none;
+    background: transparent;
+}
+input[type="range"]::-webkit-slider-thumb
+{
+    appearance: none;
+    width: 2px;
+    height: 20px;
+    background-color: #f9b723;
+    margin-top: -5px;
+}
+input[type="range"]::-webkit-slider-runnable-track
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 0 20px rgba(0,0,0,0.45);
+}
+input[type="range"]::-moz-range-thumb
+{
+    appearance: none;
+    width: 2px;
+    height: 20px;
+    background-color: #f9b723;
+    margin-top: -5px;
+}
+input[type="range"]::-moz-range-track
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 0 20px rgba(0,0,0,0.45);
+}
+/*input[type="range"].horizontal
+{
+    cursor: url(../cursors/wot_horz.cur), e-resize;
+}
+input[type="range"].vertical
+{
+    cursor: url(../cursors/wot_vert.cur), n-resize;
+}*/
+input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="search"]
+{
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: transparent;
+    cursor: url(../cursors/wot_text.cur), text;
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    margin: 10px 20px;
+    color: #fff;
+    transition: 0.2s;
+}
+input[type="checkbox"]
+{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 25px;
+    box-shadow: 0 0 0 1px #ccc;
+    transition: 0.2s;
+}
+input[type="checkbox"]:hover
+{
+    transition: 0.2s;
+    box-shadow: 0 0 0 1px #f9b723;
+}
+input[type="checkbox"].active
+{
+    background-image: url(../icons/24x24/checkYellow.webp);
+    background-position: center;
+    box-shadow: 0 0 0 1px #f9b723;
+    background-size: cover;
+    transition: 0.2s;
+}
+.installGamePromptContainer
+{
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    transition: 0.7s;
+    background: rgba(0,0,0,0.45);
+    z-index: 10001;
+}
+.installGamePromptContainer video
+{
+    position: fixed;
+    z-index: -1;
+    opacity: 0.75;
+    min-width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    min-width: 100%;
+    min-height: 100%;
+}
+.installGamePromptContainer .installInfoButton
+{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.installGamePromptContainer .aboutGame .closeInstallInfo
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px;
+    display: flex;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.installGamePromptContainer .aboutGame .closeInstallInfo:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.installGamePromptContainer .aboutGame .closeInstallInfo img
+{
+    margin-bottom: 0;
+    height: 20px;
+}
+.installGamePromptContainer .aboutGame a
+{
+    padding: 0;
+}
+.installGamePromptContainer .installInfoButton:hover
+{
+    transition: 0.2s;
+    background: rgba(0,0,0,0.1);
+}
+.installGamePromptContainer .installInfoButton img
+{
+    margin-bottom: 0;
+    height: 20px;
+}
+.installGamePromptContainer .aboutGame
+{
+    position: fixed;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    border-radius: 10px;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    width: 250px;
+    overflow: hidden;
+    transform: translateX(-330px);
+    transition: 0.7s;
+}
+.installGamePromptContainer .aboutGame .country
+{
+    color: #f9b723;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: -5px;
+}
+.installGamePromptContainer .installGamePrompt
+{
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.45);
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.installGamePromptContainer img
+{
+    height: 250px;
+    margin-bottom: 10px;
+}
+.installGamePromptContainer .installGamePrompt p
+{
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+}
+.installGamePromptContainer .installGamePrompt .chooseButtons
+{
+    display: flex;
+    gap: 20px;
+}
+.installGamePromptContainer .installGamePrompt .chooseButtons #dismissInstall
+{
+    color: #ccc;
+    box-shadow: inset 0 0 0 1px #ccc;
+    font-family: 'Warhelios';
+    background-color: transparent;
+}
+.installGamePromptContainer .installGamePrompt .chooseButtons button, .fullscreenWarn a
+{
+    padding: 15px 20px;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgb(255 84 0 / 80%);
+    background-color: rgba(255, 84, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    color: #f9b723;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    width: 150px;
+    font-family: 'WarheliosBold';
+}
+.installGamePromptContainer .installGamePrompt .chooseButtons button:hover, .fullscreenWarn a:hover
+{
+    transition: 0.2s;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 30px 0 rgb(255,84,0);
+}
+.installGamePromptContainer .installGamePrompt .chooseButtons #dismissInstall:hover
+{
+    background-color: rgba(0,0,0,0.2);
+}
+.invalid
+{
+    box-shadow: inset 0 0 0 1px #ff0800, 0 0 20px 0 #ff080045 !important;
+    color: #ff0800;
+}
+.valid
+{
+    box-shadow: inset 0 0 0 1px #4cbb17, 0 0 20px 0 #4cbb1745 !important;
+    color: #4cbb17;
+}
+.unavailable
+{
+    pointer-events: none;
+    background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0.25) 1px, transparent 0, transparent 50%);
+    background-size: 15px 15px;
+    background-color: rgba(255, 8, 0, 0.25) !important;
+}
+.initial .logos
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.initial .logos .group
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.initial .logos .group img
+{
+    height: 40%;
+}
+.initial .logos .wgLogo
+{
+    height: 10%;
+}
+.startup
+{
+    align-items: center;
+    justify-content: center;
+}
+.fullscreen
+{
+    display: flex;
+    min-height: 100vh;
+    position: fixed;
+    flex-direction: column;
+    inset: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+.logos
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.initial, .loadingProgress
+{
+    background-image: url(../gui/loading/login_bg.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: 0.7s;
+}
+.loadingProgress
+{
+    justify-content: center;
+    align-items: center;
+}
+.hidden
+{
+    visibility: hidden;
+    opacity: 0;
+    z-index: -10;
+    transition: 0.7s;
+}
+.totallyHidden
+{
+    visibility: hidden;
+    opacity: 0;
+    z-index: -10;
+    position: absolute;
+    transition: 0.5s;
+}
+.loaderContainer
+{
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    cursor: none;
+}
+.loaderContainer .loaderSpinner
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.loaderContainer .loaderSpinner .spinner
+{
+    margin-bottom: -65px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.45));
+}
+.initial .part1, .initial .part2, .loaderContainer, .hangar
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    transition: 0.7s;
+    flex-direction: column;
+    z-index: 9999;
+}
+.initial .part1, .initial .part2
+{
+    cursor: none;
+}
+.initial .part2 img, .startup img
+{
+    height: 40%;
+}
+.initial .about, .loadingProgress .about
+{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    left: 2%;
+}
+.initial .about p, .loadingProgress .about p
+{
+    margin: 0;
+    color: #fff;
+    font-weight: normal;
+}
+.initial .part2 img:nth-child(2)
+{
+    height: 15%;
+    position: absolute;
+    bottom: 6%;
+    margin-right: -35px;
+}
+.vignette
+{
+    background-image: url(../gui/loading/vignette_loading.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.loadingProgress h1
+{
+    z-index: 1;
+    font-size: 2.25em;
+    color: #d9cda4;
+    margin-bottom: 2.5%;
+}
+.loadingProgress p
+{
+    font-size: 1em;
+    margin-bottom: 0.75%;
+    color: #d9cda4;
+}
+.loader
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 8% 6% 8%;
+    color: #d9cda4;
+    transition: 0.7s;
+}
+.progressBar
+{
+    width: 100%;
+    height: 6px;
+    background-color: rgba(0,0,0,0.45);
+    overflow: hidden;
+}
+.progressBar .progress
+{
+    content: '';
+    height: 6px;
+    background-color: #d9cda4;
+    width: 0%;
+    display: block;
+}
+.fullscreenWarnContainer .fullscreenWarn
+{
+    z-index: 10000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fullscreenWarn a
+{
+    gap: 10px;
+    width: auto;
+}
+.fullscreenWarnContainer
+{
+    z-index: 9999;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+}
+.spinner
+{
+    height: 260px;
+    width: 260px;
+    background-color: transparent;
+}
+.spinner::before
+{
+    content: '';
+    background-image: url(../gui/loading/spinner.webp);
+    height: 260px;
+    width: 260px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+    animation: loaderSpin 3s infinite linear;
+}
+.spinner::after
+{
+    content: '';
+    background-image: url(../gui/loading/spinner.webp);
+    height: 260px;
+    width: 260px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+}
+@keyframes loaderSpin
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+.loaderEarly
+{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+    color: #d9cda4;
+}
+.item img
+{
+    height: 20px;
+    margin-right: 10px;
+    width: min-content;
+}
+.battery .icon img
+{
+    height: 20px;
+    margin-right: 5px;
+    width: min-content;
+}
+.battery
+{
+    display: flex;
+    padding: 10px 15px 10px 10px;
+    z-index: 2;
+    transition: 0.5s;
+    align-items: center;
+    border-radius: 10px;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    margin: 30px;
+    right: 0;
+}
+.buttonContainer
+{
+    pointer-events: none;
+    display: inherit !important;
+    flex-direction: inherit !important;
+    justify-content: inherit !important;
+    align-items: inherit !important;
+    width: -moz-available !important;
+    width: -webkit-fill-available !important;
+    width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    height: -moz-available !important;
+    height: -webkit-fill-available !important;
+    height: 100% !important;
+}
+.topBar
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.battery.low
+{
+    animation: attentionItem 1.75s infinite;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgba(255,84,0,0.8);
+}
+.battery .icon
+{
+    background-image: url(../icons/24x24/battery.webp);
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    display: flex;
+    align-items: end;
+    margin-right: 10px;
+}
+.battery .icon span
+{
+    width: 4px;
+    height: 0px;
+    background-color: #f9b723;
+    display: block;
+    margin-bottom: 4px;
+    margin-left: 8px;
+    transition: 0.5s;
+    box-shadow: 0px 0px 20px 10px rgba(255,84,0,0.8);
+}
+.battery p
+{
+    color: green;
+}
+.item
+{
+    display: flex;
+    border-radius: 10px;
+    padding: 10px 15px 10px 10px;
+    box-shadow: 0 0 20px 10px rgba(0,0,0,0.2);
+    z-index: 2;
+    margin-right: 30px;
+    animation: attentionItem 1.75s infinite;
+    transition: 0.5s;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    position: absolute;
+    margin: 30px;
+    left: 0;
+}
+@keyframes attentionItem
+{
+    0%
+    {
+        box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgba(255,84,0,1);
+    }
+    50%
+    {
+        box-shadow: inset 0 0 0 1px transparent, 0 0 20px 10px rgba(0,0,0,0.2);
+    }
+    100%
+    {
+        box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgba(255,84,0,1);
+    }
+}
+.button1
+{
+    padding: 10px 15px;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgba(255,84,0,0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    color: #d9cda4;
+}
+.button2
+{
+    padding: 10px 15px !important;
+    margin: 50px 0 20px 0 !important;
+}
+.button1:hover, .button2:hover, .button2:focus
+{
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 30px 0 rgba(255,84,0,1);   
+    text-shadow: 0 0 50px #f9b723;
+    transition: 0.2s;
+}
+.button2 h1
+{
+    margin-bottom: 0px;
+    font-size: 30px;
+    pointer-events: none;
+}
+.startupbtn
+{
+    margin-top: 5%;
+}
+.accountCenter
+{
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(30px) contrast(1.25);
+    border-radius: 10px;
+    align-items: center;
+    z-index: 1;
+    width: max-content;
+    position: fixed;
+    transition: 0.7s;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.2);
+    z-index: 2;
+    background-color: rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+.accountCenter .accountCenterForm
+{
+    padding: 30px 35px;
+    transition: 0.5s;
+}
+.accountCenter .accountCenterForm.loggedIn
+{
+    padding: 30px 35px 10px;
+    margin-bottom: 60px;
+}
+.accountCenter .accountCenterForm.loggedIn a
+{
+    color: #ccc;
+    pointer-events: none;
+}
+.accountCenter .accountLog
+{
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    box-shadow: 0 -10px 20px 0 rgba(0,0,0,0.2);
+}
+.accountCenter .accountLog .userName p
+{
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    color: #f9b723;
+    font-weight: normal;
+}
+.accountCenter .accountLog .userName
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.accountCenter .accountLog .chooseButtons
+{
+    display: flex;
+    height: 60px;
+    margin-right: -20px;
+}
+.accountCenter .accountLog .chooseButtons div
+{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    transition: 0.2s;
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+.accountCenter .accountLog .chooseButtons div:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+}
+.accountCenter .accountCenterForm::-webkit-scrollbar
+{
+    display: none;
+}
+.accountCenter .accountCenterForm .row
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.accountCenter .accountCenterForm .row input.unavailable
+{
+    background-color: transparent !important;
+    background-image: none;
+    color: #ccc;
+}
+.accountCenter .accountCenterForm .row p, .window form .row p 
+{
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #f9b723;
+    font-weight: normal;
+}
+.window
+{
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    position: fixed;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.window .header .close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.window .header .close:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.window .container
+{
+    display: flex;
+    gap: 20px;
+    flex-flow: wrap;
+    position: absolute;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    top: 40px;
+    left: 0;
+    right: 0;
+}
+.window .container a
+{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    border-radius: 10px;
+    margin-bottom: 0;
+}
+.settings .content
+{
+    inset: 80px 0 0 !important;
+}
+.settings .header
+{
+    height: 80px !important;
+}
+.window .bar
+{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    justify-content: center;
+    box-shadow: 0 -1px rgba(0,0,0,0.2);
+}
+.window .bar::-webkit-scrollbar
+{
+    display: none;
+    height: 0px;
+    width: 0px;
+}
+.window .bar a
+{
+    padding: 9px 15px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.window .bar a:hover, .window .bar a:focus
+{
+    box-shadow: 0 1px #f9b723;
+}
+.window .bar a:hover p, .window .bar a:focus p
+{
+    color: #f9b723;
+}
+.window .bar a p
+{
+    color: #ccc;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+.window .header
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.45);
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+    height: 40px;
+}
+.window .content
+{
+    position: fixed;
+    inset: 40px 0 0 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+.window .header .description
+{
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 5px;
+}
+.window .header .description p
+{
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+.window .header .description #accountName
+{
+    letter-spacing: 0.5px;
+    color: #f9b723;
+}
+.window h1
+{
+    text-align: center;
+    color: #fff;
+}
+.window .category
+{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.window .category .row
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 15px;
+}
+.window .category .row .detail
+{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.window .category .row .detail p
+{
+    color: #ccc;
+    font-weight: normal;
+    margin: 0;
+}
+.window .category .row a
+{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+}
+.window .category .row a img
+{
+    height: 16px;
+}
+.window .category .row a:hover, .window .category .row a:focus
+{
+    text-shadow: 0px 0px 10px #f9b723;
+    box-shadow: none;
+}
+.accountCenter #loginForm .row:last-child p, .accountCenter #signupForm .row:last-child p
+{
+    color: #d9cda4;
+    font-size: 1em;
+    letter-spacing: normal;
+}
+.accountCenter #loginForm .connect
+{
+    margin: 50px 0px 15px 0 !important;
+}
+.accountCenter .accountCenterForm .row input
+{
+    width: 190px;
+}
+.accountCenter .accountCenterForm .row input::placeholder
+{
+    color: #ccc;
+    letter-spacing: normal;
+}
+.accountCenter .accountCenterForm .row input[type="password"]
+{
+    letter-spacing: 3px;
+}
+.connect
+{
+    padding: 10px 75px;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgb(255 84 0 / 80%);
+    background-color: rgba(255, 84, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    color: #fff;
+    margin: 50px 0 30px;
+}
+.connect h1
+{
+    color: #fff;
+}
+a
+{
+    color: #f9b723;
+    text-decoration: none;
+    padding: 0 10px 5px 10px;
+    box-shadow: none;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+a:hover
+{
+    box-shadow: 0 1px 0 0 #f9b723;
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px #f9b723;
+}
+.accountCenter .accountCenterForm .row .select
+{
+    margin: 10px 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 42px;
+    width: 220px;
+    transition: 0.5s;
+    z-index: 1;
+}
+.accountCenter .accountCenterForm.opened .row:nth-child(2)
+{
+    margin-top: 61.75px;
+}
+.accountCenter .accountCenterForm .row .select .selectHeader, .accountCenter .accountCenterForm .row .selectOptions .option
+{
+    padding: 10px 15px;
+    width: 190px;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.2);
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    height: 22px;
+}
+.accountCenter .accountCenterForm .row .selectOptions .option.unavailable
+{
+    color: #ccc;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0.25) 1px, transparent 0, transparent 50%);
+    background-size: 15px 15px;
+    background-color: rgba(255, 8, 0, 0.25);
+}
+.accountCenter .accountCenterForm .select.opened
+{
+    height: auto;
+    top: 52px;
+    position: absolute;
+}
+.accountCenter .accountCenterForm .row.hide
+{
+    opacity: 0;
+    z-index: -1;
+}
+.accountCenter .accountCenterForm .select .selectOptions .option:hover, .accountCenter .accountCenterForm .row .select .option:hover, .accountCenter .accountCenterForm .row input:hover
+{
+    background-color: rgba(0,0,0,0.1) !important;
+    transition: 0.2s;
+}
+.accountCenter .accountCenterForm .select .selectOptions .option.selected
+{
+    text-shadow: 0 0 10px #f9b723 !important;
+    color: #f9b723 !important;
+    background-color: rgba(0,0,0,0.1) !important;
+    transition: 0.2s !important;
+}
+.accountCenter .accountCenterForm .select .selectOptions .option.selected:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.accountCenter .accountCenterForm .select .selectOptions .option:nth-child(1).selected
+{
+    text-shadow: 0 0 10px #f9b723;
+    background-color: rgba(0,0,0,0.1);
+}
+.accountCenter .accountCenterForm .select .selectOptions .option:nth-child(5).selected
+{
+    border-radius: 0 0 10px 10px;
+}
+.accountCenter .accountCenterForm#signupForm .row:nth-child(2)
+{
+    margin-top: 0px;
+}
+.accountCenter .accountCenterForm#signupForm .row input.valid
+{
+    box-shadow: inset 0 0 0 1px #4cbb17, 0 0 20px 0 #4cbb1745;
+}
+.accountCenter .accountCenterForm#signupForm .row input.invalid
+{
+    box-shadow: inset 0 0 0 1px #ff0800, 0 0 20px 0 #ff080045;
+}
+.accountCenter #signupForm .row #registrationResult, .accountCenter #loginForm .row #loginResult
+{
+    max-width: 260px;
+    position: relative;
+    margin-bottom: -12%;
+    height: 22px;
+    color: #ff0800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px #ff0800;
+}
+input:focus
+{
+    outline: none;
+}
+.helpDevelopement
+{
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(30px) contrast(1.25);
+    box-shadow: 0 0 20px 5px rgb(0 0 0 / 25%);
+    border-radius: 0 10px 10px 0;
+    margin: 20px;
+    padding: 10px 20px;
+    transform: translateX(-190px);
+    transition: 0.5s ease-in-out;
+}
+.helpDevelopement:hover
+{
+    transform: translateX(-20px);
+    transition: 0.5s ease-in-out;
+}
+.helpDevelopement .tool#dtoold8
+{
+    flex-direction: column;
+}
+.helpDevelopement .tool
+{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 0;
+    transition: 0.2s;
+}
+.helpDevelopement .tool input
+{
+    margin-right: 10px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+.helpDevelopement .tool p
+{
+    transition: 0.2s;
+    color: #f9b723;
+}
+.helpDevelopement .tool:hover p
+{
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px #f9b723;
+}
+.helpDevelopement h2
+{
+    text-align: center;
+    padding: 0 0 5px;
+    box-shadow: 0 1px 0 0 #f9b723;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #f9b723;
+}
+.hangar
+{
+    background-image: url(../gui/hangar/default.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: 0.7s;
+}
+.hangar a
+{
+    padding: 0;
+    margin: 0;
+}
+.hangar a:hover
+{
+    box-shadow: none;
+}
+.hangar a:focus
+{
+    box-shadow: none;
+}
+.hangar p
+{
+    color: #fff;
+}
+.hangar .top
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.hangar .top .upper
+{
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.45);
+    z-index: 2;
+    position: relative;
+}
+.hangar .top .upper .left, .hangar .top .upper .center, .hangar .top .upper .right
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hangar .top .upper .left
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.hangar .top .upper .right
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.hangar .top .upper .left div, .hangar .top .upper .right div, .hangar .top .upper .center .platoon
+{
+    height: 55px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+.hangar .top .upper .center .platoon
+{
+    width: 45px;
+    justify-content: center;
+    box-shadow: -1px 0 0 0 rgba(0,0,0,0.05), 1px 0 0 0 rgba(0,0,0,0.05);
+}
+.hangar .top .upper .center .platoon img
+{
+    height: 60px;
+}
+.hangar .top .upper .left .settings img
+{
+    width: auto;
+}
+.hangar .top .upper .left .account
+{
+    width: auto;
+    max-width: 150px;
+}
+.hangar .top .upper .left .account p
+{
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.hangar .top .upper .left div:hover, .hangar .top .upper .center .platoon:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.hangar .top .upper .left div
+{
+    width: 45px;
+    transition: 0.2s;
+    box-shadow: 1px 0 0 0 rgb(0 0 0 / 5%);
+}
+.hangar .top .upper .left div img
+{
+    transition: 0.2s;
+}
+.hangar .top .upper .left .premiumAccount img, .hangar .top .upper .left .wotPlus img
+{
+    filter: brightness(2);
+}
+.hangar .top .upper .right .gameCurrency .currency img
+{
+    height: 20px;
+}
+.hangar .top .upper .right .gameCurrency .currency
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.2s;
+    box-shadow: -1px 0 0 0 rgb(0 0 0 / 5%);
+    width: 100px;
+}
+.hangar .top .upper .right .gameCurrency .currency:hover, .hangar .top .upper .center .gameMode:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.hangar .top .upper .right .gameCurrency
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 0;
+}
+.hangar .top .upper .center div p
+{
+    width: max-content;
+}
+.hangar .top .upper .center .battleButton
+{
+    margin: 0 10px;
+    width: auto;
+}
+.hangar .top .upper .center .battleButton h2
+{
+    color: #fff;
+}
+.hangar .top .upper .center .gameMode
+{
+    padding: 5px 10px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -1px 0 0 0 rgb(0 0 0 / 5%), 1px 0 0 0 rgb(0 0 0 / 5%);
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .top .upper .center .gameMode .buttonContainer img
+{
+    height: 45px;
+}
+.hangar .top .lower .center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hangar .top .lower .center .bar
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    box-shadow: 0 10px 20px -10px rgba(0,0,0,0.45);
+    border-radius: 0 0 10px 10px;
+    width: max-content;
+}
+.hangar .top .lower .center .bar a
+{
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: 0.2s;
+}
+.hangar .bottom.minimized
+{
+    margin-bottom: 0;
+    transition: 0.5s;
+}
+.hangar .bottom
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s;
+}
+.hangar .bottom .lower
+{  
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    box-shadow: 0 -10px 20px 0 rgba(0,0,0,0.45);
+}
+.hangar .bottom .lower .vehicleSelect
+{
+    height: 110px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 0 1px 0 0 rgb(0 0 0 / 10%);
+    overflow: hidden;
+    transition: 0.7s;
+}
+.hangar .bottom .lower .vehicleSelect.minimized
+{
+    pointer-events: none;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles
+{
+    display: flex;
+    padding: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    gap: 10px;
+    transition: 0;
+}
+/*.hangar .bottom .lower .vehicleSelect .vehicles.gridView
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    width: max-content;
+    transition: 0.7s;
+    height: 90px;
+}*/
+.hangar .bottom .lower .vehicleSelect .vehicleContainer
+{
+    overflow-x: auto;
+    position: relative;
+    left: 100px;
+    right: 30px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicleContainer::-webkit-scrollbar
+{
+    display: none;
+    height: 0px;
+    width: 0px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView div div
+{
+    width: 220px;
+    padding: 0;
+    height: 40px;
+    background-size: 70px;
+    background-position: -10px;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView div
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    width: max-content;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer h3
+{
+    height: 27px;
+    padding-right: 15px;
+    width: auto;
+    margin-left: 5px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks
+{
+    display: flex;
+    gap: 10px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle
+{
+    padding: 0px;
+    height: 90px;
+    width: 140px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle
+{
+    height: 40px;
+    width: 220px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer
+{
+    z-index: 1 !important;
+    pointer-events: none;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .container
+{
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .tanks .buttonContainer .tier
+{
+    height: 20px;
+    color: #fff;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .up
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -20px;
+    left: -30px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .bppoints
+{
+    z-index: 8;
+    font-size: 10px;
+    color: #ccc;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 0 10px;
+    letter-spacing: 0.75px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 45%);
+    position: absolute;
+    top: 4px;
+    left: 55px;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .bppoints
+{
+    top: -7px;
+    left: 115px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle:hover .buttonContainer .bppoints
+{
+    border-left: 1px solid rgba(249,183,35,0.5);
+    border-right: 1px solid rgba(249,183,35,0.5);
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle.selected:hover .buttonContainer .bppoints, .hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle.selected .buttonContainer .bppoints
+{
+    border-left: 1px solid #f9b723;
+    border-right: 1px solid #f9b723;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .up .tankType
+{
+    margin-right: -15px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .up div .tankTier
+{
+    height: 24px;
+    margin-top: 1px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .up div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .up .tankTier
+{
+    margin-top: 1px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle .buttonContainer .up .tankXpBonus
+{
+    position: relative;
+    right: -45px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .up .tankXpBonus
+{
+    top: -20px;
+    right: -20px;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .up
+{
+    margin-bottom: -40px;
+    margin-left: 0;
+    margin-right: 70px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .up
+{
+    margin-bottom: -80px;
+    margin-right: -5px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .tanks .vehicle .buttonContainer .container
+{
+    justify-content: right;
+    margin: 0;
+    padding: 0;
+    width: 220px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.grabbing, .hangar .bottom .lower .vehicleSelect .vehicles .vehicle.grabbing, .hangar .bottom .lower .vehicleSelect .vehicles .specialSlot.grabbing
+{
+    cursor: url(../cursors/wot_horz.cur), e-resize;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles::-webkit-scrollbar
+{
+    display: none;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .vehicle, .hangar .bottom .lower .vehicleSelect .vehicles .specialSlot
+{
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    min-width: 130px;
+    height: 80px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-position: center;
+    background-size: 110%;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: 0.2s;
+    padding: 5px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .vehicle.selected
+{
+    box-shadow: 0 10px 20px 0 rgba(255,84,0,0.4), 0 0 0 1px #f9b723 !important;
+    transition: 0.2s !important;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .vehicle:hover, .hangar .bottom .lower .vehicleSelect .vehicles .vehicle:focus
+{
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%), 0 0 0 1px rgba(249,183,35,0.5);
+    transition: 0.2s;
+    outline: none;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .vehicle.selected:hover
+{
+    box-shadow: 0 10px 20px 0 rgba(255,84,0,0.4), 0 0 0 1px #f9b723;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .tanks .vehicle h3
+{
+    text-align: center;
+    /*margin: 0 -5px -5px -5px;*/
+    width: auto;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .buttonContainer .container
+{
+    background: linear-gradient(0deg, rgba(0,0,0,0.45), transparent);
+    padding: 5px 0;
+    width: 100%;
+    gap: 5px;
+    border-radius: 0 0 10px 10px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlot:hover, .hangar .bottom .lower .vehicleSelect .vehicles .specialSlot:focus
+{
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%), 0 0 0 1px rgba(249,183,35,0.5);
+    transition: 0.2s;
+    outline: none;
+}
+.hangar .bottom .lower .vehicleSelect .filters
+{
+    padding: 5px;
+    min-width: 50px;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: 100%;
+    box-shadow: 1px 0 0 0 rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    left: 0;
+}
+.hangar .bottom .lower .vehicleSelect .filters .filter
+{
+    width: 35px;
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .filters .filter.selected
+{
+    box-shadow: 0 10px 20px 0 rgb(255 84 0 / 40%), 0 0 0 1px #f9b723;
+    transition: 0.2s;
+}
+.hangar .bottom .lower .vehicleSelect .filters .filter.selected:hover
+{
+    box-shadow: 0 10px 20px 0 rgb(255 84 0 / 40%), 0 0 0 1px #f9b723;
+    transition: 0.2s;
+    background-color: transparent;
+}
+.hangar .bottom .lower .vehicleSelect .filters .filter:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+.hangar .bottom .lower .vehicleSelect .scrollLeft
+{
+    min-width: 30px;
+    height: 100%;
+    padding: 5px;
+    box-shadow: 1px 0 0 0 rgb(0 0 0 / 10%);
+    background-image: url(../gui/hangar/vehicleSelector/left.webp);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    position: absolute;
+    left: 60px;
+}
+.hangar .bottom .lower .vehicleSelect .scrollRight
+{
+    min-width: 30px;
+    height: 100%;
+    padding: 5px;
+    box-shadow: -1px 0 0 0 rgb(0 0 0 / 10%);
+    background-image: url(../gui/hangar/vehicleSelector/right.webp);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    position: absolute;
+    right: 0;
+}
+.hangar .bottom .lower .vehicleSelect .scrollRight, .hangar .bottom .lower .vehicleSelect .scrollLeft
+{
+    transition: 0.2s;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    filter: brightness(0.85);
+    display: flex;
+    align-items: center;
+}
+.hangar .bottom .lower .vehicleSelect .scrollRight:hover, .hangar .bottom .lower .vehicleSelect .scrollLeft:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+    filter: brightness(1.15);
+}
+.hangar .bottom .lower .social
+{
+    padding: 5px;
+    width: 100%;
+    height: 20px;
+    background-color: rgba(0,0,0,0.45);
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlot
+{
+    justify-content: center;
+    height: 60px;
+    background-repeat: repeat;
+    background-size: 15px 15px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlot.unavailable
+{
+    box-shadow: inset 0 0 0 1px #ff0800, 0 0 20px 0 #ff080045 !important;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlot .cost
+{
+    display: flex;
+    justify-content: center;
+}
+.hangar .bottom .upper
+{
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+}
+.hangar .bottom .upper .tankInfo
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    position: absolute;
+    bottom: 165%;
+}
+.hangar .bottom .upper .tankInfo .tankDesc
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    overflow: hidden;
+}
+.hangar .bottom .upper .tankInfo .tankDesc div .tankType
+{
+    margin: -5px -5px 0 -5px;
+}
+.hangar .bottom .upper .tankInfo .tankRole
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hangar .bottom .upper .tankInfo .tankRole p
+{
+    color: #f9b723;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 900;
+    text-shadow: 0 0 10px #f9b723;
+}
+.hangar .bottom .upper .tankInfo::after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 50px 75px rgb(0 0 0 / 45%);
+    z-index: -1;
+    transition: 0.5s;
+}
+.hangar .bottom .upper .tankInfo.minimized::after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 50px 65px rgb(0 0 0 / 45%);
+    z-index: -1;
+    transition: 0.5s;
+}
+.hangar .bottom .upper .tankInfo #repairState
+{
+    color: red;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px red;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlots .specialSlot .cost img
+{
+    height: 20px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .specialSlots .specialSlot .cost
+{
+    width: min-content;
+    height: min-content;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .specialSlots .specialSlot
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 10px;
+    width: 200px;
+}
+.hangar .bottom .lower .vehicleSelect .vehicles .specialSlots
+{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.45);
+}
+.hangar .bottom .lower .vehicleSelect .vehicles.gridView .specialSlots
+{
+    padding: 0;
+    box-shadow: none;
+}
+.hangar .bottom .upper .tankInfo .actions
+{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.hangar .bottom .upper .tankInfo .actions .repairs, .hangar .bottom .upper .tankInfo .actions .customization
+{
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.45);
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.5s;
+}
+.hangar .bottom .upper .tankInfo .actions .repairs:hover, .hangar .bottom .upper .tankInfo .actions .customization:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+}
+.hangar .bottom .upper .tankStorage
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    margin-bottom: 30px;
+    gap: 20px;
+    position: absolute;
+    bottom: 100%;
+}
+.hangar .bottom .upper .tankStorage .directives
+{
+    width: 50px;
+}
+.hangar .bottom .upper .tankStorage div div:nth-child(2)
+{
+    box-shadow: -1px 0 0 0 rgb(0 0 0 / 10%), 1px 0 0 0 rgb(0 0 0 / 10%);
+}
+.hangar .bottom .upper .tankStorage div p
+{
+    text-transform: uppercase;
+    color: #f9b723;
+    transform: translateY(30px);
+    text-shadow: 0 0 10px #f9b723;
+    opacity: 0;
+    transition: 0.2s;
+}
+.hangar .bottom .upper .tankStorage div p::after
+{
+    content: "";
+    display: block;
+    box-shadow: 0 0 20px 10px rgba(0,0,0,0.45);
+    z-index: -1;
+}
+.hangar .bottom .upper .tankStorage div:hover p
+{
+    transform: translateY(-10px);
+    opacity: 1;
+    transition: 0.2s;
+}
+.hangar .bottom .upper .tankStorage .equipment .container, .hangar .bottom .upper .tankStorage .directives .container, .hangar .bottom .upper .tankStorage .ammo .container, .hangar .bottom .upper .tankStorage .consumables .container
+{
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px 10px rgb(0 0 0 / 45%);
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+}
+.hangar .bottom .upper .tankStorage .equipment, .hangar .bottom .upper .tankStorage .directives, .hangar .bottom .upper .tankStorage .ammo, .hangar .bottom .upper .tankStorage .consumables
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hangar .bottom .upper .tankStorage .equipmentSlot, .hangar .bottom .upper .tankStorage .directiveSlot, .hangar .bottom .upper .tankStorage .ammoSlot, .hangar .bottom .upper .tankStorage .consumableSlot
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    background-image: url(../gui/hangar/vehicleSelector/plus.webp);
+    background-position: center;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    transition: 0.2s;
+}
+.hangar .bottom .upper .tankStorage .equipmentSlot:hover, .hangar .bottom .upper .tankStorage .directiveSlot:hover, .hangar .bottom .upper .tankStorage .ammoSlot:hover, .hangar .bottom .upper .tankStorage .consumableSlot:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+.hangar .bottom .upper .tankStorage .ammoSlot
+{
+    background-image: none;
+}
+.hangar .bottom .upper .tankStorage .ammoSlot:hover
+{
+    background-image: none;
+}
+.hangar .bottom .toggleVehicleSelect
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    position: absolute;
+    right: 30px;
+    border-radius: 10px;
+    margin-top: -80px;
+    width: 50px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    height: 50px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -10;
+    transition: 0.2s;
+}
+.hangar .bottom .toggleVehicleSelect:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+}
+.hangar .bottom .toggleVehicleSelect::after
+{
+    content: "";
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+    filter: brightness(0.45);
+    background-image: url(../icons/48x48/eye.webp);
+    transition: 0.5s;
+}
+.hangar .bottom .toggleVehicleSelect.minimized::after
+{
+    filter: brightness(1);
+    transition: 0.5s;
+}
+.hangar .bottom .upper .tankInfo div, .hangar .bottom .upper .tankInfo p
+{
+    transition: 0.5s;
+}
+.hangar .menu
+{
+    background-color: rgba(0,0,0,0.2);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    transition: 0.2s;
+}
+.hangar .menu.hidden
+{
+    transition: 0.2s;
+}
+.hangar .menu .container
+{
+    padding: 20px 25px;
+    border-radius: 10px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.45);
+}
+.hangar .menu .container .button
+{
+    display: flex;
+    width: 150px;
+    padding: 10px 15px;
+    justify-content: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.45);
+    border-radius: 10px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .menu .container .button:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+.hangar .buySlotsMenu
+{
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    z-index: 9999;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    padding: 10px 15px;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    background-color: rgba(0,0,0,0.2);
+}
+.hangar .buySlotsMenu.hidden
+{
+    transition: 0.2s;
+}
+.hangar .buySlotsMenu .cost
+{
+    display: flex;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgb(0 0 0 / 45%);
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .buySlotsMenu .cost:hover
+{
+    box-shadow: inset 0 0 0 1px #f9b723, 0 0 20px 0 rgba(255,84,0,0.45);
+    transition: 0.2s;
+}
+.hangar .bottom .vehicleFilters
+{
+    backdrop-filter: blur(30px) contrast(1.25);
+    position: absolute;
+    z-index: 1;
+    bottom: 165px;
+    left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 5px rgb(0 0 0 / 45%);
+    transition: 0.2s;
+    width: 305px;
+    overflow: hidden;
+}
+.hangar .bottom .vehicleFilters .filtersGroups p
+{
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+    color: #f9b723;
+    font-weight: 900;
+}
+.hangar .bottom .vehicleFilters .filtersBottom
+{
+    box-shadow: 0 -5px 10px 0 rgb(0 0 0 / 30%);
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.hangar .bottom .vehicleFilters .filtersBottom input
+{
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.45);
+    color: #ccc;
+    margin: 10px 5px 10px 10px;
+    max-width: 205px;
+    transition: 0.2s;
+}
+.hangar .bottom .vehicleFilters .filtersBottom input:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+.hangar .bottom .vehicleFilters .filtersBottom .viewGrid.selected
+{
+    box-shadow: 0 10px 20px 0 rgba(255,84,0,0.4), 0 0 0 1px #f9b723 !important;
+    transition: 0.2s !important;
+}
+.hangar .bottom .vehicleFilters .filtersBottom .viewGrid.selected:hover
+{
+    box-shadow: 0 10px 20px 0 rgba(255,84,0,0.4), 0 0 0 1px #f9b723;
+}
+.hangar .bottom .vehicleFilters .filtersBottom input::placeholder
+{
+    color: #ccc;
+}
+.hangar .bottom .vehicleFilters .filtersTop
+{
+    box-shadow: 0 5px 10px 0 rgb(0 0 0 / 30%);
+}
+.hangar .bottom .vehicleFilters .filtersTop .amountOfTanks
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.filtersTop::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: -20;
+}
+.hangar .bottom .vehicleFilters > div
+{
+    padding: 10px 15px;
+}
+.hangar .bottom .vehicleFilters .filtersGroups div
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+.hangar .bottom .vehicleFilters .filtersGroups div .container div, .hangar .bottom .vehicleFilters .filtersBottom .viewGrid
+{
+    width: 35px;
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 45%);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .bottom .vehicleFilters .filtersGroups div .container div:hover, .hangar .bottom .vehicleFilters .filtersBottom .viewGrid:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.1);
+}
+.hangar .bottom .vehicleFilters .filtersGroups div .type .buttonContainer img
+{
+    margin-top: -18px;
+}
+.hangar .bottom .vehicleFilters .filtersGroups div .tier .buttonContainer img
+{
+    height: 25px;
+    margin-top: -7px;
+}
+.hangar .bottom .vehicleFilters .filtersGroups div .container div .buttonContainer
+{
+    margin: 0;
+    padding: 0;
+}
+.hangar .bottom .vehicleFilters .filtersTop .close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.hangar .bottom .vehicleFilters .filtersTop .close .buttonContainer img
+{
+    height: 20px;
+}
+.hangar .bottom .vehicleFilters .filtersTop .close:hover
+{
+    background-color: rgba(0,0,0,0.1);
+    transition: 0.2s;
+}
+.hangar .confirmDisconnect
+{
+    background-color: rgba(0,0,0,0.2);
+    z-index: 10001;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+    -webkit-backdrop-filter: blur(30px) contrast(1.25);
+    transition: 0.7s;
+}
+.hangar .confirmDisconnect .chooseButtons
+{
+    display: flex;
+    gap: 20px;
+}
+.hangar .confirmDisconnect .chooseButtons div
+{
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    margin-top: 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    width: 150px;
+    letter-spacing: 1px;
+    color: #ccc;
+    width: 150px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    font-family: 'WarheliosBold';
+}
+.hangar .confirmDisconnect .chooseButtons div:hover
+{
+    transition: 0.2s;
+    background-color: rgba(0,0,0,0.2);
+}
+.accountCenter #loginForm.opened
+{
+    overflow: hidden;
+}
+/* SETTINGS WINDOWS */
+.settings .content
+{
+    padding: 0;
+    transition: 0.2s;
+}
+.settings .settingsTab .settingsTop
+{
+    display: grid;
+    padding: 20px 30px;
+    background-color: rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 45%);
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.settings .settingsTab .settingsTop .setting
+{
+    display: flex;
+    flex-direction: column;
+}
+.settings .settingsTab  label
+{
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #f9b723;
+}
+.settings .settingsTab .setting .settingDetail
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.settings .settingsTab .setting .settingDetail p
+{
+    font-family: 'WarheliosBold';
+    color: #f9b723;
+    width: 25px;
+    text-align: center;
+}
+.settings .settingsTab .settingDetail input
+{
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 1px;
+}
+.settings .settingsTab .settingsTop .checkbox
+{
+    display: flex;
+    align-items: center;
+}
+.settings label
+{
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #fff;
+}
+.settings .settingsTab .groups
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.settings .groups .group .title
+{
+    text-transform: uppercase;
+    margin-top: -30px;
+}
+.settings .groups .group
+{
+    padding: 20px 30px;
+    margin: 20px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 45%);
+    border-radius: 10px;
+}
+.settings .settingsTab .setting
+{
+    margin-top: 10px;
+}
+.settings .content.hidden
+{
+    transition: 0.2s;
+}
+.settings .header .bar a.active
+{
+    box-shadow: 0 1px 0 0 #f9b723;
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px #f9b723;
+    color: #f9b723;
+    pointer-events: none;
+}
+.settings .header .bar a.active p
+{
+    transition: 0.2s;
+    color: #f9b723;
+    font-family: "WarheliosBold";
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 990px)
+{
+    .hangar .bottom .vehicleFilters .filtersGroups div .container
+    {
+        grid-template-columns: auto auto auto !important;
+        justify-items: center;
+    }
+}
+@media screen and (max-width: 800px)
+{
+    .hangar .bottom .vehicleFilters .filtersGroups div .container
+    {
+        grid-template-columns: auto auto !important;
+    }
+}
+@media screen and (max-width: 620px)
+{
+    .settings .bar
+    {
+        justify-content: start;
+    }
+}
+@media screen and (max-height: 680px)
+{
+    .hangar .bottom .vehicleFilters
+    {
+        right: 20px;
+        width: auto;
+    }
+    .hangar .bottom .vehicleFilters .filtersGroups
+    {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+    .hangar .bottom .vehicleFilters .filtersGroups div
+    {
+        flex-direction: column;
+    }
+    .hangar .bottom .vehicleFilters .filtersGroups div .container
+    {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        margin-bottom: 0;
+    }
+    .hangar .bottom .vehicleFilters div .container div
+    {
+        align-content: center;
+        justify-content: normal !important;
+    }
+    .hangar .bottom .vehicleFilters .filtersGroups div p
+    {
+        margin-left: 0;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+@media screen and (max-height: 650px)
+{
+    .hangar .bottom
+    {
+        margin-bottom: -140px;
+    }
+    .hangar .bottom .vehicleFilters.minimized
+    {
+        transition: 0.2s;
+        z-index: -10;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .hangar .bottom .toggleVehicleSelect
+    {
+        visibility: visible;
+        opacity: 1;
+        z-index: 1;
+        transition: 0.2s;
+    }
+    .hangar .bottom .upper.minimized .actions
+    {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -10;
+        transition: 0.5s;
+    }
+    .hangar .bottom .upper.minimized
+    {
+        margin-bottom: -160px;
+    }
+}
+@media screen and (max-height: 600px)
+{
+    .accountCenter
+    {
+        top: 20px;
+        bottom: 40px;
+    }
+}
+@media screen and (max-height: 630px)
+{
+    .accountCenter .accountCenterForm
+    {
+        overflow-y: auto;
+    }
+}
+@media screen and (max-height: 550px)
+{
+    .hangar .bottom .upper.minimized
+    {
+        margin-bottom: -185px;
+    }
+    .hangar .bottom .upper.minimized.spec
+    {
+        margin-bottom: -205px;
+    }
+    .hangar .bottom .upper.minimized #repairState, .hangar .bottom .upper.minimized .tankRole
+    {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -10;
+        transition: 0.5s;
+    }
+}
+@media screen and (max-width: 1195px)
+{
+    .hangar .top .upper .right .gameCurrency .currency
+    {
+        width: 87px;
+    }
+}
+@media screen and (max-width: 1090px)
+{
+    .hangar .top .upper .right .gameCurrency .currency
+    {
+        width: 75px;
+    }
+    .hangar .top .upper .left div
+    {
+        width: 30px;
+    }
+    .hangar .top .upper .left div:nth-child(4) img
+    {
+        height: 40px;
+    }
+    .hangar .top .upper .left div img
+    {
+        height: 45px;
+    }
+    .hangar .top .upper .left .settings img
+    {
+        width: auto;
+        height: auto;
+    }
+    .hangar .top .upper .center div
+    {
+        width: 30px;
+    }
+    .hangar .top .upper .center .platoon
+    {
+        width: 30px;
+    }
+    .hangar .top .upper .center .gameMode img
+    {
+        height: 35px;
+    }
+    .hangar .top .upper .center .platoon img
+    {
+        height: 50px;
+    }
+}
+@media screen and (max-width: 780px)
+{
+    .hangar .bottom.minimized .toggleVehicleSelect
+    {
+        margin-top: -75px;
+        width: 42px;
+        height: 42px;
+    }
+    .hangar .bottom .toggleVehicleSelect
+    {
+        margin-top: -160px;
+        width: 42px;
+        height: 42px;
+    }
+    .hangar .top .lower .center .bar a
+    {
+        padding: 10px;
+    }
+}
+@media screen and (max-width: 690px)
+{
+    .hangar .top .lower .center .bar a
+    {
+        padding: 10px 7px;
+    }
+    .hangar .top .lower .center .bar
+    {
+        width: 100%;
+        border-radius: 0px;
+    }
+}

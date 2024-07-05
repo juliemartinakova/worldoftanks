@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="theme-color" content="#333333">
+        <meta name="background_color" content="#333333">
+        <link rel="shortcut icon" href="appicons/favicon.ico" type="image/x-icon" sizes="48x48">
+        <link rel="apple-touch-icon" href="appicons/icon180_rounded.svg">
+        <!--<link rel="manifest" href="manifest.json">-->
+        <meta name="description" content="Webová verze hry World of Tanks ve vývoji. World of Tanks je týmová tanková MMO hra od společnosti Wargaming. Hrajte na PC nebo na mobilu a staňte se tankovým mistrem s více než 600 vozidly z poloviny 20. století.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no">
+        <meta name="author" content="Wargaming.net, Julie Martinakova">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="mobile-web-app-capable" content="yes">
+        <title>World of Tanks</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body.grabbing
+            {
+                cursor: url(cursors/wot_horz.cur), e-resize;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <div class="fullscreenWarnContainer fullscreen hidden" id="fullscreenWarn">     
+            <div class="fullscreenWarn">
+                <img src="icons/128x100/alert.webp" alt="Info">
+                <h1>Nelze spustit více relací zároveň.</h1>
+                <p>Zkontrolujte, že máte hru otevřenou pouze jednou.</p>
+                <a href=""><img src="icons/24x24/refresh.webp">Obnovit</a>
+            </div>
+        </div>
+        <div class="topBar" id="topBar">
+            <div class="item hidden" id="nosupport">
+                <img src="icons/128x100/alert.webp" alt="Info">
+                <p>Nízký Výkon</p>
+            </div>
+        </div>
+        <div class="loaderContainer fullscreen" id="loadingPart0">
+            <div class="loaderSpinner">
+                <div class="spinner"></div>
+                <p>Načítání hry...</p>
+            </div>
+        </div>
+        <div class="fullscreen initial" id="initial">
+            <div class="startup fullscreen" id="startGame">
+                <img src="gui/loading/login_logo_big.webp" alt="World of Tanks">
+                <div class="startupbtn button1 connect" id="startUp">
+                    <h2>Hrát</h2>
+                </div>
+            </div>
+            <div class="part1 hidden" id="loadingPart1">
+                <div class="logos">
+                    <div class="group">
+                        <img src="logos/firebase.webp" alt="Google Firebase">
+                        <img src="logos/threejs.webp" alt="Three.js">
+                        <img src="logos/babylonjs.webp" alt="Babylon.js">
+                    </div>
+                    <img class="wgLogo" src="logos/wargaming.webp" alt="Wargaming.net">
+                </div>
+            </div>
+            <div class="part2 hidden" id="loadingPart2">
+                <img src="gui/loading/login_logo_big.webp" alt="World of Tanks">
+                <img src="gui/loading/awards.webp" alt="Awards">
+                <div class="about">
+                    <p class="gameVersion">World of Tanks 1.24.1</p>
+                    <p class="authors">©2009 - 2024 Wargaming.net, Julie Martinakova. Všechna práva vyhrazena.</p>
+                    <p>CS</p>
+                </div>
+            </div>
+        </div>
+        <div class="fullscreen hidden loadingProgress" id="loadingProgress">
+            <div class="vignette fullscreen"></div>
+            <div class="accountCenter">
+                <form class="accountCenterForm" id="loginForm">
+                    <div class="row">
+                        <p>Server a odezva (ms):</p>
+                        <div class="select" id="serverSel">
+                            <div id="serverSelect" class="selectHeader option interaction3">WOT EU1</div>
+                            <div class="selectOptions">
+                                <div class="option interaction3 unavailable">
+                                    Auto
+                                </div>
+                                <div class="option interaction3">
+                                    WOT EU1
+                                </div>
+                                <div class="option interaction3 unavailable">
+                                    WOT EU2
+                                </div>
+                                <div class="option interaction3 unavailable">
+                                    WOT EU3
+                                </div>
+                                <div class="option interaction3 unavailable">
+                                    WOT EU4
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>E-mail:</p>
+                        <input type="email" autocomplete="on" id="loginEmail" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <p>Heslo:</p>
+                        <input type="password" autocomplete="on" id="loginPassword" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <div id="loginResult"></div>
+                        <button tabindex="0" type="submit" class="connect button2 interaction3" id="connect1">
+                            <h1>Připojit!</h1>
+                        </button>
+                        <div tabindex="0" class="connect button2 totallyHidden" id="enterHangar1">
+                            <h1>Pokračovat</h1>
+                        </div>
+                        <a tabindex="-1" class="interaction3 toggleForms" rel="noopener noreferrer">Založit účet</a>
+                        <a tabindex="-1" class="interaction3" href="#">Nemůžete se přihlásit?</a>
+                        <p>CE</p>
+                    </div>
+                </form>
+                <form class="accountCenterForm totallyHidden" id="signupForm">
+                    <div class="row">
+                        <p>E-mail:</p>
+                        <input type="email" autocomplete="on" id="signupEmail" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <p>Uživatelské jméno:</p>
+                        <input type="text"  autocomplete="on" id="signupNickname"  class="interaction3">
+                    </div>
+                    <div class="row">
+                        <p>Heslo:</p>
+                        <input type="password" autocomplete="new-password" id="signupPassword" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <p>Potvrzení hesla:</p>
+                        <input type="password" autocomplete="new-password" id="signupPasswordConfirm" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <div id="registrationResult"></div>
+                        <button tabindex="0" type="submit" class="connect button2 interaction3" id="registration">
+                            <h1>Založit účet!</h1>
+                        </button>
+                        <div tabindex="0" class="connect button2 totallyHidden" id="enterHangar2">
+                            <h1>Pokračovat</h1>
+                        </div>
+                        <a tabindex="-1" class="interaction3 toggleForms" rel="noopener noreferrer">Přihlásit se pomocí uživatelského jména</a>
+                        <p>CE</p>
+                    </div>
+                </form>
+                <div class="accountLog hidden" id="loggedUser">
+                    <div class="userName">
+                        <img src="icons/24x24/user.webp">
+                        <p id="accountLogName"></p>
+                    </div>
+                    <div class="chooseButtons">
+                        <div class="interaction3" id="logoffUser">
+                            <img src="icons/24x24/exit.webp">
+                        </div>
+                        <div class="interaction3" id="userSettings">
+                            <img id="userSettingsIcon" src="icons/24x24/settings.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fullscreen window accountSettings hidden" id="accountSettings">
+                <div class="header">
+                    <div class="description">
+                        <p>Správa účtu:</p>
+                        <p id="accountName">userName</p>
+                    </div>
+                    <div class="close interaction3" id="closeAccSettings">
+                        <div class="buttonContainer">
+                            <img src="icons/24x24/close.webp" alt="Zavřít">
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="category">
+                        <div class="row">
+                            <div class="detail">
+                                <h1 id="accountName2"></h1>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Změnit</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/calendar.webp">
+                                <p>Datum narození: Month, XX</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Změnit</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/globe.webp">
+                                <p>Místo trvalého pobytu: Country name</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Změnit</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/card.webp">
+                                <p>Způsoby platby propojené s účtem</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Nakonfigurovat</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/email.webp">
+                                <p id="accountEmail"></p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Změnit</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/password.webp">
+                                <p>Heslo</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/edit.webp">Změnit</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/phone.webp">
+                                <p>+420********</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/settings.webp">Nastavení</a>
+                        </div>
+                        <div class="row">
+                            <div class="detail">
+                                <img src="icons/24x24/shield.webp">
+                                <p>Druhý faktor ověření</p>
+                            </div>
+                            <a class="interaction3" href="#"><img src="icons/24x24/settings.webp">Nastavení</a>
+                        </div>
+                    </div>
+                </div>
+                <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://worldoftanksonline.netlify.app">World of Tanks Online</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/juliemartinakova">Julie Martináková & Wargaming.net</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>
+            </div>
+            <div class="loader hidden" id="loginLoader">
+                <h1 class="imageName" id="imageName"></h1>
+                <p id="loadingStatus1">Načítání herního klienta...</p>
+                <div class="progressBar" id="progressBar">
+                    <div id="progress" class="progress"></div>
+                </div>
+            </div>
+            <div class="about" id="about">
+                <p class="gameVersion">World of Tanks 1.24.1</p>
+                <p class="authors">©2009 - 2024 Wargaming.net, Julie Martinakova. Všechna práva vyhrazena.</p>
+                <p>CS</p>
+            </div>
+        </div>
+        <div class="hangar hidden" id="hangar">
+            <div class="top">
+                <div class="upper" id="hangarUpperPanel">
+                    <div class="left">
+                        <div title="Menu" class="settings interaction2" id="hangarMenuBtn">
+                            <div class="buttonContainer">
+                                <img src="icons/24x24/settings.webp">
+                            </div>
+                        </div>
+                        <div class="account interaction2">
+                            <div class="buttonContainer">
+                                <p id="playerName"></p>
+                            </div>
+                        </div>
+                        <div title="WOT Plus" class="wotPlus interaction2">
+                            <div class="buttonContainer">
+                                <img src="gui/hangar/premium/wotPlus.webp" alt="Wot Plus">
+                            </div>
+                        </div>
+                        <div title="Standartní účet" class="premiumAccount interaction2">
+                            <div class="buttonContainer">
+                                <img src="gui/hangar/premium/noPremium.webp" alt="Standartní účet">
+                            </div>
+                        </div>
+                        <div title="Prémiový obchod" class="premiumShop interaction2">
+                            <div class="buttonContainer">
+                                <img src="gui/hangar/premium/premiumShop.webp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="center">
+                        <div title="Četa" class="platoon interaction2">
+                            <div class="buttonContainer">
+                                <img src="gui/hangar/platoon/platoon.webp" alt="Vytvořit četu">
+                            </div>
+                        </div>
+                        <div title="Vstoupit do bitvy" class="button1 battleButton interaction2">
+                            <div class="buttonContainer">
+                                <h2>Bitva!</h2>
+                            </div>
+                        </div>
+                        <div title="Náhodná bitva" class="gameMode interaction2">
+                            <div class="buttonContainer">
+                                <img src="gui/hangar/modeSelector/mode/random/icon_big.webp" alt="Režim bitvy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="personalReserves interaction2"></div>
+                        <div class="gameCurrency">
+                            <div title="Bony" class="currency interaction2">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/currency/bond.webp" alt="Bony">
+                                    <p class="currencyQuantity">0</p>
+                                </div>
+                            </div>
+                            <div title="Zlaťáky" class="currency interaction2">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/currency/gold.webp" alt="Zlaťáky">
+                                    <p class="currencyQuantity">0</p>
+                                </div>
+                            </div>
+                            <div title="Kredity" class="currency interaction2">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/currency/credits.webp" alt="Kredity">
+                                    <p id="creditsQuantity" class="currencyQuantity">0</p>
+                                </div>
+                            </div>
+                            <div title="Volné zkušenosti" class="currency interaction2">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/currency/freeXP.webp" alt="Volné zkušenosti">
+                                    <p class="currencyQuantity">0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lower">
+                    <div class="playersOnline"></div>
+                    <div class="center">
+                        <div class="bar" id="hangarUpperBar">
+                            <a title="WIP" class="interaction2" href="#">Garáž</a>
+                            <a title="WIP" class="interaction2" href="#">Obchod</a>
+                            <a title="WIP" class="interaction2" href="#">Sklad</a>
+                            <a title="WIP" class="interaction2" href="#">Mise</a>
+                            <a title="WIP" class="interaction2" href="#">Kampaně</a>
+                            <a title="WIP" class="interaction2" href="#">Služební&nbsp;záznam</a>
+                            <a title="WIP" class="interaction2" href="#">Výzkum</a>
+                            <a title="WIP" class="interaction2" href="#">Kasárny</a>
+                            <a title="WIP" class="interaction2" href="#">Klan</a>
+                        </div>
+                        <div class="missions">
+                            <div class="personalMissions"></div>
+                            <div class="campaignMissions"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="left">
+                    <div class="crew">
+                        <div class="crewOperations"></div>
+                        <div class="crewMember"></div>
+                        <div class="crewMember"></div>
+                        <div class="crewMember"></div>
+                        <div class="crewMember"></div>
+                        <div class="crewMember"></div>
+                        <div class="crewMember"></div>
+                    </div>
+                    <div class="dailyMissions">
+                        <div class="mission"></div>
+                        <div class="mission"></div>
+                        <div class="mission"></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="research"></div>
+                    <div class="techStats">
+                        <div class="group">
+                            <div class="header"></div>
+                        </div>
+                        <div class="group">
+                            <div class="header"></div>
+                        </div>
+                        <div class="group">
+                            <div class="header"></div>
+                        </div>
+                        <div class="group">
+                            <div class="header"></div>
+                        </div>
+                        <div class="group">
+                            <div class="header"></div>
+                        </div>
+                    </div>
+                    <div class="gunMarks"></div>
+                </div>
+            </div>
+            <div class="bottom" id="hangarBottom">
+				<div class="upper" id="hangarBottomUpper">
+                    <div class="tankInfo" id="tankInfo">
+                        <div class="tankDesc">
+                            <h2 id="tankTier" class="tankTier"></h2>
+                            <img id="tankType" src="" alt="Typ tanku" class="tankType">
+                            <h2 id="tankName"></h2>
+                        </div>
+                        <div class="tankRole">
+                            <p id="vehicleTankRole">vehicles.json/tankRole</p>
+                        </div>
+                        <p id="repairState" class="totallHidden">main.js/repairState</p>
+                        <div class="actions">
+                            <div class="repairs interaction2">
+                                <div class="buttonContainer">
+                                    <p>Opravy</p>
+                                </div>
+                            </div>
+                            <div class="customization interaction2">
+                                <div class="buttonContainer">
+                                    <p>Úprava vzhledu</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tankStorage" id="tankStorage">
+                        <div class="equipment">
+                            <p>Vybavení</p>
+                            <div class="container">
+                                <div title="WIP" class="interaction2 equipmentSlot"></div>
+                                <div title="WIP" class="interaction2 equipmentSlot"></div>
+                                <div title="WIP" class="interaction2 equipmentSlot"></div>
+                            </div>
+                        </div>
+                        <div class="directives">
+                            <p>Směrnice</p>
+                            <div class="container">
+                                <div title="WIP" class="interaction2 directiveSlot"></div>
+                            </div>
+                        </div>
+                        <div class="ammo">
+                            <p>Munice</p>
+                            <div class="container">
+                                <div title="WIP" class="interaction2 ammoSlot"></div>
+                                <div title="WIP" class="interaction2 ammoSlot"></div>
+                                <div title="WIP" class="interaction2 ammoSlot"></div>
+                            </div>
+                        </div>
+                        <div class="consumables">
+                            <p>Spotřební doplňky</p>
+                            <div class="container">
+                                <div title="WIP" class="interaction2 consumableSlot"></div>
+                                <div title="WIP" class="interaction2 consumableSlot"></div>
+                                <div title="WIP" class="interaction2 consumableSlot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="toggleVehicleSelect interaction2" id="toggleVehicleSelect"></div>
+                <div class="vehicleFilters hidden" id="vehicleFilters">
+                    <div class="filtersTop">
+                        <div class="close interaction2" id="closeVehicleFiltersWindow">
+                            <div class="buttonContainer">
+                                <img src="icons/24x24/close.webp" alt="Zavřít">
+                            </div>
+                        </div>
+                        <h2>Filtrovat podle parametrů</h2>
+                        <div class="amountOfTanks">
+                            <p>Zobrazených vozidel:&nbsp;</p>
+                            <p id="filtersTankCount">-/-</p>
+                        </div>
+                    </div>
+                    <div class="filtersGroups">
+                        <div class="vehicleType">
+                            <p>Typ</p>
+                            <div class="container">
+                                <div class="type interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/types/small/light.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="type interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/types/small/medium.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="type interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/types/small/heavy.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="type interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/types/small/destroyer.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="type interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/types/small/artillery.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vehicleNation">
+                            <p>Národ</p>
+                            <div class="container">
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="nation interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vehicleTier">
+                            <p>Úroveň</p>
+                            <div class="container">
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_1.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_2.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_3.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_4.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_5.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_6.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_7.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_8.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_9.webp" alt="">
+                                    </div>
+                                </div>
+                                <div class="tier interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="gui/hangar/tiers/level_10.webp" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="specialFilters">
+                            <p>Speciální</p>
+                            <div class="container">
+                                <div class="special interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="special interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="special interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="special interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="special interaction2 hangFilter">
+                                    <div class="buttonContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filtersBottom">
+                        <div class="viewGrid interaction2" id="viewGridMode">
+                            <div class="buttonContainer"></div>
+                        </div>
+                        <input type="search" name="" id="" placeholder="Hledat podle názvu">
+                    </div>
+                </div>
+                <div class="lower" id="hangarLowerPanel">
+                    <div class="vehicleSelect" id="vehicleSelect">
+                        <div class="filters">
+                            <div class="filter interaction2" id="toggleAllVehicleFilters">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/vehicleSelector/Vehicle-Filter.webp" alt="Zobrazit filtry">
+                                </div>
+                            </div>
+                            <div class="filter interaction2">
+                                <div class="buttonContainer">
+                                    <img src="gui/hangar/vehicleSelector/xpBonus/bonus_x2.webp" alt="Podle násobitele">
+                                </div>
+                            </div>
+                            <div class="filter interaction2"></div>
+                        </div>
+                        <div class="scrollLeft interaction2" id="scrollLeft"></div>
+                        <div class="vehicleContainer" id="vehicleContainer">
+                            <div class="vehicles" id="vehicles">
+                                <div id="hangarTanks" class="tanks"></div>
+                                <div class="specialSlots">
+                                    <div tabindex="0" title="WIP" class="specialSlot freeSpaces interaction2">
+                                        <div class="buttonContainer">
+                                            <h4>Koupit vozidlo:</h4>
+                                            <p id="freeSlotsCount">0 volných míst</p>
+                                        </div>
+                                    </div>
+                                    <div tabindex="0" title="WIP" class="specialSlot recoverTanks interaction2">
+                                        <div class="buttonContainer">
+                                            <h4>Obnovit vozidla:</h4>
+                                            <p>0 dostupných</p>
+                                        </div>
+                                    </div>
+                                    <div id="buySlots" tabindex="0" title="WIP" class="specialSlot interaction2">
+                                        <div class="buttonContainer">
+                                            <h4>Zakoupit místa:</h4>
+                                            <div class="cost">
+                                                <img src="gui/hangar/currency/credits.webp" alt="Kredity">
+                                                <p>250&nbsp;000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scrollRight interaction2" id="scrollRight"></div>
+                    </div>
+                    <div title="WIP" class="social"></div>
+                </div>
+            </div>
+            <div class="menu hidden fullscreen" id="hangarMenu">
+                <div class="container">
+                    <h1>Menu</h1>
+                    <div class="button interaction2">
+                        <div class="buttonContainer">
+                            <p>Bojové&nbsp;zpravodajství</p>
+                        </div>
+                    </div>
+                    <div class="button interaction2" id="backToHangar">
+                        <div class="buttonContainer">
+                            <p>Návrat&nbsp;do&nbsp;garáže</p>
+                        </div>
+                    </div>
+                    <div class="button interaction2" id="displaySettings">
+                        <div class="buttonContainer">
+                            <p>Nastavení</p>
+                        </div>
+                    </div>
+                    <div class="button interaction2" id="disconnectServer">
+                        <div class="buttonContainer">
+                            <p>Odpojit&nbsp;od&nbsp;serveru</p>
+                        </div>
+                    </div>
+                    <div class="button interaction2" id="installGame">
+                        <div class="buttonContainer">
+                            <p>Nainstalovat&nbsp;hru</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="confirmDisconnect fullscreen hidden" id="confirmDisconnect">
+                <h1>Opravdu se chcete odpojit od serveru?</h1>
+                <div class="chooseButtons">
+                    <div class="interaction2" id="confirmDisconnectYes">Ano</div>
+                    <div class="interaction2" id="confirmDisconnectNo">Ne</div>
+                </div>
+            </div>
+            <div class="buySlotsMenu hidden" id="buySlotsMenu">
+                <h1>Zakoupit volné místo?</h1>
+                <p>Počet míst k zakoupení:</p>
+                <input type="number" value="1" id="buySlotQuantity" min="1">
+                <div class="cost interaction2" id="buySlot">
+                    <img src="gui/hangar/currency/credits.webp" alt="Kredity">
+                    <p id="buySlotCost">250000</p>
+                </div>
+            </div>
+            <div class="fullscreen window settings hidden" id="settings">
+                <div class="header">
+                    <div class="description">
+                        <p>Nastavení hry</p>
+                    </div>
+                    <div class="close interaction2" id="closeSettings">
+                        <div class="buttonContainer">
+                            <img src="icons/24x24/close.webp" alt="Zavřít">
+                        </div>
+                    </div>
+                    <div class="bar" id="settingsBar">
+                        <a class="interaction2 showSettingsTab active" id="showSettingsTab1"><p>Obecné</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab2"><p>Grafika</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab3"><p>Zvuk</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab4"><p>Ovládání</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab5"><p>Zaměřovač</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab6"><p>Značky</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab7"><p>Oznámení&nbsp;v&nbsp;bitvě</p></a>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsGeneral" id="setGeneral"></div>
+                <div class="content settingsTab settingsGraphics hidden" id="setGraphics">
+                    <!--<div class="settingsTop">
+
+                    </div>-->
+                    <div class="groups">
+                        <div class="group">
+                            <p class="title">Hlavní</p>
+                            <div class="setting">
+                                <label for="antialiasing">MSAA Antialiasing</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" value="0" max="1" name="antialiasing" type="range" id="antialiasing">
+                                    <p id="antialiasingSetting">Vyp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settingsBottom">
+                        <div class="button" id="applyGraphics">Použít</div>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsSound hidden" id="setSound">
+                    <div class="settingsTop">
+                        <div class="checkbox">
+                            <input class="activeinteraction2" type="checkbox" name="allowSound" id="allowSound">
+                            <label for="allowSound">Povolit zvuk</label>
+                        </div>
+                        <div class="setting">
+                            <label for="masterVolume">Celková hlasitost</label>
+                            <div class="settingDetail">
+                                <input class="horizontal interaction2" name="masterVolume" type="range" id="gameVol">
+                                <p id="gameVolume"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="chooseButtons">
+                        <div class="button">
+                            <p>Zvuk</p>
+                        </div>
+                        <div class="button">
+                            <p>Hlasová komunikace</p>
+                        </div>
+                    </div>-->
+                    <div class="groups">
+                        <div class="group unavailable">
+                            <p class="title">Hlasitost</p>
+                            <div class="setting">
+                                <label for="interfaceVolume">Rozhraní</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="interfaceVolume" type="range" id="interfaceVol">
+                                    <p id="gameVolumeInterface">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="masterVolume">Vozidla</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="masterVolume" type="range" id="vehicleVol">
+                                    <p id="gameVolumeVehicles">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="voicemsgVolume">Hlasové oznámení</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="voicemsgVolume" type="range" id="voicemsgVol">
+                                    <p id="gameVolumeVoicemsg">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="effVolume">Efekty</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="effVolume" type="range" id="effectVol">
+                                    <p id="gameVolumeEffects">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="ambVolume">Prostředí</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="ambVolume" type="range" id="ambienceVol">
+                                    <p id="gameVolumeAmbience">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="battlemusVolume">Hudba v bitvě</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="battlemusVolume" type="range" id="battlemusVol">
+                                    <p id="gameVolumeBattlemus">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="hangmusVolume">Hudba v garáži</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="hangmusVolume" type="range" id="hangmusVol">
+                                    <p id="gameVolumeHangmus">100</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsControls hidden" id="setControls"></div>
+                <div class="content settingsTab settingsCrosshair hidden" id="setCrosshair"></div>
+                <div class="content settingsTab settingsMarkers hidden" id="setMarkers"></div>
+                <div class="content settingsTab settingBattleNotifications hidden" id="setBattleNotifications"></div>
+            </div>
+            <div id="garage"></div>
+        </div>
+        <div class="installGamePromptContainer hidden fullscreen" id="installPrompt">
+            <video src="video/hangar/introVideo.mp4" id="installVideoPromo" loop></video>
+            <img src="gui/loading/login_logo_big.webp">
+            <div class="installInfoButton interaction3" id="installInfoButton">
+                <img src="icons/24x24/info.webp">
+            </div>
+            <div class="aboutGame" id="aboutGame">
+                <div class="closeInstallInfo interaction3" id="closeInstallInfo">
+                    <img src="icons/24x24/close.webp">
+                </div>
+                <h1>World of Tanks</h1>
+                <p class="country">Online CS</p>
+                <p>©2009 - 2024</p>
+                <p><a class="interaction3" href="https://eu.wargaming.net/en" target="_blank" rel="noopener norefferer">Wargaming.net</a>, Julie Martinakova</p>
+                <p>Velikost: <b>56.6 MB</b></p>
+                <p>Verze: <b>1.24.1</b></p>
+            </div>
+            <div class="installGamePrompt">
+                <h1>Nainstalujte si World of Tanks</h1>
+                <p>A užijte si ještě lepší zážitek ze hry!</p>
+                <div class="chooseButtons">
+                    <button class="unavailable interaction2" id="install-button">Nainstalovat</button>
+                    <button class="interaction2" id="dismissInstall">Teď ne</button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script type="module" src="src/gui.js"></script>
+    <script type="module" src="src/render.js"></script>
+    <script type="module" src="src/auth.js"></script>
+</html>

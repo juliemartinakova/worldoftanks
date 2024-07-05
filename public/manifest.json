@@ -1,0 +1,39 @@
+{
+    "theme_color":"#111111",
+    "background_color":"#111111",
+    "icons":
+        [
+            {
+                "purpose":"maskable",
+                "sizes":"512x512",
+                "src":"src/appicons/icon512_maskable.png",
+                "type":"image/png"
+            },
+            {
+                "purpose":"any",
+                "sizes":"512x512",
+                "src":"src/appicons/icon512_rounded.png",
+                "type":"image/png"
+            },
+            {
+                "purpose":"maskable",
+                "sizes":"192x192",
+                "src":"src/appicons/icon192_maskable.png",
+                "type":"image/png"
+            },
+            {
+                "purpose":"any",
+                "sizes":"192x192",
+                "src":"src/appicons/icon192_rounded.png",
+                "type":"image/png"
+            }
+        ],
+    "orientation":"landscape",
+    "display_override": ["fullscreen"],
+    "display":"minimal-ui",
+    "dir":"auto",
+    "name":"World of Tanks",
+    "short_name":"World of Tanks",
+    "start_url":"https://worldoftanksonline.netlify.app/",
+    "description":"Webová verze hry World of Tanks."
+}

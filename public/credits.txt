@@ -1,0 +1,50 @@
+﻿----------
+CREDITS
+----------
+World of Tanks made in HTML, CSS and JS by Julie Martinakova
+Original game made by Wargaming.net
+----------
+TASKS
+----------
+Figure out how to make interactions between HTML/JavaScript & C++/C#
+Somehow import those C++/C# if I actually find them
+Finish loading screen and its alternative with login inputs
+Make the Garage user interface
+Make the Battle user interface
+Unpack those .bnk files and try to convert them to .mp3 if possible so Javascript could play it
+Figure out the whole 3D stuff
+Contact Wargaming.net or at least get their attention
+----------
+WHAT I THINK ABOUT THIS...
+----------
+Vůbec nevím jestli si Wargaming.net všimne tohoto projektu ale bylo by to fajn.
+Ještě musím zjsitit jak moc se to bude lagat až nějak přidám 3D
+----------
+WARGAMING.NET PLEASE NOTICE THIS PROJECT - THE IDEA BEHIND THIS -
+----------
+If some from your company ever reads this then please don't think that I want to steal your game.
+I actually want to work with you and make online version of World of Tanks, I think it would be worth
+for players that can't download the game but want to try it without downloading anything or if they
+want to play the game even if they aren't using their computer.
+----------
+NECESSARY TO CONSIDER...
+----------
+- the largest disadvantage of this project is the fact you would need to download all the needed files every
+single time you would reload the website so that means it would be using quite a lot of wifi.
+- this could be solved by loading only the data that would be needed for the player to load so it wouldn't
+load every single packages - for example the maps - you don't play on all of them (you would need all the data
+just in case if you're playing for longer time and you would eventually fight on all the maps)
+- this could save a lot of data downloading from the server
+- on the other hand this also has the advantage of no need to install the game - thus saving hard disk space
+- another thing to consider is the performance loss because of the project being in a internet browser and
+the communication between HTML/CSS/JavaScript and C++/C#/Python,etc.
+- i tried to search for a solution and figured out this could be done by Node.js server, 
+Emscriptren/WebAssembly, WebSocket, HTTP REST API and IPC(Inter-process communication = running the C++/C#
+processes independently and those processes and the internet browser process - this project - would
+communicate between each other).
+----------
+Made by Julie Martináková
+email: juli.martinakova@gmail.com - this may change over time -
+instagram account: @julca_martinakovaa, @julina_scrt - this may change over time - 
+telephone: if you want to contact me by phone, DM me on my instagram accounts and i will tell you my number.
+----------

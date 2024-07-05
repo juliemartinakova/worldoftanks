@@ -1,0 +1,655 @@
+*
+{
+    font-family: 'Warhelios';
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: none !important;
+}
+:root
+{
+    --transparent-black-dkst: rgba(0,0,0,0.45);
+    --transparent-black-dkr: rgba(0,0,0,0.2);
+    --transparent-black-dk: rgba(0,0,0,0.1);
+    --cl-white: #fff;
+    --cl-yellow: #f9b723;
+    --cl-gray: #ccc;
+    --cl-beige: #d9cda4;
+    --cl-valid: #4cbb17;
+    --cl-invalid: #ff0800;
+}
+.accountCenter .offline
+{
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+html
+{
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'WarheliosBold';
+    font-weight: 500;
+}
+button
+{
+    background: initial;
+    outline: none;
+    border: none;
+}
+@font-face
+{
+    font-family: Warhelios;
+    src: url(../fonts/Warhelios-Regular.ttf);
+}
+@font-face
+{
+    font-family: WarheliosBold;
+    src: url(../fonts/Warhelios-Bold.ttf);
+}
+img
+{  
+    pointer-events: none;
+}
+p
+{
+    color: var(--cl-gray);
+}
+a
+{
+    cursor: url(../cursors/wot_link.cur), pointer;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none
+}
+a:focus
+{
+    box-shadow: 0 1px 0 0 var(--cl-yellow);
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px var(--cl-yellow);
+    outline: none;
+}
+body
+{
+    background-color: #111;
+    color: var(--cl-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    cursor: url(../cursors/wot_arrow.cur), pointer;
+    overscroll-behavior-y: contain;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+input
+{
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+label
+{
+    pointer-events: none;
+}
+input[type="range"]
+{
+    width: 100%;
+    height: 1px;
+    cursor: url(../cursors/wot_link.cur), grab;
+    appearance: none;
+    background: transparent;
+}
+input[type="range"]::-webkit-slider-thumb
+{
+    appearance: none;
+    width: 2px;
+    height: 20px;
+    background-color: var(--cl-yellow);
+    margin-top: -5px;
+}
+input[type="range"]::-webkit-slider-runnable-track
+{
+    transition: 0.2s;
+    background-color: var(--transparent-black-dkr);
+    height: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px var(--transparent-black-dkr), 0 0 20px var(--transparent-black-dkst);
+}
+/*input[type="range"].horizontal
+{
+    cursor: url(../cursors/wot_horz.cur), e-resize;
+}
+input[type="range"].vertical
+{
+    cursor: url(../cursors/wot_vert.cur), n-resize;
+}*/
+input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="search"]
+{
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 20px var(--transparent-black-dkst);
+    border-radius: 10px;
+    margin: 10px 20px;
+    color: var(--cl-white);
+    transition: 0.2s;
+}
+input[type="checkbox"]
+{
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 25px;
+    box-shadow: 0 0 0 1px var(--cl-gray);
+    transition: 0.2s;
+}
+input[type="checkbox"]:hover
+{
+    transition: 0.2s;
+    box-shadow: 0 0 0 1px var(--cl-yellow);
+}
+input[type="checkbox"].active
+{
+    background-image: url(../icons/24x24/checkYellow.webp);
+    background-position: center;
+    box-shadow: 0 0 0 1px var(--cl-yellow);
+    background-size: cover;
+    transition: 0.2s;
+}
+.fullscreen
+{
+    display: flex;
+    min-height: 100vh;
+    position: fixed;
+    flex-direction: column;
+    inset: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+.loadingProgress
+{
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: 0.7s;
+}
+.loadingProgress
+{
+    justify-content: center;
+    align-items: center;
+}
+.hidden
+{
+    visibility: hidden;
+    opacity: 0;
+    z-index: -10;
+    transition: 0.7s;
+}
+.vignette
+{
+    background-image: url(../gui/loading/vignette_loading.webp);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.loadingProgress h1
+{
+    z-index: 1;
+    font-size: 2.25em;
+    color: var(--cl-white);
+}
+.fullscreenWarnContainer .fullscreenWarn
+{
+    z-index: 10000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fullscreenWarn a
+{
+    gap: 10px;
+    width: auto;
+}
+.fullscreenWarnContainer
+{
+    z-index: 9999;
+    background-color: var(--transparent-black-dkr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(30px) contrast(1.25);
+}
+.loadingProgress .about
+{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    left: 2%;
+}
+.buttonContainer
+{
+    pointer-events: none;
+    display: inherit !important;
+    flex-direction: inherit !important;
+    justify-content: inherit !important;
+    align-items: inherit !important;
+    width: -moz-available !important;
+    width: -webkit-fill-available !important;
+    width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    height: -moz-available !important;
+    height: -webkit-fill-available !important;
+    height: 100% !important;
+}
+.accountCenter
+{
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(30px) contrast(1.25);
+    border-radius: 10px;
+    align-items: center;
+    z-index: 1;
+    width: max-content;
+    position: fixed;
+    transition: 0.7s;
+    box-shadow: 0 0 20px 5px var(--transparent-black-dkr);
+    z-index: 2;
+    background-color: var(--transparent-black-dkr);
+    overflow: hidden;
+}
+.accountCenter .accountCenterForm
+{
+    transition: 0.5s;
+    padding: 30px 35px 10px;
+    margin-bottom: 60px;
+    filter: blur(15px);
+}
+.accountCenter .accountLog
+{
+    padding: 10px 20px 10px 20px;
+    background-color: var(--transparent-black-dk);
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    box-shadow: 0 -10px 20px 0 var(--transparent-black-dkr);
+    z-index: 11;
+}
+.accountCenter .accountLog .userName p
+{
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    color: var(--cl-yellow);
+    font-weight: normal;
+}
+.accountCenter .accountLog .userName
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.accountCenter .accountLog .chooseButtons
+{
+    display: flex;
+    height: 60px;
+    margin-right: -20px;
+}
+.accountCenter .accountLog .chooseButtons div
+{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    transition: 0.2s;
+    cursor: url(../cursors/wot_link.cur), pointer;
+}
+.accountCenter .accountLog .chooseButtons div:hover
+{
+    transition: 0.2s;
+    background-color: var(--transparent-black-dkr);
+}
+.accountCenter .accountCenterForm::-webkit-scrollbar
+{
+    display: none;
+}
+.accountCenter .accountCenterForm .row
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.accountCenter .accountCenterForm .row p, .window form .row p 
+{
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--cl-yellow);
+    font-weight: normal;
+}
+.window
+{
+    z-index: 10001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--transparent-black-dkr);
+    backdrop-filter: blur(30px) contrast(1.25);
+    position: fixed;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.window .header .close
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+}
+.window .header .close:hover
+{
+    background-color: var(--transparent-black-dk);
+    transition: 0.2s;
+}
+.settings .content
+{
+    inset: 80px 0 0 !important;
+}
+.settings .header
+{
+    height: 80px !important;
+}
+.window .bar
+{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    justify-content: center;
+    box-shadow: 0 -1px var(--transparent-black-dkr);
+}
+.window .bar::-webkit-scrollbar
+{
+    display: none;
+    height: 0px;
+    width: 0px;
+}
+.window .bar a
+{
+    padding: 9px 15px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.window .header
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--transparent-black-dkst);
+    box-shadow: 0 10px 20px 0 var(--transparent-black-dkr);
+    height: 40px;
+}
+.window .content
+{
+    position: fixed;
+    inset: 40px 0 0 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+.window .header .description
+{
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 5px;
+}
+.window .header .description p
+{
+    color: var(--cl-white);
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+.accountCenter #loginForm .row:last-child p
+{
+    color: var(--cl-beige);
+    font-size: 1em;
+    letter-spacing: normal;
+}
+.accountCenter .accountCenterForm .row input
+{
+    width: 190px;
+}
+.accountCenter .accountCenterForm .row input[type="password"]
+{
+    letter-spacing: 3px;
+}
+.connect
+{
+    padding: 10px 15px;
+    box-shadow: inset 0 0 0 1px var(--cl-yellow), 0 0 20px 0 rgb(255 84 0 / 80%);
+    background-color: rgba(255, 84, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    color: var(--cl-white);
+    margin: 50px 0px 15px 0;
+}
+.connect h1
+{
+    color: var(--cl-white);
+}
+a
+{
+    color: var(--cl-yellow);
+    text-decoration: none;
+    padding: 0 10px 5px 10px;
+    box-shadow: none;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+a:hover
+{
+    box-shadow: 0 1px 0 0 var(--cl-yellow);
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px var(--cl-yellow);
+}
+.accountCenter .accountCenterForm .row .select
+{
+    margin: 10px 20px;
+    box-shadow: 0 0 20px var(--transparent-black-dkst);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 42px;
+    width: 220px;
+    transition: 0.5s;
+    z-index: 1;
+}
+.accountCenter .accountCenterForm .row .select .selectHeader, .accountCenter .accountCenterForm .row .selectOptions .option
+{
+    padding: 10px 15px;
+    width: 190px;
+    box-shadow: 0 1px 0 0 var(--transparent-black-dkr);
+    cursor: url(../cursors/wot_link.cur), pointer;
+    transition: 0.2s;
+    height: 22px;
+}
+.accountCenter #loginForm .row #loginResult
+{
+    max-width: 260px;
+    position: relative;
+    margin-bottom: -12%;
+    height: 22px;
+    color: var(--cl-invalid);
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 10px var(--cl-invalid)
+}
+
+/* SETTINGS WINDOWS */
+
+.settings .content
+{
+    padding: 0;
+    transition: 0.2s;
+}
+.settings .settingsTab .settingsTop
+{
+    display: grid;
+    padding: 20px 30px;
+    background-color: var(--transparent-black-dkr);
+    box-shadow: 0 0 20px 0 var(--transparent-black-dkst);
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.settings .settingsTab .settingsTop .setting
+{
+    display: flex;
+    flex-direction: column;
+}
+.settings .settingsTab  label
+{
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: var(--cl-yellow);
+}
+.settings .settingsTab .setting .settingDetail
+{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.settings .settingsTab .setting .settingDetail p
+{
+    font-family: 'WarheliosBold';
+    color: var(--cl-yellow);
+    width: 25px;
+    text-align: center;
+}
+.settings .settingsTab .settingDetail input
+{
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 1px;
+}
+.settings .settingsTab .settingsTop .checkbox
+{
+    display: flex;
+    align-items: center;
+}
+.settings label
+{
+    text-align: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: var(--cl-white);
+}
+.settings .settingsTab .groups
+{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.settings .groups .group .title
+{
+    text-transform: uppercase;
+    margin-top: -30px;
+}
+.settings .groups .group
+{
+    padding: 20px 30px;
+    margin: 20px;
+    box-shadow: 0 0 20px var(--transparent-black-dkst);
+    border-radius: 10px;
+}
+.settings .settingsTab .setting
+{
+    margin-top: 10px;
+}
+.settings .content.hidden
+{
+    transition: 0.2s;
+}
+.settings .header .bar a
+{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+.settings .header .bar a.active
+{
+    box-shadow: 0 1px 0 0 var(--cl-yellow);
+    transition: 0.2s;
+    text-shadow: 0px 0px 10px var(--cl-yellow);
+    color: var(--cl-yellow);
+    pointer-events: none;
+}
+.settings .header .bar a.active p
+{
+    transition: 0.2s;
+    color: var(--cl-yellow);
+    font-family: "WarheliosBold";
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 620px)
+{
+    .settings .bar
+    {
+        justify-content: start;
+    }
+}

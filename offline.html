@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="theme-color" content="#333333">
+        <meta name="background_color" content="#333333">
+        <link rel="shortcut icon" href="appicons/favicon.ico" type="image/x-icon" sizes="48x48">
+        <link rel="apple-touch-icon" href="appicons/icon180_rounded.svg">
+        <!--<link rel="manifest" href="manifest.json">-->
+        <meta name="description" content="Webová verze hry World of Tanks ve vývoji. World of Tanks je týmová tanková MMO hra od společnosti Wargaming. Hrajte na PC nebo na mobilu a staňte se tankovým mistrem s více než 600 vozidly z poloviny 20. století.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no">
+        <meta name="author" content="Wargaming.net, Julie Martinakova">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="mobile-web-app-capable" content="yes">
+        <title>World of Tanks - offline</title>
+        <link rel="stylesheet" href="offline/offline.css">
+    </head>
+    <body id="body">
+        <div class="fullscreen loadingProgress" id="loadingProgress">
+            <div class="vignette fullscreen"></div>
+            <div class="accountCenter">
+                <div class="offline">
+                    <img src="icons/128x100/alert.webp" alt="">
+                    <h1>Nejste připojeni k internetu.</h1>
+                    <p>Zkontrolujte prosím vaše připojení k internetu.</p>
+                    <p>Hned, co bude dostupné internetové připojení, tak budete přesměrováni do hry.</p>
+                </div>
+                <form class="accountCenterForm" id="loginForm">
+                    <div class="row">
+                        <p>Server a odezva (ms):</p>
+                        <div class="select" id="serverSel">
+                            <div id="serverSelect" class="selectHeader option interaction3">WOT EU1</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>E-mail:</p>
+                        <input type="email" id="loginEmail" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <p>Heslo:</p>
+                        <input type="password" id="loginPassword" class="interaction3">
+                    </div>
+                    <div class="row">
+                        <div id="loginResult"></div>
+                        <button class="connect interaction3" id="connect1">
+                            <h1>Připojit!</h1>
+                        </button>
+                        <a class="interaction3" href="javascript:toggleForms()" rel="noopener noreferrer">Založit účet</a>
+                        <a class="interaction3" href="#">Nemůžete se přihlásit?</a>
+                        <p>CE</p>
+                    </div>
+                </form>
+                <div class="accountLog" id="loggedUser">
+                    <div class="userName">
+                        <img src="icons/128x100/alert.webp" height="24">
+                        <p id="accountLogName">Jste offline.</p>
+                    </div>
+                    <div class="chooseButtons">
+                        <div class="interaction3" id="displaySettings">
+                            <img src="icons/24x24/settings.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fullscreen window settings hidden" id="settings">
+                <div class="header">
+                    <div class="description">
+                        <p>Nastavení hry</p>
+                    </div>
+                    <div class="close interaction2" id="closeSettings">
+                        <div class="buttonContainer">
+                            <img src="icons/24x24/close.webp" alt="Zavřít">
+                        </div>
+                    </div>
+                    <div class="bar" id="settingsBar">
+                        <a class="interaction2 showSettingsTab active" id="showSettingsTab1"><p>Obecné</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab2"><p>Grafika</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab3"><p>Zvuk</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab4"><p>Ovládání</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab5"><p>Zaměřovač</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab6"><p>Značky</p></a>
+                        <a class="interaction2 showSettingsTab" id="showSettingsTab7"><p>Oznámení&nbsp;v&nbsp;bitvě</p></a>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsGeneral" id="setGeneral"></div>
+                <div class="content settingsTab settingsGraphics hidden" id="setGraphics">
+                    <!--<div class="settingsTop">
+
+                    </div>-->
+                    <div class="groups">
+                        <div class="group">
+                            <p class="title">Hlavní</p>
+                            <div class="setting">
+                                <label for="antialiasing">MSAA Antialiasing</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" value="0" max="1" name="antialiasing" type="range" id="antialiasing">
+                                    <p id="antialiasingSetting">Vyp.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settingsBottom">
+                        <div class="button" id="applyGraphics">Použít</div>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsSound hidden" id="setSound">
+                    <div class="settingsTop">
+                        <div class="checkbox">
+                            <input class="activeinteraction2" type="checkbox" name="allowSound" id="allowSound">
+                            <label for="allowSound">Povolit zvuk</label>
+                        </div>
+                        <div class="setting">
+                            <label for="masterVolume">Celková hlasitost</label>
+                            <div class="settingDetail">
+                                <input class="horizontal interaction2" name="masterVolume" type="range" id="gameVol">
+                                <p id="gameVolume"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="chooseButtons">
+                        <div class="button">
+                            <p>Zvuk</p>
+                        </div>
+                        <div class="button">
+                            <p>Hlasová komunikace</p>
+                        </div>
+                    </div>-->
+                    <div class="groups">
+                        <div class="group unavailable">
+                            <p class="title">Hlasitost</p>
+                            <div class="setting">
+                                <label for="interfaceVolume">Rozhraní</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="interfaceVolume" type="range" id="interfaceVol">
+                                    <p id="gameVolumeInterface">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="masterVolume">Vozidla</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="masterVolume" type="range" id="vehicleVol">
+                                    <p id="gameVolumeVehicles">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="voicemsgVolume">Hlasové oznámení</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="voicemsgVolume" type="range" id="voicemsgVol">
+                                    <p id="gameVolumeVoicemsg">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="effVolume">Efekty</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="effVolume" type="range" id="effectVol">
+                                    <p id="gameVolumeEffects">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="ambVolume">Prostředí</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="ambVolume" type="range" id="ambienceVol">
+                                    <p id="gameVolumeAmbience">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="battlemusVolume">Hudba v bitvě</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="battlemusVolume" type="range" id="battlemusVol">
+                                    <p id="gameVolumeBattlemus">100</p>
+                                </div>
+                            </div>
+                            <div class="setting">
+                                <label for="hangmusVolume">Hudba v garáži</label>
+                                <div class="settingDetail">
+                                    <input class="horizontal interaction2" name="hangmusVolume" type="range" id="hangmusVol">
+                                    <p id="gameVolumeHangmus">100</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content settingsTab settingsControls hidden" id="setControls"></div>
+                <div class="content settingsTab settingsCrosshair hidden" id="setCrosshair"></div>
+                <div class="content settingsTab settingsMarkers hidden" id="setMarkers"></div>
+                <div class="content settingsTab settingBattleNotifications hidden" id="setBattleNotifications"></div>
+            </div>
+            <div class="about" id="about">
+                <p class="gameVersion">World of Tanks 1.24.1</p>
+                <p class="authors">©2009 - 2024 Wargaming.net, Julie Martinakova. Všechna práva vyhrazena.</p>
+                <p>CS</p>
+            </div>
+        </div>
+    </body>
+    <script src="offline/offline.js"></script>
+</html>

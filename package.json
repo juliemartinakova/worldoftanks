@@ -1,0 +1,28 @@
+{
+  "name": "worldoftanks",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "firebase": "^10.12.3",
+    "netlify-cli": "^17.32.1",
+    "three": "^0.166.1",
+    "vite": "^5.2.10",
+    "vite-plugin-pwa": "^0.20.0",
+    "workbox-core": "^7.1.0",
+    "workbox-precaching": "^7.1.0",
+    "workbox-routing": "^7.1.0",
+    "workbox-strategies": "^7.1.0",
+    "workbox-window": "^7.1.0"
+  },
+  "overrides": {
+    "sharp": "0.32.6",
+    "sharp-ico": "0.1.5"
+  }
+}

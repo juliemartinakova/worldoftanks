@@ -1,0 +1,3 @@
+18.6.2024 - verze 0.9.9 - poslední verze bez NPM a Node.js
+
+Z nìkolika dùvodù je nutné hru pøedìlat tak, aby byla schopná používat ES6 npm moduly jako three.js/OrbitalControls a další..
