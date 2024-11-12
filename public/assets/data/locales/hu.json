@@ -1,0 +1,35 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Julie Martinakova. Minden jog fenntartva.",
+            "language": "HU"
+        },
+        "loading": {
+            "bt_play": "Játék"
+        },
+        "authentication": {
+
+        },
+        "language": {
+            "heading": "Változtasd meg a játék nyelvét",
+            "options": {
+                "en": "English",
+                "cs": "Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "<span class=\"material-symbols-rounded\">check_circle</span>Magyar",
+                "it": "Italiano",
+                "kz": "Қазақша",
+                "pl": "Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    }
+}

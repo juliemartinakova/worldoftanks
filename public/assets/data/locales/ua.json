@@ -1,0 +1,35 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Юлія Мартинакова. Всі права захищені.",
+            "language": "UA"
+        },
+        "loading": {
+            "bt_play": "Грати"
+        },
+        "authentication": {
+
+        },
+        "language": {
+            "heading": "Змінити мову гри",
+            "options": {
+                "en": "English",
+                "cs": "Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "Magyar",
+                "it": "Italiano",
+                "kz": "Қазақша",
+                "pl": "Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "<span class=\"material-symbols-rounded\">check_circle</span>Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    }
+}

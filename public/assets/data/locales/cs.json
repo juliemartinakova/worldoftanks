@@ -1,0 +1,108 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Julie Martináková. Všechna práva vyhrazena.",
+            "language": "CS"
+        },
+        "loading": {
+            "bt_play": {
+                "content": "Hrát",
+                "tooltip": {
+                    "header": "Spustit hru",
+                    "content": "Kliknutím spustíš hru. Pokud ti ale hra nefunguje správně nebo nehraješ na tvém zařízení, níže najdeš možnosti, které by ti mohly pomoct!"
+                }
+            }
+        },
+        "authentication": {
+            "bt_login": "Přihlásit se pomocí účtu Wargaming.net"
+        },
+        "bar": {
+            "bt_settings": {
+                "tooltip": {
+                    "header": "Nastavení hry",
+                    "content": "Tady si můžeš změnit nastavení hry tak, aby fungovala podle tvých představ."
+                }
+            },
+            "bt_mods": {
+                "tooltip": {
+                    "header": "Modifikace hry",
+                    "content": "Tady si můžeš do hry přidat modifikace a pokud si chceš vytvořit tvou vlastní, tak můžeš, ale tvoje modifikace musí splňovat určitá pravidla!"
+                }
+            },
+            "bt_user": {
+                "no_user": "Přihlas se",
+                "bt_login": "Přihlásit se",
+                "bt_newacc": "Založit nový účet",
+                "bt_logoff": "Odhlásit se",
+                "bt_devbypass": "Přejít do garáže (pro vývojáře)"
+            },
+            "bt_extlaunchoptions": {
+                "ext_options": "Další možnosti",
+                "bt_defaultsettings": "Spustit ve výchozím nastavení",
+                "bt_modsafemode": "Spustit bez modů",
+                "bt_anonymous": "Spustit v anonymním režimu"
+            }
+        },
+        "language": {
+            "heading": "Změnit jazyk hry",
+            "options": {
+                "en": "English",
+                "cs": "<span class=\"material-symbols-rounded\">check_circle</span>Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "Magyar",
+                "it": "Italiano",
+                "kz": "Қазақша",
+                "pl": "Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    },
+    "modstore": {
+        "window-name": "Obchod s modifikacemi",
+        "bt_modcenter": "Správa modifikací",
+        "filters": {
+            "all": "Všechny",
+            "interface": "Rozhraní",
+            "hangars": "Garáže",
+            "icons": "Ikony",
+            "crosshairs": "Zaměřovače",
+            "audio": "Audio",
+            "minimaps": "Minimapy",
+            "statistics": "Statistiky",
+            "other": "Ostatní",
+            "tools": "Nástroje"
+        },
+        "manager": {
+            "welcome": "Vítejte ve správci modifikací!"
+        }
+    },
+    "settings": {
+        "window-name": "Nastavení hry",
+        "categories": {
+            "c_1": "Obecné",
+            "c_2": "Grafika",
+            "c_3": "Zvuk",
+            "c_4": "Ovládání",
+            "c_5": "Zaměřovač",
+            "c_6": "Značky",
+            "c_7": "Oznámení v bitvě"
+        }
+    },
+    "form": {
+        "button_use": "Použít",
+        "button_cancel": "Storno",
+        "button_reset": "Obnovit výchozí",
+        "select_default": "Vyber možnost"
+    },
+    "offline": {
+        "errorMessage": "Chyba při načítání."
+    }
+}

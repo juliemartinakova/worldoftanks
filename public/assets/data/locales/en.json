@@ -1,0 +1,104 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Julie Martinakova. All rights reserved.",
+            "language": "EN"
+        },
+        "loading": {
+            "bt_play": {
+                "content": "Play",
+                "tooltip": {
+                    "header": "Launch the game",
+                    "content": "Click to start the game. However, if the game isn't working properly or you aren't playing on your device, there are options below that may help!"
+                }
+            }
+        },
+        "authentication": {
+            "bt_login": "Log in with Wargaming.net account"
+        },
+        "bar": {
+            "bt_settings": {
+                "tooltip": {
+                    "header": "Game settings",
+                    "content": "Here you can change the settings of the game to make the game work the way you want."
+                }
+            },
+            "bt_mods": {
+                "tooltip": {
+                    "header": "Game modifications",
+                    "content": "Here you can add modifications to the game and if you want to create your own, you definitely can, but your modification has to follow the rules!"
+                }
+            },
+            "bt_user": {
+                "no_user": "Log in",
+                "bt_login": "Log in",
+                "bt_newacc": "Create a new account",
+                "bt_logoff": "Log off",
+                "bt_devbypass": "Go to hangar (for devs)"
+            },
+            "bt_extlaunchoptions": {
+                "ext_options": "More options",
+                "bt_defaultsettings": "Launch with default settings",
+                "bt_modsafemode": "Launch without mods",
+                "bt_anonymous": "Launch in anonymous mode"
+            }
+        },
+        "language": {
+            "heading": "Change game language",
+            "options": {
+                "en": "<span class=\"material-symbols-rounded\">check_circle</span>English",
+                "cs": "Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "Magyar",
+                "it": "Italiano",
+                "kz": "Қазақша",
+                "pl": "Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    },
+    "modstore": {
+        "window-name": "Store with modifications",
+        "bt_modcenter": "Modification Manager",
+        "filters": {
+            "all": "All",
+            "interface": "Interface",
+            "hangars": "Hangars",
+            "icons": "Icons",
+            "crosshairs": "Crosshairs",
+            "audio": "Audio",
+            "minimaps": "Minimaps",
+            "statistics": "Statistics",
+            "other": "Other",
+            "tools": "Tools"
+        }
+    },
+    "settings": {
+        "window-name": "Game settings",
+        "categories": {
+            "c_1": "General",
+            "c_2": "Graphics",
+            "c_3": "Sound",
+            "c_4": "Controls",
+            "c_5": "Reticle",
+            "c_6": "Marker",
+            "c_7": "Battle notifications"
+        }
+    },
+    "form": {
+        "button_use": "Use",
+        "button_cancel": "Cancel",
+        "button_reset": "Reset"
+    },
+    "offline": {
+        "errorMessage": "Error occured while loading."
+    }
+}

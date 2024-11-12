@@ -1,0 +1,35 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Julie Martinakova. Wszelkie prawa zastrzeżone.",
+            "language": "PL"
+        },
+        "loading": {
+            "bt_play": "Grać"
+        },
+        "authentication": {
+
+        },
+        "language": {
+            "heading": "Zmień język gry",
+            "options": {
+                "en": "English",
+                "cs": "Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "Magyar",
+                "it": "Italiano",
+                "kz": "Қазақша",
+                "pl": "<span class=\"material-symbols-rounded\">check_circle</span>Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "landing": {
+        "about": {
+            "version": "World of Tanks 1.25.1",
+            "copyright": "© 2009 - 2024 Wargaming.net, Джули Мартинакова. Барлық құқықтар сақталған.",
+            "language": "KZ"
+        },
+        "loading": {
+            "bt_play": "Ойнау"
+        },
+        "authentication": {
+
+        },
+        "language": {
+            "heading": "Ойын тілін өзгерту",
+            "options": {
+                "en": "English",
+                "cs": "Čeština",
+                "de": "Deutsch",
+                "es": "Español",
+                "fr": "Français",
+                "hu": "Magyar",
+                "it": "Italiano",
+                "kz": "<span class=\"material-symbols-rounded\">check_circle</span>Қазақша",
+                "pl": "Polski",
+                "ru": "Русский",
+                "tr": "Türkçe",
+                "ua": "Українська"
+            }
+        }
+    },
+    "garage": {
+        
+    }
+}

@@ -1,0 +1,1175 @@
+$yellow: #f9b723
+$yellow-tp-light: rgba(249, 183, 35, 0.1)
+$yellow-tp-opaque: rgba(249, 183, 35, 0.45)
+$white: #fff
+$gray: #ccc
+$beige: #d9cda4
+$beige-gray: #858271
+$red: #ff0800
+$green: #4cbb17
+$black-dark: #111
+$black-medium: #222
+$black-medium-light: #272729
+$black-light: #3a3a3c
+$bg-tp-black-dark: rgba(0,0,0,0.45)
+$bg-tp-black-mediumdark: rgba(0,0,0,0.3)
+$bg-tp-black-medium: rgba(0,0,0,0.2)
+$bg-tp-black-light: rgba(0,0,0,0.1)
+$cursor-arrow: url("assets/cursors/wot_arrow.cur"), default
+$cursor-pointer: url("assets/cursors/wot_link.cur"), pointer
+$cursor-move-horz: url("assets/cursors/wot_horz.cur"), e-resize
+$cursor-text: url("assets/cursors/wot_text.cur"), text
+$cursor-pen: url("assets/cursors/wot_writ.cur"), pointer
+$underline-yellow: 0 1px 0 0 $yellow
+$border-yellow: 0 0 0 1px $yellow
+$padding-normal: 10px 15px
+$padding-small: 5px 10px
+$border-radius: 10px
+$box-shadow: 0 0 20px 0 $bg-tp-black-dark, 0 -1px 0 0 rgba(204, 204, 204, 0.2)
+$text-shadow-yellow: 0 0 10px $yellow
+$box-shadow-special: 0 -1px 0 $yellow, 0 0 30px rgba(255,84,0,1)
+$box-shadow-special-small: 0 -1px 0 $yellow, 0 0 20px rgba(255,84,0,1)
+$box-shadow-special-small-notactive: 0 -1px 0 $yellow-tp-opaque, 0 0 20px rgba(255,84,0,0.45)
+$button-special-bg: rgba(128, 42, 0, 0.45)
+$glassmorphism: blur(30px) saturate(2)
+$slow: 0.7s
+$moderate: 0.5s
+$fast: 0.2s
+
+@font-face
+    font-family: "Warhelios"
+    src: url("assets/fonts/Warhelios-Regular.ttf")
+@font-face
+    font-family: "WarheliosBold"
+    src: url("assets/fonts/Warhelios-Bold.ttf")
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    -webkit-user-select: none
+    -webkit-tap-highlight-color: transparent
+    -webkit-touch-callout: none
+    -moz-user-select: none
+    user-select: none
+    font-family: 'Warhelios'
+    cursor: $cursor-arrow
+    outline: none
+
+::-webkit-resizer
+    border-width: 1px
+    border-style: solid
+    border-color: transparent rgba(133, 130, 113, 0.25) rgba(133, 130, 113, 0.25) transparent
+    opacity: 0.5
+
+::-webkit-scrollbar-track
+    background-color: $bg-tp-black-dark
+
+::-webkit-scrollbar
+    appearance: none
+
+::-webkit-scrollbar-corner
+    display: none
+
+::-webkit-scrollbar-thumb
+    background-color: rgba(133, 130, 113, 0.45)
+    border-radius: $border-radius
+    border: 5px solid rgba(0,0,0,0.85)
+    &:hover
+        background-color: $yellow
+        box-shadow: 0 0 50px rgba(249, 183, 35, 0.45)
+
+::-webkit-scrollbar-button
+    display: none
+
+::-webkit-scrollbar-button:single-button
+    background-color: $bg-tp-black-dark
+    display: block
+    height: 14px
+    width: 14px
+
+::-webkit-scrollbar-button:single-button:vertical:decrement, ::-webkit-scrollbar-button:single-button:vertical:increment
+    background-size: 8px
+    background-repeat: no-repeat
+
+::-webkit-scrollbar-button:single-button:vertical:decrement
+    background-position: 4px 6px
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgba(133, 130, 113, 0.45)'><polygon points='50,00 0,50 100,50'/></svg>")
+    border-top-left-radius: 10px
+    transition: $fast
+    &:hover
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgba(249, 183, 35, 1)'><polygon points='50,00 0,50 100,50'/></svg>")
+        transition: $fast
+        box-shadow: 0 0 50px rgba(249, 183, 35, 0.45)
+
+::-webkit-scrollbar-button:single-button:vertical:increment
+    background-position: 4px 4px
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgba(133, 130, 113, 0.45)'><polygon points='0,0 100,0 50,50'/></svg>")
+    border-bottom-left-radius: 10px
+    transition: $fast
+    &:hover
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgba(249, 183, 35, 1)'><polygon points='0,0 100,0 50,50'/></svg>")
+        transition: $fast
+        box-shadow: 0 0 50px rgba(249, 183, 35, 0.45)
+
+body
+    background-color: $black-dark
+    display: flex
+    justify-content: center
+    align-items: center
+    background-position: center
+    background-size: cover
+    min-height: 100vh
+    overflow: hidden
+    pointer-events: none
+body.loaded
+    opacity: 1 !important
+    transition: 2 * $slow
+    pointer-events: all
+body.blurEffect *
+    backdrop-filter: none !important
+    transition: $slow
+body.blurEffect .window
+    backdrop-filter: brightness(0.75) !important
+    transition: $slow
+h1, h2, h3, h4, h5, h6
+    font-family: 'WarheliosBold'
+    font-weight: 500
+    color: $white
+p
+    font-weight: normal
+    font-family: 'Warhelios'
+img 
+    pointer-events: none
+    filter: drop-shadow(0 0 20px $bg-tp-black-dark)
+a
+    cursor: $cursor-pointer
+    -webkit-user-drag: none
+    text-decoration: none
+    color: $yellow
+    transition: $fast
+    box-shadow: $underline-yellow
+code
+    font-family: monospace
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: $padding-small
+    background-color: $bg-tp-black-dark
+    border-radius: $border-radius
+    margin-right: 5px
+    box-shadow: $box-shadow, $border-yellow
+a:hover, a:focus
+    text-shadow: $text-shadow-yellow
+    transition: $fast
+
+.textarea
+    display: flex
+    align-items: center
+    background-color: $bg-tp-black-dark
+    box-shadow: $box-shadow
+    border-radius: $border-radius
+    flex-direction: column
+    > button
+        backdrop-filter: none
+        border-radius: 0 0 10px 10px
+        background-color: transparent
+        border: 0
+        backdrop-filter: none
+        box-shadow: none
+        cursor: $cursor-pointer
+        width: 100%
+        justify-content: center
+    > textarea
+        border: 0
+        margin: 0 10px 10px 0
+        padding-right: 5px
+        min-width: 54px
+        min-height: 54px
+        background-color: transparent
+        outline: none
+        color: $yellow
+        padding: $padding-normal
+        cursor: $cursor-text
+
+button
+    padding: $padding-normal
+    background-color: $bg-tp-black-dark
+    border-radius: $border-radius
+    box-shadow: $box-shadow
+    cursor: $cursor-pointer
+    transition: $fast
+    color: $white
+    border: none
+    outline: none
+    -webkit-backdrop-filter: $glassmorphism
+    backdrop-filter: $glassmorphism
+    will-change: opacity
+    display: flex
+    align-items: center
+    &:active
+        transition: $fast
+        transform: scale(0.85)
+        filter: blur(1px) brightness(0.75)
+
+//* custom select input
+
+.select
+    width: 150px
+    background-color: $bg-tp-black-medium
+    backdrop-filter: $glassmorphism
+    border-radius: $border-radius
+    box-shadow: $box-shadow
+    overflow: hidden
+    max-height: 38px
+    transition: $moderate
+    color: $white
+    &.active
+        max-height: 100% !important
+        transition: $moderate
+        .header button span
+            transform: rotate(180deg)q
+    .header
+        display: grid
+        grid-template-columns: auto 34px
+        justify-items: center
+        align-items: center
+        min-height: 38px
+        font-size: 0.9em
+        transition: $moderate
+        cursor: $cursor-pointer
+        > *
+            pointer-events: none
+        button
+            border-radius: 0
+            backdrop-filter: none
+            padding: 0
+            width: 100%
+            height: 100%
+            border-radius: 0
+            justify-content: center
+            align-items: center
+            box-shadow: none
+            background-color: transparent
+    &.active .header
+        background-color: $bg-tp-black-medium
+        transition: $moderate
+    .options
+        display: flex
+        flex-direction: column
+        padding: 15px
+        gap: 10px
+        .optgroup
+            background-color: $bg-tp-black-medium
+            border-radius: $border-radius
+            box-shadow: $box-shadow
+            overflow: hidden
+            display: flex
+            flex-direction: column
+            transition: $fast
+            gap: 5px
+            h4
+                background-color: $bg-tp-black-medium
+                padding: $padding-normal
+            .option
+                margin: 5px 10px
+        .option
+            background-color: $bg-tp-black-medium
+            border-radius: $border-radius
+            box-shadow: $box-shadow
+            min-height: 38px
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: $cursor-pointer
+            font-size: 0.9em
+            backdrop-filter: none
+            -webkit-backdrop-filter: none
+            padding: $padding-normal !important
+            transition: $fast
+            &.active
+                box-shadow: $box-shadow-special-small
+                background-color: $bg-tp-black-mediumdark
+                pointer-events: none
+                transition: $fast
+                text-shadow: $text-shadow-yellow
+                color: $yellow
+            &:hover
+                box-shadow: $box-shadow-special-small-notactive
+                transition: $fast
+                text-shadow: $text-shadow-yellow
+                color: $yellow
+    &.dropdown .options .option:hover
+        box-shadow: $box-shadow-special
+
+//* Custom checkbox input
+
+input[type="checkbox"]
+    appearance: none
+    border-radius: 5px
+    background-color: $bg-tp-black-dark
+    min-width: 30px
+    min-height: 30px
+    box-shadow: $box-shadow
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: $cursor-pointer
+    &::after, &::before
+        content: ""
+        display: block
+        background-color: transparent
+        position: absolute
+        transition: $fast
+        height: 1px
+    &::before
+        width: 15px
+        transform: rotate(135deg) translate(-1px, -1px)
+    &::after
+        transform: rotate(45deg) translate(-1px, 7px)
+        width: 5px
+    &:hover::after, &:hover::before
+        background-color: $gray
+        opacity: 0.5
+    &:checked::before, &:checked::after
+        background-color: $yellow
+        box-shadow: 0 0 20px 1px $yellow
+        opacity: 1
+        transition: $fast
+
+//* Custom radio input
+
+input[type="radio"]
+    appearance: none
+    border-radius: 50%
+    background-color: $bg-tp-black-dark
+    min-width: 30px
+    min-height: 30px
+    box-shadow: $box-shadow
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: $cursor-pointer
+    transition: $fast
+    &::after
+        content: ""
+        display: block
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background-color: transparent
+        transition: $fast
+    &:hover::after
+        background-color: $gray
+        opacity: 0.5
+        transition: $fast
+    &:checked::after
+        background-color: $yellow
+        box-shadow: 0 0 20px $yellow
+        opacity: 1
+        transition: $fast
+
+//** Custom slider input
+
+input[type="range"]
+    height: 38px
+    border-radius: $border-radius
+    appearance: none
+    background-color: $bg-tp-black-dark
+    box-shadow: $box-shadow
+    &::-webkit-slider-thumb
+        box-shadow: -435px 0 0 425px $yellow-tp-opaque, $box-shadow
+        width: 10px
+        appearance: none
+        height: 38px
+        background-color: $yellow
+    &::-webkit-slider-runnable-track
+        border-radius: $border-radius
+        overflow: hidden
+        height: 38px
+
+//* Custom text-based inputs
+
+.input
+    display: flex
+    position: relative
+    align-items: center
+    background-color: $bg-tp-black-dark
+    box-shadow: $box-shadow
+    border-radius: $border-radius
+    height: 38px
+    width: 150px
+    overflow: hidden
+    > button, > input
+        border-radius: 0
+        background-color: transparent
+        border: 0
+        backdrop-filter: none
+        box-shadow: none
+        cursor: $cursor-pointer
+    > input
+        width: 100%
+        color: $yellow
+        padding: 10px
+        outline: none
+        cursor: $cursor-text
+        text-align: center
+        &::-webkit-search-cancel-button, &::-ms-reveal, &::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-calendar-picker-indicator
+            appearance: none
+            display: none
+        &::-webkit-datetime-edit-text
+            color: transparent
+            width: 1px
+            margin: 10px 0
+            background: $beige-gray
+            display: block
+        &::-webkit-datetime-edit-day-field, &::-webkit-datetime-edit-month-field, &::-webkit-datetime-edit-year-field
+            height: 38px
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0
+            cursor: $cursor-pointer
+        &::-webkit-datetime-edit-fields-wrapper
+            display: grid
+            grid-template-columns: 2fr 1px 2fr 1px 3fr
+    > input[type="date"]
+        padding: 0
+    > button
+        color: $beige-gray
+        background-color: transparent
+        padding: 7px 5px
+    &:has(.color-picker)
+        width: 250px
+        height: auto
+        display: flex
+        flex-direction: column
+        gap: 10px
+        padding: 10px
+        .color-picker
+            display: flex
+            position: relative
+            background: $red
+            border-radius: $border-radius
+            height: 200px
+            width: 100%
+            overflow: hidden
+            .overlay
+                position: absolute
+                inset: 0
+                &.white
+                    background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%)
+                    z-index: 1
+                &.black
+                    background: linear-gradient(to bottom, transparent 0%, #000 100%)
+                    z-index: 2
+            .pointer
+                height: 10px
+                width: 10px
+                position: absolute
+                z-index: 3
+                left: 50%
+                top: 50%
+                border-radius: $border-radius
+                box-shadow: 0 0 0 3px $yellow, 0 0 0 6px $black-dark, 0 0 20px $yellow
+                cursor: $cursor-pointer
+        .color-controls
+            display: flex
+            align-items: center
+            width: 100%
+            gap: 10px
+            .circle
+                min-width: 38px
+                height: 38px
+                border-radius: 50%
+                background-color: $red
+            input[type="range"]
+                width: 100%
+                height: 38px
+                border-radius: $border-radius
+                appearance: none
+                overflow: hidden
+                background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%)
+                &::-webkit-slider-thumb
+                    box-shadow: 0 0 0 3px $yellow, 0 0 0 6px $black-dark, 0 0 20px $yellow !important
+                    border-radius: $border-radius
+                    height: 25px
+                    background: transparent
+                    width: 6px
+                    margin-top: 7px
+
+//** Button default styles
+
+button > *
+    pointer-events: none
+button.large:hover
+    background-color: $button-special-bg !important
+    box-shadow: $box-shadow-special !important
+    text-shadow: $text-shadow-yellow
+    > *
+        color: $yellow
+
+//** Universal pre-declared styles...
+
+.hidden
+    opacity: 0
+    pointer-events: none
+    transition: $slow
+.fullscreen
+    position: fixed
+    inset: 0
+    transition: $slow
+    display: flex
+    justify-content: center
+    align-items: center
+.disabled
+    opacity: 0.75
+    pointer-events: none
+
+//* Custom tooltip
+
+.tooltip
+    position: absolute
+    max-width: 20vw
+    -webkit-backdrop-filter: $glassmorphism
+    backdrop-filter: $glassmorphism
+    background-color: $bg-tp-black-dark
+    box-shadow: $box-shadow
+    border-radius: $border-radius
+    transition: $slow
+    opacity: 0
+    padding: $padding-normal
+    h2
+        text-align: center
+        color: $yellow
+    p
+        color: $gray
+*:hover ~ .tooltip
+    transition: $slow
+    opacity: 1
+
+//* Special debug prompt
+
+.debug-prompt
+    position: fixed
+    inset: 20px auto auto 20px
+    z-index: 1
+    background-color: $bg-tp-black-dark
+    border-radius: $border-radius
+    -webkit-backdrop-filter: $glassmorphism
+    backdrop-filter: $glassmorphism
+    max-width: 50vw
+    overflow: hidden
+    > *
+        width: 100%
+    input
+        background-color: $bg-tp-black-dark
+        font-size: 1em
+        box-shadow: none
+        border-radius: 0
+    ul:has(li)
+        list-style-type: none
+        display: flex
+        flex-direction: column
+        word-break: break-word
+        gap: 10px
+        padding: 10px
+        max-height: calc(95vh - 80px)
+        overflow-y: auto
+        transition: $moderate
+        text-shadow: 0 0 10px $bg-tp-black-dark
+    p.welcome
+        background-color: $bg-tp-black-dark
+        padding: $padding-normal
+        border-radius: 10px 10px 0 0
+    ul
+        animation: command-appear $slow
+        user-select: text
+        display: flex
+        color: $gray
+        li
+            display: flex
+        li li
+            align-items: center
+        li img
+            width: 100%
+            border-radius: $border-radius
+            box-shadow: $box-shadow
+        li div > img
+            width: 100%
+        li::before
+            display: block
+            content: ""
+            background-image: url(assets/gui/icons/24x24/command.webp)
+            height: 20px
+            min-width: 20px
+            width: 20px
+            background-position: center
+            background-size: cover
+            margin-right: 10px
+        li.return-value
+            color: #9a7fd5
+        li.return-value::before
+            display: block
+            height: 20px
+            width: 20px
+            content: ""
+            background-image: url(assets/gui/icons/24x24/return.webp)
+        li.time
+            color: $white
+            box-shadow: 0 -1px #999
+            padding-top: 10px
+            user-select: none
+        li.time::before
+            display: block
+            height: 20px
+            width: 20px
+            content: ""
+            background-image: url(assets/gui/icons/24x24/time.webp)
+        li.time:first-child
+            box-shadow: none
+            padding-top: 0
+        li.special
+            color: $gray
+            box-shadow: none
+            font-style: italic
+            align-items: center
+        li.special::before
+            display: block
+            height: 20px
+            width: 20px
+            content: ""
+            background-image: url(assets/gui/icons/24x24/special.webp)
+        li.error
+            user-select: all
+            div p
+                margin-left: 15px
+                color: orangered
+        li.error::before
+            display: block
+            height: 20px
+            width: 20px
+            content: ""
+            background-image: url(assets/gui/icons/24x24/error.webp)
+
+//* Window pop-ups
+
+.window.hidden
+    animation: window-disappear 0.7s forwards
+.window
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: fixed
+    background: $bg-tp-black-dark
+    transition: $slow
+    backdrop-filter: $glassmorphism
+    animation: window-appear 0.7s forwards
+    transition: $slow
+    > .header
+        position: absolute
+        inset: 0 0 auto 0
+        display: flex
+        align-items: center
+        flex-direction: column
+        background: $bg-tp-black-dark
+        z-index: 1
+        .top
+            display: flex
+            justify-content: space-between
+            width: 100%
+            .description
+                display: flex
+                gap: 15px
+                color: $white
+                padding: 0 10px
+                align-items: center
+            .actions
+                //.close
+                //    background-color: $red
+                button
+                    padding: 10px
+                    border-radius: 0 !important
+                    box-shadow: none
+                    backdrop-filter: none
+                    background-color: transparent
+        .bar
+            display: flex
+            box-shadow: 0 20px 20px -10px rgb(0 0 0 / 45%)
+            overflow-x: auto
+            scroll-behavior: smooth
+            justify-content: center
+            width: 100%
+            button
+                backdrop-filter: none
+                background-color: transparent
+                box-shadow: none
+                text-transform: uppercase
+                border-radius: 0
+                transition: $fast
+                color: $gray
+                &:hover
+                    transition: $fast
+                    box-shadow: inset 0 -1px #f9b723
+                    color: $yellow
+                    text-shadow: $text-shadow-yellow
+                &.active
+                    transition: $fast
+                    box-shadow: inset 0 -1px #f9b723
+                    text-shadow: $text-shadow-yellow
+                    p
+                        font-family: 'WarheliosBold'
+                        color: $yellow
+                &.active.group
+                    pointer-events: none
+                p
+                    width: max-content
+            &::-webkit-scrollbar
+                width: 0px
+                height: 0px
+            &.grabbing
+                scroll-behavior: auto
+                cursor: $cursor-move-horz
+            &.overflow
+                justify-content: start
+    > .content
+        position: fixed
+        inset: 82px 0 0 0
+        overflow-y: auto
+        padding: 15px
+        display: grid
+        gap: 2vw
+        justify-content: center
+        transition: $moderate
+        button.special
+            background-color: $button-special-bg
+            box-shadow: $border-yellow
+        fieldset
+            padding: 10px 15px
+            border-radius: 10px
+            border: 0
+            color: #ccc
+            display: flex
+            flex-direction: column
+            gap: 15px
+            background-color: $bg-tp-black-light
+            box-shadow: $box-shadow
+            legend
+                text-transform: uppercase
+                color: #f9b723
+                letter-spacing: 2px
+                font-size: 0.9em
+                padding: 0 5px
+                text-align: center
+        .modification
+            display: flex
+            border-radius: $border-radius
+            box-shadow: $box-shadow
+            flex-direction: column
+            width: 300px
+            height: 300px
+            background-image: url(assets/gui/slides/15.webp)
+            background-position: center
+            background-size: auto 300px
+            background-repeat: no-repeat
+            transition: $fast
+            position: relative
+            &:hover .description
+                height: 100%
+                border-radius: $border-radius
+                transition: $moderate
+                .header
+                    height: 100%
+                    transition: $moderate
+                    .actions
+                        margin-top: 5px
+                        transition: $moderate
+                        .star.active
+                            color: $yellow
+                        .add.active
+                            color: $red
+                        .add.activated
+                            color: gre
+            .description
+                display: grid
+                grid-template-columns: repeat(4, 1fr)
+                grid-template-rows: auto auto 37.5px 37.5px
+                grid-column-gap: 0px
+                grid-row-gap: 0px
+                position: absolute
+                inset: auto 0 0 0
+                height: 50%
+                background: $bg-tp-black-dark
+                border-radius: 0 0 $border-radius $border-radius
+                transition: $moderate
+                backdrop-filter: $glassmorphism
+                .header
+                    grid-area: 1 / 1 / 3 / 5
+                    word-break: break-word
+                    overflow: hidden
+                    text-overflow: ellipsis
+                    line-height: 30px
+                    padding: 10px 15px
+                    height: 75px
+                    transition: $moderate
+                    .actions
+                        margin-top: -55px
+                        margin-bottom: 10px
+                        display: flex
+                        gap: 15px
+                        width: 100%
+                        justify-content: center
+                        transition: $moderate
+                .info
+                    grid-area: 3 / 1 / 4 / 5
+                    display: flex
+                    justify-content: space-evenly
+                    align-items: center
+                    .version, .author
+                        display: grid
+                        grid-template-columns: 24px auto
+                        column-gap: 5px
+                        font-size: 1em
+                        color: $gray
+                        align-items: center
+                .tags
+                    grid-area: 4 / 1 / 5 / 5
+                    display: flex
+                    flex-flow: row wrap
+                    gap: 5px
+                    justify-content: center
+                    align-items: center
+                    .tag
+                        display: flex
+                        align-items: center
+                        gap: 5px
+                        padding: 2px 6px
+                        height: min-content
+                        border-radius: 15px
+                        backdrop-filter: $glassmorphism
+                        color: $beige-gray
+                        font-size: 0.7em
+                        text-transform: uppercase
+                        transition: $fast
+                        cursor: $cursor-pointer
+                        &::before, &::after
+                            content: ""
+                            display: block
+                            height: 4px
+                            width: 4px
+                            background-color: $beige-gray
+                            border-radius: 50%
+                        &:hover
+                            opacity: 0.5
+                            transition: $fast
+                        > *
+                            cursor: $cursor-pointer
+        .modification.active
+            box-shadow: $box-shadow, $border-yellow, $box-shadow-special
+    .select
+        backdrop-filter: none
+
+@keyframes window-appear
+    0%
+        display: none
+        opacity: 0
+    1%
+        display: flex
+        opacity: 0
+    100%
+        opacity: 1
+
+@keyframes window-disappear
+    0%
+        opacity: 1
+    99%
+        opacity: 0
+    100%
+        opacity: 0
+        display: none
+
+//* Landing page
+
+.landing
+    background-position: center
+    background-size: cover
+    .bar
+        position: fixed
+        inset: 0 0 auto 0
+        padding: 20px
+        gap: 20px
+        display: flex
+        .group
+            button
+                padding: 15px
+            .container
+                display: flex
+                align-items: center
+                gap: 10px
+            .select
+                background-color: $bg-tp-black-dark
+                max-height: 54px
+                .header
+                    min-height: 54px
+        .user-area
+            align-items: center
+            gap: 10px
+            p
+                color: $yellow
+            .icon
+                display: flex
+                border-radius: 50%
+                backdrop-filter: $glassmorphism
+                box-shadow: $box-shadow
+                padding: 10px
+    .authentication.hidden
+        opacity: 1 !important
+        > *
+            opacity: 0
+    .loading, .authentication
+        background-position: center
+        background-size: cover
+        transition: $slow
+    .info
+        position: fixed
+        inset: auto 0 0 0
+        transform: translateY(249px)
+        transition: $slow
+        .about
+            color: $white
+            display: grid
+            grid-template-columns: 1fr 4fr 1fr
+            padding: 10px 15px
+            cursor: $cursor-pointer
+            transition: $fast
+            p:nth-child(2)
+                text-align: center
+            p:last-child
+                text-align: right
+            > *
+                pointer-events: none
+        .languages
+            padding: $padding-normal
+            -webkit-backdrop-filter: $glassmorphism
+            backdrop-filter: $glassmorphism
+            justify-content: center
+            align-items: center
+            flex-direction: column
+            display: flex
+            box-shadow: $box-shadow
+            transition: $slow
+            border-radius: $border-radius
+            margin: 0 20px 20px
+            .container
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr 1fr
+                gap: 15px
+                padding: 10px 0
+                width: 100%
+                .language-button
+                    display: flex
+                    max-height: 38px
+                    padding: $padding-normal
+                    justify-content: center
+                    align-items: center
+                    color: $gray
+                    box-shadow: $box-shadow
+                    border-radius: $border-radius
+                    letter-spacing: 1px
+                    cursor: $cursor-pointer
+                    transition: $fast
+                    background-color: transparent
+                    gap: 5px
+                    &:hover, &:focus
+                        transition: $fast
+                        background-color: $bg-tp-black-medium
+                .language-button.active
+                    transition: $fast
+                    box-shadow: 0 -1px 0 0 $yellow, 0 0 20px $bg-tp-black-dark
+                    background-color: $bg-tp-black-dark
+                    color: $yellow
+    .info.active
+        transition: $slow
+        transform: translateY(0)
+    .screen
+        flex-direction: column
+        transition: $slow
+    .screen:first-child
+        img
+            height: 50%
+    .screen:nth-child(2)
+        cursor: none
+        display: grid
+        justify-items: center
+        grid-template-columns: auto auto auto
+        grid-template-rows: 15vh 15vh 10vh
+        align-content: center
+        row-gap: 10vh
+        img:nth-child(1)
+            height: 100%
+            grid-row-start: 2
+        img:nth-child(2)
+            height: 100%
+            grid-row-start: 1
+            grid-column-start: 2
+        img:nth-child(4)
+            height: 100%
+            grid-row-start: 2
+        img:nth-child(3)
+            height: 100%
+            grid-row-start: 2
+        img:nth-child(5)
+            height: 100%
+            grid-row-start: 3
+            grid-column-start: 2
+    .screen:last-child
+        cursor: none
+        img:first-child
+            width: 70%
+            margin-top: -10vh
+        img:last-child
+            width: 30%
+            position: fixed
+            bottom: 10vh
+.landing .loading::after, .landing .authentication::after
+    content: ""
+    display: block
+    position: fixed
+    inset: 0
+    pointer-events: none
+    transition: $slow
+.landing.active .loading::after, .landing.active .authentication::after
+    transition: $slow
+    backdrop-filter: brightness(0.75)
+
+//** Modification store window
+
+.modstore
+    .modmanager
+        > .actions
+            display: flex
+            justify-content: center
+            flex-direction: column
+            gap: 20px
+            position: fixed
+            padding: 15px
+            inset: 80px auto 0 0
+        .modlist
+            display: grid
+            position: fixed
+            inset: 80px 0 0 0
+            padding: 20px 0 20px 84px
+            gap: 20px
+            overflow: hidden auto
+            z-index: -1
+    .modifications
+        grid-template-columns: min-content min-content min-content
+
+//** Settings window
+
+.settings .content
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr auto
+    bottom: 68px
+    .actions
+        grid-area: auto / 1 / auto / 3
+        background-color: $bg-tp-black-dark
+        padding: 15px
+        display: flex
+        gap: 15px
+        justify-content: flex-end
+        box-shadow: $box-shadow
+        position: fixed
+        inset: auto 0 0 0
+        button
+            backdrop-filter: none
+    .setting
+        display: flex
+        gap: 10px
+        align-items: center
+        height: min-content
+
+//** Hangar
+
+.hangar
+    color: $white
+    background-color: $black-dark
+    .top
+        display: flex
+        align-items: center
+        position: fixed
+        inset: 0 0 auto 0
+        height: 60px
+        gap: 20px
+        backdrop-filter: $glassmorphism
+        background-color: $bg-tp-black-dark
+        justify-content: space-between
+        .user-area
+            display: grid
+            grid-template-rows: 1fr
+            grid-template-columns: 40px auto 60px 60px 60px
+            height: 100%
+            button
+                box-shadow: 0
+                backdrop-filter: none
+                box-shadow: none
+                background-color: transparent
+                border-radius: 0
+                padding: 0
+                justify-content: center
+                background-position: center
+                background-repeat: no-repeat
+                &.show-settings
+                    grid-area: 1 / 1 / 3 / 2
+                &.wot-premium
+                    background-image: url("assets/gui/hangar/premium/noPremium.webp")
+                &.wot-premium-shop
+                    background-image: url("assets/gui/hangar/premium/premiumShop.webp")
+                &.wot-plus
+                    background-image: url("assets/gui/hangar/premium/wotPlus.webp")
+                &.account-center
+                    padding: 0 10px
+        .economy-area
+            display: grid
+            height: 100%
+            grid-template-columns: 60px 60px 60px 60px 60px
+            grid-template-rows: 1fr
+            button
+                box-shadow: 0
+                backdrop-filter: none
+                box-shadow: none
+                background-color: transparent
+                border-radius: 0
+                padding: 0
+                justify-content: center
+                background-position: center
+                background-repeat: no-repeat
+                flex-direction: column
+                &.personal-reserves
+                    background-image: url("assets/gui/pkgs/gui-part3/gui/maps/icons/personal_reserves/entry_icon_boosters.png")
+
+
+//* Babylon.js renderer
+
+.graphics-renderer
+    background-image: url("assets/gui/hangar/default.webp")
+    background-position: center
+    background-size: cover
+    filter: contrast(1.25)
+    position: fixed
+    inset: 0
+    z-index: -1
+    height: 100%
+    width: 100%
+    display: block
+
+//** Animations
+
+@keyframes command-appear
+    from
+        color: orangered
+        text-shadow: 0 0 20px rgba(255,84,0,1)
+
+@media (max-width: 1000px)
+    .modstore .content
+        grid-template-columns: min-content min-content
