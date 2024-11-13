@@ -94,6 +94,24 @@
             "c_5": "Zaměřovač",
             "c_6": "Značky",
             "c_7": "Oznámení v bitvě"
+        },
+        "group": {
+            "general": {
+                "game-language": {
+                    "en": "English",
+                    "cs": "Čeština",
+                    "de": "Deutsch",
+                    "es": "Español",
+                    "fr": "Français",
+                    "hu": "Magyar",
+                    "it": "Italiano",
+                    "kz": "Қазақша",
+                    "pl": "Polski",
+                    "ru": "Русский",
+                    "tr": "Türkçe",
+                    "ua": "Українська"
+                }
+            }
         }
     },
     "form": {

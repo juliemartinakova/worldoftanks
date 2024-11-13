@@ -43,23 +43,6 @@
                 "bt_modsafemode": "Launch without mods",
                 "bt_anonymous": "Launch in anonymous mode"
             }
-        },
-        "language": {
-            "heading": "Change game language",
-            "options": {
-                "en": "<span class=\"material-symbols-rounded\">check_circle</span>English",
-                "cs": "Čeština",
-                "de": "Deutsch",
-                "es": "Español",
-                "fr": "Français",
-                "hu": "Magyar",
-                "it": "Italiano",
-                "kz": "Қазақша",
-                "pl": "Polski",
-                "ru": "Русский",
-                "tr": "Türkçe",
-                "ua": "Українська"
-            }
         }
     },
     "garage": {
@@ -91,6 +74,24 @@
             "c_5": "Reticle",
             "c_6": "Marker",
             "c_7": "Battle notifications"
+        },
+        "group": {
+            "general": {
+                "game-language": {
+                    "en": "English",
+                    "cs": "Čeština",
+                    "de": "Deutsch",
+                    "es": "Español",
+                    "fr": "Français",
+                    "hu": "Magyar",
+                    "it": "Italiano",
+                    "kz": "Қазақша",
+                    "pl": "Polski",
+                    "ru": "Русский",
+                    "tr": "Türkçe",
+                    "ua": "Українська"
+                }
+            }
         }
     },
     "form": {
