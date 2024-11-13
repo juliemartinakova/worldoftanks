@@ -1218,7 +1218,11 @@ selectFormElements.forEach(select => {
 
     options.forEach(option => {
         let optionElement = document.createElement("button")
-        optionElement.innerText = option.innerText
+        if (option.innerText != "" || option.innerText != null){
+            optionElement.innerText = option.innerText
+        } else {
+            optionElement.dataset.locale = option.getAttribute("data-locale")
+        }
         optionElement.classList.add("option")
         selectElementOptions.appendChild(optionElement)
 

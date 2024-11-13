@@ -109,7 +109,8 @@
                     "pl": "Polski",
                     "ru": "Русский",
                     "tr": "Türkçe",
-                    "ua": "Українська"
+                    "ua": "Українська",
+                    "label": "Změnit jazyk hry"
                 }
             }
         }
