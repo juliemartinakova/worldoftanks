@@ -1177,7 +1177,6 @@ selectFormElements.forEach(select => {
     selectElementHeader.appendChild(selectElementOptionDisplay)
     selectElementHeader.appendChild(selectElementDropdownButton)
     select.parentNode.insertBefore(selectElement, select.nextSibling)
-    select.remove()
 
     selectElementOptionDisplay.dataset.locale = "form.select_default"
     
@@ -1221,7 +1220,7 @@ selectFormElements.forEach(select => {
         if (option.innerText != "" || option.innerText != null){
             optionElement.innerText = option.innerText
         } else {
-            optionElement.dataset.locale = option.getAttribute("data-locale")
+            optionElement.setAttribute("data-locale") = option.getAttribute("data-locale")
         }
         optionElement.classList.add("option")
         selectElementOptions.appendChild(optionElement)
@@ -1231,6 +1230,8 @@ selectFormElements.forEach(select => {
             selectElement.classList.remove("active")
         })
     })
+    
+    select.remove()
 })
 
 selectCustomElements.forEach(select => {
