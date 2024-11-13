@@ -23,7 +23,6 @@ const loading = document.querySelector(".loading")
 export const debugPrompt = document.querySelector(".debug-prompt")
 export const debugCommand = document.querySelector("#debug-command")
 const debugCommandList = document.querySelector("#command-list")
-const about = document.querySelector(".info .about")
 const info = document.querySelector(".info")
 const tooltips = document.querySelectorAll("[data-tooltip]")
 const enterGame = document.querySelector(".enter-game")
@@ -34,6 +33,7 @@ const modmanagerMods = document.querySelectorAll(".modstore .modmanager .modific
 const selectFormElements = document.querySelectorAll("select")
 const selectCustomElements = document.querySelectorAll(".select")
 const devbypassHangar = document.querySelector(".devbypass-hangar")
+let languageButtons = document.querySelectorAll(".language-button")
 
 //* variables
 
@@ -1078,6 +1078,21 @@ debugPrompt.addEventListener("submit",()=>{
     click2.play()
 })
 
+languageButtons.forEach(lang => {
+    lang.addEventListener("click",function(){
+        settings.change("general", "language", this.value)
+        var xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                languageObject = JSON.parse(this.responseText)
+                gui.changeLanguage()
+            }
+        }
+        xmlhttp.open("GET", `assets/data/locales/${this.value}.json`, true)
+        xmlhttp.send()
+    })
+})
+
 windowBarButtons.forEach(button => {
     button.addEventListener("click",()=>{
         if (button.classList.contains("group")){
@@ -1138,6 +1153,7 @@ selectFormElements.forEach(select => {
     selectElementHeader.appendChild(selectElementOptionDisplay)
     selectElementHeader.appendChild(selectElementDropdownButton)
     select.parentNode.insertBefore(selectElement, select.nextSibling)
+    select.remove()
 
     selectElementOptionDisplay.dataset.locale = "form.select_default"
     
@@ -1178,24 +1194,40 @@ selectFormElements.forEach(select => {
 
     options.forEach(option => {
         let optionElement = document.createElement("button")
-        if (option.innerText != "" || option.innerText != null){
-            optionElement.innerText = option.innerText
-        } else {
-            let optionTextContent = option.getAttribute("data-locale")
-            optionElement.setAttribute("data-locale", optionTextContent)
+        if (option.getAttribute("data-locale") != "" || option.getAttribute("data-locale") != null){
+            optionElement.setAttribute("data-locale", option.getAttribute("data-locale"))
             localizationElements = document.querySelectorAll("[data-locale]")
+        } else {
+            optionElement.innerText = option.innerText
         }
+        optionElement.className = option.className
+        optionElement.setAttribute("value", option.value)
+        optionElement.innerText = option.innerText
         optionElement.classList.add("option")
         selectElementOptions.appendChild(optionElement)
+
+        if(optionElement.classList.contains("language-button")){
+            languageButtons = document.querySelectorAll(".language-button")
+        }
 
         optionElement.addEventListener("click", ()=>{
             selectElementOptionDisplay.innerText = optionElement.innerText
             selectElement.classList.remove("active")
+
+            if(optionElement.classList.contains("language-button")){
+                settings.change("general", "language", optionElement.value)
+                var xmlhttp = new XMLHttpRequest()
+                xmlhttp.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200) {
+                        languageObject = JSON.parse(this.responseText)
+                        gui.changeLanguage()
+                    }
+                }
+                xmlhttp.open("GET", `assets/data/locales/${optionElement.value}.json`, true)
+                xmlhttp.send()
+            }
         })
     })
-    
-    //select.remove()
-    gui.changeLanguage()
 })
 
 selectCustomElements.forEach(select => {
