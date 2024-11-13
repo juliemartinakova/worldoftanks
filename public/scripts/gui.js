@@ -25,7 +25,6 @@ export const debugCommand = document.querySelector("#debug-command")
 const debugCommandList = document.querySelector("#command-list")
 const about = document.querySelector(".info .about")
 const info = document.querySelector(".info")
-const languageButtons = document.querySelectorAll(".language-button")
 const tooltips = document.querySelectorAll("[data-tooltip]")
 const enterGame = document.querySelector(".enter-game")
 const windows = document.querySelectorAll(".window")
@@ -64,7 +63,6 @@ let bondQuantity = 0
 let background = ""
 let languageObject = {}
 let command
-let languageButtonsShown = false
 let loggedUser = ""
 let int = 0
 let localizationElements = document.querySelectorAll("[data-locale]")
@@ -1080,43 +1078,6 @@ debugPrompt.addEventListener("submit",()=>{
     click2.play()
 })
 
-about.addEventListener("click",(e)=>{
-    info.classList.toggle("active")
-    landing.classList.toggle("active")
-    if(languageButtonsShown === false){
-        languageButtonsShown = true
-        languageButtons.forEach(lang => {
-            lang.addEventListener("click",function(){
-                settings.change("general", "language", this.value)
-                info.classList.remove("active")
-                landing.classList.remove("active")
-                languageButtons.forEach(lang => {
-                    if(lang.value != this.value){
-                        lang.classList.remove("active")
-                    }
-                })
-                this.classList.add("active")
-                var xmlhttp = new XMLHttpRequest()
-                xmlhttp.onreadystatechange = function(){
-                    if (this.readyState == 4 && this.status == 200) {
-                        languageObject = JSON.parse(this.responseText)
-                        gui.changeLanguage()
-                    }
-                }
-                xmlhttp.open("GET", `assets/data/locales/${this.value}.json`, true)
-                xmlhttp.send()
-            })
-        })
-    }
-})
-
-landing.addEventListener("click",(e)=>{
-    if(!(info.contains(e.target))){
-        info.classList.remove("active")
-        landing.classList.remove("active")
-    }
-})
-
 windowBarButtons.forEach(button => {
     button.addEventListener("click",()=>{
         if (button.classList.contains("group")){
@@ -1220,7 +1181,8 @@ selectFormElements.forEach(select => {
         if (option.innerText != "" || option.innerText != null){
             optionElement.innerText = option.innerText
         } else {
-            optionElement.setAttribute("data-locale") = option.getAttribute("data-locale")
+            optionElement.setAttribute("data-locale", option.getAttribute("data-locale"))
+            localizationElements = document.querySelectorAll("[data-locale]")
         }
         optionElement.classList.add("option")
         selectElementOptions.appendChild(optionElement)
@@ -1231,7 +1193,7 @@ selectFormElements.forEach(select => {
         })
     })
     
-    select.remove()
+    //select.remove()
 })
 
 selectCustomElements.forEach(select => {
