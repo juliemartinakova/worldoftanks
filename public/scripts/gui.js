@@ -1181,7 +1181,8 @@ selectFormElements.forEach(select => {
         if (option.innerText != "" || option.innerText != null){
             optionElement.innerText = option.innerText
         } else {
-            optionElement.setAttribute("data-locale", option.getAttribute("data-locale"))
+            let optionTextContent = option.getAttribute("data-locale")
+            optionElement.setAttribute("data-locale", optionTextContent)
             localizationElements = document.querySelectorAll("[data-locale]")
         }
         optionElement.classList.add("option")
@@ -1194,6 +1195,7 @@ selectFormElements.forEach(select => {
     })
     
     //select.remove()
+    gui.changeLanguage()
 })
 
 selectCustomElements.forEach(select => {
