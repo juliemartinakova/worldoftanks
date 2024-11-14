@@ -121,6 +121,7 @@ body
     min-height: 100vh
     overflow: hidden
     pointer-events: none
+    transition: $slow
 body.loaded
     opacity: 1 !important
     transition: 2 * $slow
@@ -131,13 +132,20 @@ body.blurEffect *
 body.blurEffect .window
     backdrop-filter: brightness(0.75) !important
     transition: $slow
+body.language-reload
+    h1, h2, h3, h4, h5, h6, p, li, a, button, option, select, label, input, legend
+        color: transparent !important
+        text-shadow: none !important
+        transition: $slow
 h1, h2, h3, h4, h5, h6
     font-family: 'WarheliosBold'
     font-weight: 500
     color: $white
+    transition: $fast
 p
     font-weight: normal
     font-family: 'Warhelios'
+    transition: $fast
 img 
     pointer-events: none
     filter: drop-shadow(0 0 20px $bg-tp-black-dark)
@@ -501,6 +509,8 @@ input[type="range"]
 
 button > *
     pointer-events: none
+button span
+    color: #fff !important
 button.large:hover
     background-color: $button-special-bg !important
     box-shadow: $box-shadow-special !important
@@ -886,7 +896,7 @@ button.large:hover
         opacity: 0
     100%
         opacity: 0
-        display: none
+        display: none  
 
 //* Landing page
 

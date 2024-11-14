@@ -514,22 +514,30 @@ class Gui extends Game {
         return url
     }
     changeLanguage(){
+        document.body.classList.add("language-reload")
         localizationElements.forEach(element => {
-            const path = element.getAttribute("data-locale")
-            const pathParts = path.split(".")
-            let currentValue = languageObject
-            for (const segment of pathParts) {
-                if (!currentValue || !currentValue[segment]) {
-                    console.warn(`Translation key not found: ${path}`);
-                    return;
-                }
-                currentValue = currentValue[segment];
-            }
-            if(window.location.search.match("debug=true")){
-                element.innerHTML = path
-            } else {
-                element.innerHTML = currentValue
-            }
+            setTimeout(()=>{
+                setTimeout(()=>{
+                    const path = element.getAttribute("data-locale")
+                    const pathParts = path.split(".")
+                    let currentValue = languageObject
+                    for (const segment of pathParts) {
+                        if (!currentValue || !currentValue[segment]) {
+                            console.warn(`Translation key not found: ${path}`);
+                            return;
+                        }
+                        currentValue = currentValue[segment];
+                    }
+                    if(window.location.search.match("debug=true")){
+                        element.innerHTML = path
+                    } else {
+                        element.innerHTML = currentValue
+                    }
+                    setTimeout(()=>{
+                        document.body.classList.remove("language-reload")
+                    }, 500)
+                },200)
+            }, 700)
         })
     }
 }
