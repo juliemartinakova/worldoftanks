@@ -43,12 +43,12 @@
       />
     </form>
 
-    <div class="loader fullscreen hidden">
+    <div class="loader fullscreen">
       <div class="spinner"></div>
       <p>Lorem Ipsum dolor si amet...</p>
     </div>
 
-    <div class="landing fullscreen">
+    <div class="landing hidden fullscreen">
       <div class="loading fullscreen">
         <div class="screen fullscreen">
           <img src="assets/gui/loading/login_logo_big.webp" />
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="group">
-          <div class="select dropdown">
+          <div class="select dropdown disabled">
             <div class="header">
               <p data-locale="landing.bar.bt_extlaunchoptions.ext_options"></p>
               <button>
@@ -153,7 +153,7 @@
       </div>
     </div>
 
-    <div class="hangar hidden fullscreen">
+    <div class="hangar fullscreen">
       <div class="top">
         <div class="user-area">
           <button tabindex="1" class="interactive2 show-settings">
@@ -208,7 +208,31 @@
         </div>
       </div>
 
-      <div class="bottom"></div>
+      <div class="bottom">
+        <div class="filters"></div>
+        <div class="left-button"></div>
+        <div class="vehicle-list">
+          <button class="tank-slot">
+            <p>T-34-85 DEMO</p>
+          </button>
+          <button class="tank-slot">
+            <p>T-34-85 DEMO</p>
+          </button>
+          <button class="tank-slot">
+            <p>T-34-85 DEMO</p>
+          </button>
+          <button class="tank-slot">
+            <p>T-34-85 DEMO</p>
+          </button>
+          <button class="tank-slot">
+            <p>T-34-85 DEMO</p>
+          </button>
+          <button class="buy-slots"></button>
+          <button class="recover-vehicle"></button>
+        </div>
+        <button class="right-button"></button>
+        <div class="user-comms"></div>
+      </div>
 
       <canvas id="hangarSceneRenderer" class="graphics-renderer"></canvas>
     </div>
