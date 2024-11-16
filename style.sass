@@ -1131,7 +1131,6 @@ button.large:hover
             gap: 10px
             margin: 0 10px
             overflow-x: auto
-            padding-bottom: 8px
             &::-webkit-scrollbar
                 display: none
             button
@@ -1142,6 +1141,21 @@ button.large:hover
                 background-image: url(gui/hangar/vehicleSelector/vehicleSelectorTanks/leichttraktor.webp), url(gui/hangar/vehicleSelector/nations/germany.png)
                 background-position: center
                 background-size: 150%, cover
+                backdrop-filter: none
+        .right-button, .left-button
+            backdrop-filter: none
+        .filters
+            grid-area: 1 / 1 / 2 / 2
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            padding: 10px
+            button
+                .filter
+                     backdrop-filter: none
+                     
+
 
 
 //* Babylon.js renderer
