@@ -422,7 +422,7 @@ let defaultSettings = {
     }
 }
 
-defaultSettings.general.language = navigator.language
+defaultSettings.general.language = navigator.language[0] + navigator.language[1]
 
 export let currentSettings = {}
 
