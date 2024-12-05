@@ -25,7 +25,7 @@
       }
     </style>
   </head>
-  <body style="opacity: 0;background-color:#111;">
+  <body style="opacity: 0;background-color:#111;overflow:hidden;">
     <form class="debug-prompt hidden">
       <a href="index.html">
         <p class="welcome">
@@ -43,8 +43,11 @@
       />
     </form>
 
-    <div class="loader hidden fullscreen">
-      <div class="spinner"></div>
+    <div class="loading_spinner hidden fullscreen">
+      <div class="spinner">
+        <div class="cog"></div>
+        <div class="logo"></div>
+      </div>
       <p>Lorem Ipsum dolor si amet...</p>
     </div>
 
@@ -145,7 +148,7 @@
       </div>
 
       <div class="info">
-        <div class="about interactive2">
+        <div class="about">
           <p data-locale="landing.about.version"></p>
           <p data-locale="landing.about.copyright"></p>
           <p data-locale="landing.about.language" id="language-switch"></p>
@@ -210,8 +213,12 @@
 
       <div class="bottom">
         <div class="filters">
-          <button class="filter show-all-filters"></button>
-          <button class="filter experience-boost"></button>
+          <button class="filter show-all-filters">
+            <img src="assets/gui/hangar/vehicleSelector/all_filters.webp">
+          </button>
+          <button class="filter experience-boost">
+            <img src="assets/gui/hangar/vehicleSelector/xpBonus/bonus_x2.webp">
+          </button>
           <button class="filter marked-vehicles"></button>
         </div>
         <button class="left-button"></button>

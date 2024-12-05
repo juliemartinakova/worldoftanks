@@ -1,5 +1,5 @@
 import * as BABYLON from "babylonjs"
-//import "@babylonjs/loaders";
+import "babylonjs-loaders";
 
 const canvas = document.getElementById("hangarSceneRenderer")
 const engine = new BABYLON.Engine(canvas)
@@ -75,7 +75,7 @@ export const createScene = async function() {
     shadowGenerator.usePoissonSampling = true
     shadowGenerator.normalBias = 0.05
     
-    const plane = BABYLON.MeshBuilder.CreateGround("ground", {width:128,height:128}, scene)
+    const plane = BABYLON.MeshBuilder.CreateGround("ground", {width:256,height:256}, scene)
     const plane_mat = new BABYLON.StandardMaterial("plane_mat", scene)
     plane_mat.diffuseColor = new BABYLON.Color3(0,1,0)
     plane.checkCollisions = true
@@ -89,7 +89,7 @@ export const createScene = async function() {
 
     devbypassHangar.addEventListener("click", ()=>{
         setTimeout(()=>{
-            //vehicleLoader.loadVehicle("sample_model/", "T-34-85.obj")
+            vehicleLoader.loadVehicle("sample_model/", "T-34-85.obj")
         },12800)
     })
 

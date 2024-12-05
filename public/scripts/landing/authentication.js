@@ -1,0 +1,1 @@
+export let current_username = "WOTDEV_DEFAULT_USER"

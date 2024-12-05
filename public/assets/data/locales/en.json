@@ -102,5 +102,10 @@
     },
     "offline": {
         "errorMessage": "Error occured while loading."
+    },
+    "loader_text": {
+        "game-loading": "Loading...",
+        "language-reload": "Loading localization...",
+        "language-apply": "Applying localization..."
     }
 }

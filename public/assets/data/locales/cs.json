@@ -123,5 +123,10 @@
     },
     "offline": {
         "errorMessage": "Chyba při načítání."
+    },
+    "loader_text": {
+        "game-loading": "Načítání hry...",
+        "language-reload": "Načítání lokalizace...",
+        "language-apply": "Aplikování lokalizace..."
     }
 }

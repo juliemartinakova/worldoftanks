@@ -1,13 +1,13 @@
 {
-  "name": "worldoftanks_0.9.3",
+  "name": "worldoftanks",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --port 1000",
-    "build": "vite build",
-    "preview": "vite preview",
-    "generate-pwa-icons": "pwa-assets-generator"
+    "dev": "vite --host --port 1000 --open",
+    "build": "vite build && vite preview --port 2000",
+    "vsc-build": "vite build && vite preview --port 2000 --open",
+    "preview": "vite preview --port 2000"
   },
   "devDependencies": {
     "@vite-pwa/assets-generator": "^0.2.4",
@@ -21,6 +21,7 @@
     "sharp-ico": "0.1.5"
   },
   "dependencies": {
-    "babylonjs": "^7.33.0"
+    "babylonjs": "^7.34.4",
+    "babylonjs-loaders": "^7.34.4"
   }
 }

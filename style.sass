@@ -131,11 +131,6 @@ body.blurEffect *
 body.blurEffect .window
     backdrop-filter: brightness(0.75) !important
     transition: $slow
-body.language-reload
-    h1, h2, h3, h4, h5, h6, p, li, a, button, option, select, label, input, legend
-        color: transparent !important
-        text-shadow: none !important
-        transition: $slow
 h1, h2, h3, h4, h5, h6
     font-family: 'WarheliosBold'
     font-weight: 500
@@ -197,6 +192,44 @@ a:hover, a:focus
         color: $yellow
         padding: $padding-normal
         cursor: $cursor-text
+
+.loading_spinner
+    backdrop-filter: $glassmorphism
+    background-color: $bg-tp-black-dark
+    z-index: 10000
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    transition: $fast
+    p
+        color: $white !important
+    .spinner
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 170px
+        width: 170px
+        .cog
+            content: ''
+            display: block
+            background-position: top center
+            position: absolute
+            height: 150px
+            width: 150px
+            border-radius: 50%
+            border-width: 2px
+            border-style: solid
+            border-color: $yellow transparent transparent transparent
+            animation: loader_cog_rotate infinite 1s linear
+        .logo
+            content: ''
+            display: block
+            background-image: url(gui/loading/spinner.webp)
+            background-position: bottom center
+            position: absolute
+            height: 260px
+            width: 260px
 
 button
     padding: $padding-normal
@@ -384,7 +417,7 @@ input[type="range"]
     background-color: $bg-tp-black-dark
     box-shadow: $box-shadow
     &::-webkit-slider-thumb
-        box-shadow: -435px 0 0 425px $yellow-tp-opaque, $box-shadow
+        box-shadow: -435px 0 50px 425px $yellow-tp-opaque, $box-shadow
         width: 10px
         appearance: none
         height: 38px
@@ -895,7 +928,13 @@ button.large:hover
         opacity: 0
     100%
         opacity: 0
-        display: none  
+        display: none
+
+@keyframes loader_cog_rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
 
 //* Landing page
 
@@ -1177,11 +1216,18 @@ button.large:hover
             background-size: 35px
             margin-right: 10px
         .filters
-            display: flex
+            display: flexh
             flex-direction: column  
             justify-content: space-around
             align-items: center
             backdrop-filter: none
+            gap: 7px
+            .filter
+                height: 28px
+                width: 100%
+                display: flex
+                justify-content: center
+                align-items: center
         .right-button, .left-button
             backdrop-filter: none
         .filters
@@ -1193,12 +1239,7 @@ button.large:hover
             padding: 10px
             button
                 .filter
-<<<<<<< HEAD
                     backdrop-filter: none
-=======
-                     backdrop-filter: none
->>>>>>> f5d2086f9eb50953035294eb389f0704c3412a41
-
 
 
 //* Babylon.js renderer
