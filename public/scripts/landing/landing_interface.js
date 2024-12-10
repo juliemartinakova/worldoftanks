@@ -30,7 +30,7 @@ setInterval(()=>{
 }, sec_to_ms(30))
 
 wargaming_login.addEventListener("click",()=>{
-    window.location.assign(`https://api.worldoftanks.eu/wot/auth/login/?application_id=25bcedbb27d8357ac39a775c59eaefc6&redirect_uri=localhost%3A1000`)
+    window.location.assign(`https://api.worldoftanks.eu/wot/auth/login/?application_id=25bcedbb27d8357ac39a775c59eaefc6&redirect_uri=https%3A%2F%2Fworldoftanksonline.netlify.app`)
 })
 
 wargaming_logout.addEventListener("click",()=>{
@@ -40,4 +40,3 @@ wargaming_logout.addEventListener("click",()=>{
 
 console.log(app_load_data.nickname)
 console.log(app_load_data.access_token)
-//https%3A%2F%2Fworldoftanksonline.netlify.app
