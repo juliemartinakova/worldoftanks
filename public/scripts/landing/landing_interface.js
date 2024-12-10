@@ -2,7 +2,7 @@ import { landing, wargaming_login, wargaming_logout, landing_nickname } from "..
 import { math_randint } from "../main/math.js"
 import { sec_to_ms } from "../main/math.js"
 import { enable, disable, hide, show } from "../main/custom_elements.js"
-import { app_load_data, login_status, wg_api_key } from "./authentication.js"
+import { app_load_data, login_status } from "./authentication.js"
 import { localstorage_delete } from "../main/game_settings.js"
 
 function landing_change_background(element){
@@ -10,9 +10,10 @@ function landing_change_background(element){
     element.style.backgroundImage = `url(${background_url})`
 }
 
-if(login_status == false || !app_load_data){
+if(!login_status || !app_load_data){
     enable(wargaming_login)
-} else {
+}
+if(app_load_data){
     hide(wargaming_login)
     show(wargaming_logout)
     landing_nickname.innerText = app_load_data.nickname
@@ -29,11 +30,11 @@ setInterval(()=>{
 }, sec_to_ms(30))
 
 wargaming_login.addEventListener("click",()=>{
-    window.location.assign(`https://api.worldoftanks.eu/wot/auth/login/?application_id=${wg_api_key}&redirect_uri=localhost%3A1000`)
+    window.location.assign(`https://api.worldoftanks.eu/wot/auth/login/?application_id=25bcedbb27d8357ac39a775c59eaefc6&redirect_uri=localhost%3A1000`)
 })
 
 wargaming_logout.addEventListener("click",()=>{
-    window.location.assign(`https://api.worldoftanks.eu/wot/auth/logout/?application_id=${wg_api_key}6&access_token=${app_load_data.access_token}`)
+    window.location.assign(`https://api.worldoftanks.eu/wot/auth/logout/?application_id=25bcedbb27d8357ac39a775c59eaefc6&access_token=${app_load_data.access_token}`)
     localstorage_delete("app_load_data")
 })
 

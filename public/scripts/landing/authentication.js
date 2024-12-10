@@ -3,7 +3,6 @@ import { localstorage_set, localstorage_get, localstorage_delete } from "../main
 export let login_status = false
 export let app_load_data = {}
 const load_data = document.location.search
-export const wg_api_key = import.meta.env.VITE_WG_API_KEY
 
 if(load_data.includes("status")){
 
@@ -23,7 +22,6 @@ if(load_data.includes("status")){
 }
 
 if ((localstorage_get("app_load_data") != "" || localstorage_get("app_load_data"))&&(!load_data.includes("status"))){
-    login_status = true
     app_load_data = JSON.parse(localstorage_get("app_load_data"))
     console.log(app_load_data)
 }
