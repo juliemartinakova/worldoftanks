@@ -1,11 +1,22 @@
-import { landing } from "../main/element_query.js"
+import { landing, wargaming_login, wargaming_logout, landing_nickname } from "../main/element_query.js"
 import { math_randint } from "../main/math.js"
 import { sec_to_ms } from "../main/math.js"
-import { current_username } from "./authentication.js"
+import { enable, disable, hide, show } from "../main/custom_elements.js"
+import { app_load_data, login_status, wg_api_key } from "./authentication.js"
+import { localstorage_delete } from "../main/game_settings.js"
 
 function landing_change_background(element){
     const background_url = `assets/gui/slides/${math_randint(1,43)}.webp`
     element.style.backgroundImage = `url(${background_url})`
+}
+
+if(login_status == false || !app_load_data){
+    enable(wargaming_login)
+} else {
+    hide(wargaming_login)
+    show(wargaming_logout)
+    landing_nickname.innerText = app_load_data.nickname
+    landing_nickname.dataset.locale = null
 }
 
 function hangar_init(){
@@ -16,3 +27,16 @@ landing_change_background(landing)
 setInterval(()=>{
     landing_change_background(landing)
 }, sec_to_ms(30))
+
+wargaming_login.addEventListener("click",()=>{
+    window.location.assign(`https://api.worldoftanks.eu/wot/auth/login/?application_id=${wg_api_key}&redirect_uri=localhost%3A1000`)
+})
+
+wargaming_logout.addEventListener("click",()=>{
+    window.location.assign(`https://api.worldoftanks.eu/wot/auth/logout/?application_id=${wg_api_key}6&access_token=${app_load_data.access_token}`)
+    localstorage_delete("app_load_data")
+})
+
+console.log(app_load_data.nickname)
+console.log(app_load_data.access_token)
+//https%3A%2F%2Fworldoftanksonline.netlify.app

@@ -180,16 +180,18 @@ selectCustomElements.forEach(select => {
 export function hide(element){
     if(element.classList.contains("show-nospace")){
         element.classList.add("hidden-nospace")
+    } else {
+        element.classList.add("hidden")
     }
-    element.classList.add("hidden")
 }
 
 export function show(element){
     if(element.classList.contains("hidden-nospace")){
         element.classList.add("show-nospace")
         element.classList.remove("hidden-nospace")
+    } else {
+        element.classList.remove("hidden")
     }
-    element.classList.remove("hidden")
 }
 
 export function disable(element){

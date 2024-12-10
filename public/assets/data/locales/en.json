@@ -34,7 +34,7 @@
                 "no_user": "Log in",
                 "bt_login": "Log in",
                 "bt_newacc": "Create a new account",
-                "bt_logoff": "Log off",
+                "bt_logout": "Log out",
                 "bt_devbypass": "Go to hangar (for devs)"
             },
             "bt_extlaunchoptions": {

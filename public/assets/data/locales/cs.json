@@ -34,7 +34,7 @@
                 "no_user": "Přihlas se",
                 "bt_login": "Přihlásit se",
                 "bt_newacc": "Založit nový účet",
-                "bt_logoff": "Odhlásit se",
+                "bt_logout": "Odhlásit se",
                 "bt_devbypass": "Přejít do garáže (pro vývojáře)"
             },
             "bt_extlaunchoptions": {

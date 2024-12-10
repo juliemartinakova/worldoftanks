@@ -553,7 +553,13 @@ button.large:hover
 //** Universal pre-declared styles...
 
 .hidden
-    opacity: 0
+    opacity: 0 !important
+    pointer-events: none
+    transition: $slow
+.hidden-nospace
+    opacity: 0 !important
+    position: absolute !important
+    z-index: -1000 !important
     pointer-events: none
     transition: $slow
 .fullscreen
