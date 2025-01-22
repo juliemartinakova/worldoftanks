@@ -15,56 +15,10 @@ const click2 = new Audio("assets/media/audio/click2.wav")
 const interactive0 = document.querySelectorAll(".interactive0")
 const interactive1 = document.querySelectorAll(".interactive1")
 const interactive2 = document.querySelectorAll(".interactive2")
-const loader = document.querySelector(".loader")
-const landing = document.querySelector(".landing")
-const hangar = document.querySelector(".hangar")
-const authentication = document.querySelector(".authentication")
-const loading = document.querySelector(".loading")
-export const debugPrompt = document.querySelector(".debug-prompt")
-export const debugCommand = document.querySelector("#debug-command")
-const enterGame = document.querySelector(".enter-game")
 const windows = document.querySelectorAll(".window")
 const windowBarButtons = document.querySelectorAll(".window .bar button")
 const modstoreMods = document.querySelectorAll(".modstore .modifications .modification")
 const modmanagerMods = document.querySelectorAll(".modstore .modmanager .modification")
-const selectFormElements = document.querySelectorAll("select")
-const selectCustomElements = document.querySelectorAll(".select")
-const devbypassHangar = document.querySelector(".devbypass-hangar")
-let languageButtons = document.querySelectorAll(".language-button")
-
-//* variables
-
-
-let step = 150
-let creditsQuantity = 0
-let goldQuantity = 0
-let freeXPQuantity = 0
-let bondQuantity = 0
-
-//* functions
-const loadAnimation = () => {
-    hide(screens[0])
-    setTimeout(()=>{
-        show(screens[1])
-        setTimeout(()=>{
-            hide(screens[1])
-            setTimeout(()=>{
-                show(screens[2])
-                setTimeout(()=>{
-                    hide(screens[2])
-                    setTimeout(()=>{
-                        hide(landing)
-                        show(hangar)
-                        setTimeout(()=>{
-                            show(screens[0])
-                            hide(screens[2])
-                        }, 700)
-                    }, 700)
-                }, 5000)
-            }, 700)
-        }, 5000)
-    }, 700)
-}
 
 windowBarButtons.forEach(button => {
     button.addEventListener("click",()=>{
@@ -143,7 +97,7 @@ modmanagerMods.forEach(mod => {
     })
 })
 
-windows.forEach(win => {
+/*windows.forEach(win => {
     let showButton = document.querySelectorAll(`.show-${win.className.replace(/\b(window|fullscreen|hidden)\b/g, '')}`)
     let closeButton = document.querySelectorAll(".window .header .actions .close")
     let windowBar = document.querySelectorAll(".window .header .bar")
@@ -176,13 +130,7 @@ windows.forEach(win => {
     showButton.forEach(button => {
         button.addEventListener("click",()=>show(win))
     })
-})
-
-enterGame.addEventListener("click", () => {
-    if(loggedUser != ""){
-        loadAnimation()
-    }
-})
+})*/
 
 window.addEventListener("resize",()=>{
     let windowBar = document.querySelectorAll(".window .header .bar")

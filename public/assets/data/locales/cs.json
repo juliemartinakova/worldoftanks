@@ -14,55 +14,24 @@
                 }
             }
         },
-        "authentication": {
-            "bt_login": "Přihlásit se pomocí účtu Wargaming.net"
-        },
-        "bar": {
-            "bt_settings": {
-                "tooltip": {
-                    "header": "Nastavení hry",
-                    "content": "Tady si můžeš změnit nastavení hry tak, aby fungovala podle tvých představ."
-                }
-            },
-            "bt_mods": {
-                "tooltip": {
-                    "header": "Modifikace hry",
-                    "content": "Tady si můžeš do hry přidat modifikace a pokud si chceš vytvořit tvou vlastní, tak můžeš, ale tvoje modifikace musí splňovat určitá pravidla!"
-                }
-            },
-            "bt_user": {
-                "no_user": "Přihlas se",
-                "bt_login": "Přihlásit se",
-                "bt_newacc": "Založit nový účet",
-                "bt_logout": "Odhlásit se",
-                "bt_devbypass": "Přejít do garáže (pro vývojáře)"
-            },
-            "bt_extlaunchoptions": {
-                "ext_options": "Další možnosti",
-                "bt_defaultsettings": "Spustit ve výchozím nastavení",
-                "bt_modsafemode": "Spustit bez modů",
-                "bt_anonymous": "Spustit v anonymním režimu"
-            }
-        },
-        "language": {
-            "heading": "Změnit jazyk hry",
-            "options": {
-                "en": "English",
-                "cs": "<span class=\"material-symbols-rounded\">check_circle</span>Čeština",
-                "de": "Deutsch",
-                "es": "Español",
-                "fr": "Français",
-                "hu": "Magyar",
-                "it": "Italiano",
-                "kz": "Қазақша",
-                "pl": "Polski",
-                "ru": "Русский",
-                "tr": "Türkçe",
-                "ua": "Українська"
+        "menu": {
+            "window-name": "Menu",
+            "buttons": {
+                "settings": "Nastavení",
+                "log_in": "Přihlásit se",
+                "log_out": "Odhlásit se",
+                "new_acc": "Založit nový účet",
+                "default_set": "Použít výchozí nastavení",
+                "nomods_launch": "Hrát bez modifikací",
+                "anonymous_launch": "Anonymní režim",
+                "mod_store": "Obchod s modifikacemi",
+                "wg_acc_center": "Správa účtu Wargaming",
+                "wg_support": "Podpora pro hráče",
+                "dev_mode": "Vývojářský režim"
             }
         }
     },
-    "garage": {
+    "hangar": {
         
     },
     "modstore": {
@@ -127,6 +96,7 @@
     "loader_text": {
         "game-loading": "Načítání hry...",
         "language-reload": "Načítání lokalizace...",
-        "language-apply": "Aplikování lokalizace..."
+        "language-apply": "Aplikování lokalizace...",
+        "vehicle-loading": "Načítání vozidla..."
     }
 }

@@ -1,6 +1,6 @@
 import { settings_get, settings_set, localstorage_get, localstorage_set } from "./game_settings.js"
 import { setGameLanguage } from "./locales.js"
-import { loading_spinner, loading_spinner_text, screens } from "./element_query.js"
+import { loading_spinner, loading_spinner_text, screens, setting_section } from "./element_query.js"
 import { __JSON_REQUEST } from "./file_request.js"
 
 const selectFormElements = document.querySelectorAll("select")
@@ -15,7 +15,7 @@ export async function loading_spinner_init(locale_content_path){
     const spinner = loading_spinner
     const text = loading_spinner_text
     const text_content = locale_content_path.split(".")
-    let loader_translation = await __JSON_REQUEST(`assets/data/locales/${settings_get("general.language")}.json`)
+    let loader_translation = await __JSON_REQUEST(`./assets/data/locales/${settings_get("general.language")}.json`)
 
     for (const segment of text_content) {
         if (!loader_translation || !loader_translation[segment]) {
@@ -36,7 +36,7 @@ export async function loading_spinner_init(locale_content_path){
 export async function loading_spinner_change(locale_content_path){
     const text = loading_spinner_text
     const text_content = locale_content_path.split(".")
-    let loader_translation = await __JSON_REQUEST(`assets/data/locales/${settings_get("general.language")}.json`)
+    let loader_translation = await __JSON_REQUEST(`./assets/data/locales/${settings_get("general.language")}.json`)
 
     for (const segment of text_content) {
         if (!loader_translation || !loader_translation[segment]) {
@@ -223,4 +223,201 @@ function init_game(){
 
 document.addEventListener("DOMContentLoaded", init_game())
 
-setGameLanguage(settings_get("general.language"))
+//setGameLanguage(settings_get("general.language"))
+
+/*setting_section.forEach(section => {
+    const radio_inputs = section.querySelectorAll("input[type=radio]")
+    
+    radio_inputs.forEach(radio => {
+        console.log(radio)
+        radio.addEventListener("click",()=>{
+            radio_inputs.forEach(input => {
+                input.checked = false
+            })
+            radio.checked = true
+        })
+    })
+})*/
+
+const range_sliders = document.querySelectorAll("input[type=\"range\"]")
+
+range_sliders.forEach(slider => {
+    const _ticks = document.createElement("div")
+    const _progress = document.createElement("div")
+    const _slider_track = document.createElement("div")
+    const _container = document.createElement("div")
+    const _output = document.createElement("output")
+    
+    slider.parentNode.appendChild(_container)
+    _container.appendChild(_slider_track)
+    _slider_track.appendChild(_progress)
+    _slider_track.appendChild(_ticks)
+    _slider_track.appendChild(slider)
+    _container.appendChild(_output)
+
+    _ticks.classList.add("range_slider_ticks")
+    _progress.classList.add("range_slider_progress")
+    _container.classList.add("range_slider")
+    _output.classList.add("range_slider_output")
+    _slider_track.classList.add("range_progress_ticks_container")
+
+    _ticks.style.backgroundSize = `calc(${Math.round(slider.step)}% - 2px) 5px`
+    _progress.style.width = `${slider.value}%`
+
+    if(_container.parentNode.classList.contains("setting")){
+        switch(Math.round(slider.step)){
+            case 33:
+                switch(Math.round(slider.value)){
+                    case 0:
+                        _output.innerText = "Nízká"
+                        break;
+                    case 33:
+                        _output.innerText = "Střední"
+                        break;
+                    case 67:
+                        _output.innerText = "Vysoká"
+                        break;
+                    case 100:  
+                        _output.innerText = "Ultra"
+                        break;
+                }
+                break;
+            case 25:
+                switch(Math.round(slider.value)){
+                    case 0:
+                        _output.innerText = "Nízká"
+                        break;
+                    case 25:
+                        _output.innerText = "Střední"
+                        break;
+                    case 50:
+                        _output.innerText = "Vysoká"
+                        break;
+                    case 75:
+                        _output.innerText = "Maximální"
+                        break;
+                    case 100:  
+                        _output.innerText = "Ultra"
+                        break;
+                }
+                break;
+            case 20:
+                switch(Math.round(slider.value)){
+                    case 0:
+                        _output.innerText = "Minimální"
+                        break;
+                    case 20:
+                        _output.innerText = "Nízká"
+                        break;
+                    case 40:
+                        _output.innerText = "Střední"
+                        break;
+                    case 60:
+                        _output.innerText = "Vysoká"
+                        break;
+                    case 80:
+                        _output.innerText = "Maximální"
+                        break;
+                    case 100:  
+                        _output.innerText = "Ultra"
+                        break;
+                }
+                break;
+            case 50:
+                switch(Math.round(slider.value)){
+                    case 0:
+                        _output.innerText = "Nízká"
+                        break;
+                    case 50:
+                        _output.innerText = "Vysoká"
+                        break;
+                    case 100:
+                        _output.innerText = "Ultra"
+                        break;
+                }
+                break;
+        }
+    } else {
+        _output.innerText = Math.round(slider.value)
+    }
+
+    slider.addEventListener("input", ()=>{
+        _progress.style.width = `${slider.value}%`
+        if(_container.parentNode.classList.contains("setting")){
+            switch(Math.round(slider.step)){
+                case 33:
+                    switch(Math.round(slider.value)){
+                        case 0:
+                            _output.innerText = "Nízká"
+                            break;
+                        case 33:
+                            _output.innerText = "Střední"
+                            break;
+                        case 67:
+                            _output.innerText = "Vysoká"
+                            break;
+                        case 100:  
+                            _output.innerText = "Ultra"
+                            break;
+                    }
+                    break;
+                case 25:
+                    switch(Math.round(slider.value)){
+                        case 0:
+                            _output.innerText = "Nízká"
+                            break;
+                        case 25:
+                            _output.innerText = "Střední"
+                            break;
+                        case 50:
+                            _output.innerText = "Vysoká"
+                            break;
+                        case 75:
+                            _output.innerText = "Maximální"
+                            break;
+                        case 100:  
+                            _output.innerText = "Ultra"
+                            break;
+                    }
+                    break;
+                case 20:
+                    switch(Math.round(slider.value)){
+                        case 0:
+                            _output.innerText = "Minimální"
+                            break;
+                        case 20:
+                            _output.innerText = "Nízká"
+                            break;
+                        case 40:
+                            _output.innerText = "Střední"
+                            break;
+                        case 60:
+                            _output.innerText = "Vysoká"
+                            break;
+                        case 80:
+                            _output.innerText = "Maximální"
+                            break;
+                        case 100:  
+                            _output.innerText = "Ultra"
+                            break;
+                    }
+                    break;
+                case 50:
+                    switch(Math.round(slider.value)){
+                        case 0:
+                            _output.innerText = "Nízká"
+                            break;
+                        case 50:
+                            _output.innerText = "Vysoká"
+                            break;
+                        case 100:
+                            _output.innerText = "Ultra"
+                            break;
+                    }
+                    break;
+            }
+        } else {
+            _output.innerText = Math.round(slider.value)
+        }
+    })
+})

@@ -21,6 +21,10 @@
     "sharp-ico": "0.1.5"
   },
   "dependencies": {
+    "@babylonjs/core": "^7.42.0",
+    "@babylonjs/havok": "^1.3.10",
+    "@babylonjs/inspector": "^7.42.0",
+    "@babylonjs/loaders": "^7.42.0",
     "babylonjs": "^7.34.4",
     "babylonjs-loaders": "^7.34.4"
   }

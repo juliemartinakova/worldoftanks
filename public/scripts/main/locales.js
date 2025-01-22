@@ -10,7 +10,7 @@ export async function setGameLanguage(language){
             setTimeout(async ()=>{
                 const path = element.getAttribute("data-locale")
                 const pathParts = path.split(".")
-                let currentValue = await __JSON_REQUEST(`assets/data/locales/${language}.json`)
+                let currentValue = await __JSON_REQUEST(`./assets/data/locales/${language}.json`)
                 for (const segment of pathParts) {
                     if (!currentValue || !currentValue[segment]) {
                         console.warn(`Translation key not found: ${path}`);

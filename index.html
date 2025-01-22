@@ -55,7 +55,7 @@
       <div class="loading fullscreen">
         <div class="screen fullscreen">
           <img src="assets/gui/loading/login_logo_big.webp" />
-          <button tabindex="1" class="interactive0 large enter-game">
+          <button tabindex="1" class="interactive0 large enter_game_lobby disabled">
             <h1 data-locale="landing.loading.bt_play.content"></h1>
           </button>
         </div>
@@ -71,90 +71,125 @@
           <img src="assets/gui/loading/awards.webp" />
         </div>
       </div>
-
-      <div class="bar">
-        <div class="group">
-          <button tabindex="1" class="interactive2 show-settings">
-            <span class="material-symbols-rounded">settings</span>
-          </button>
-          <div data-tooltip="landing.bt_settings" class="tooltip">
-            <h2 data-locale="landing.bar.bt_settings.tooltip.header"></h2>
-            <p data-locale="landing.bar.bt_settings.tooltip.content"></p>
-          </div>
-        </div>
-        <div class="group">
-          <button tabindex="1" class="interactive2 show-modstore">
-            <img src="assets/gui/icons/24x24/mods.webp" alt="" />
-          </button>
-          <div data-tooltip="landing.bt_mods" class="tooltip">
-            <h2 data-locale="landing.bar.bt_mods.tooltip.header"></h2>
-            <p data-locale="landing.bar.bt_mods.tooltip.content"></p>
-          </div>
-        </div>
-        <div class="group">
-          <div class="select dropdown">
-            <div class="header">
-              <div class="container">
-                <span class="material-symbols-rounded">person</span>
-                <p
-                  data-locale="landing.bar.bt_user.no_user"
-                  class="landing_wargaming_nickname"
-                ></p>
-              </div>
-              <button class="interactive2">
-                <span class="material-symbols-rounded">arrow_drop_down</span>
-              </button>
-            </div>
-            <div class="options">
-              <button class="option disabled wargaming_acc_login show-nospace">
-                <p data-locale="landing.bar.bt_user.bt_login"></p>
-              </button>
-              <button class="option wargaming_acc_logout hidden-nospace">
-                <p data-locale="landing.bar.bt_user.bt_logout"></p>
-              </button>
-              <button class="option disabled">
-                <p data-locale="landing.bar.bt_user.bt_newacc"></p>
-              </button>
-              <button class="option devbypass-hangar">
-                <p data-locale="landing.bar.bt_user.bt_devbypass"></p>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="group">
-          <div class="select dropdown disabled">
-            <div class="header">
-              <p data-locale="landing.bar.bt_extlaunchoptions.ext_options"></p>
-              <button>
-                <span class="material-symbols-rounded">arrow_drop_down</span>
-              </button>
-            </div>
-            <div class="options">
-              <button class="interactive0 option large">
-                <p
-                  data-locale="landing.bar.bt_extlaunchoptions.bt_defaultsettings"
-                ></p>
-              </button>
-              <button class="interactive0 option large">
-                <p
-                  data-locale="landing.bar.bt_extlaunchoptions.bt_modsafemode"
-                ></p>
-              </button>
-              <button class="interactive0 option large">
-                <p
-                  data-locale="landing.bar.bt_extlaunchoptions.bt_anonymous"
-                ></p>
-              </button>
-            </div>
-          </div>
-        </div>
+      
+      <div class="bar landing_bar">
+        <button tabindex="1" class="interactive2 _show-settings show-landing-menu">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
       </div>
-
+      
       <div class="info">
         <div class="about">
           <p data-locale="landing.about.version"></p>
           <p data-locale="landing.about.copyright"></p>
           <p data-locale="landing.about.language" id="language-switch"></p>
+        </div>
+      </div>
+
+      <div class="landing_menu window fullscreen">
+        <div class="header">
+          <div class="top">
+            <div class="description">
+              <p data-locale="landing_menu.window-name"></p>
+            </div>
+            <div class="actions">
+              <button
+                class="close">
+                <span class="material-symbols-rounded">close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="account-info">
+            <div class="currencies">
+              <div class="currency">
+                <img
+                  src="assets/gui/hangar/currency/bond.webp"
+                  height="16"
+                  width="16"
+                />
+                <p class="bonds_amount"></p>
+              </div>
+              <div class="currency">
+                <img
+                  src="assets/gui/hangar/currency/gold.webp"
+                  height="16"
+                  width="16"
+                />
+                <p class="gold_amount"></p>
+              </div>
+              <div class="currency">
+                <img
+                  src="assets/gui/hangar/currency/credits.webp"
+                  height="16"
+                  width="16"
+                />
+                <p class="credits_amount"></p>
+              </div>
+              <div class="currency">
+                <img
+                  src="assets/gui/hangar/currency/freeXP.webp"
+                  height="16"
+                  width="16"
+                />
+                <p class="free_xp_amount"></p>
+              </div>
+            </div>
+            <h1 class="landing_wargaming_nickname">Pro zobrazení informací o účtu se nejprve musíte přihlásit.</h1>
+          </div>
+          <div class="options">
+            <button class="option show-settings">
+              <span class="material-symbols-rounded">settings</span>
+              <h3 data-locale="landing.menu.buttons.settings"></h3>
+            </button>
+            <button class="option wargaming_acc_login show-nospace">
+              <span class="material-symbols-rounded">login</span>
+              <h3 data-locale="landing.menu.buttons.log_in"></h3>
+            </button>
+            <button class="option wargaming_acc_logout hidden-nospace">
+              <span class="material-symbols-rounded">logout</span>
+              <h3 data-locale="landing.menu.buttons.log_out"></h3>
+            </button>
+            <button class="option add-wg-account">
+              <span class="material-symbols-rounded">person_add</span>
+              <h3 data-locale="landing.menu.buttons.new_acc"></h3>
+            </button>
+            <button class="option disable-mods">
+              <span class="material-symbols-rounded">extension_off</span>
+              <h3
+                data-locale="landing.menu.buttons.nomods_launch"
+              ></h3>
+            </button>
+            <button class="option anonymous-mode">
+              <span class="material-symbols-rounded">visibility_off</span>
+              <h3
+                data-locale="landing.menu.buttons.anonymous_launch"
+              ></h3>
+            </button>
+            <button class="option show-modstore">
+              <span class="material-symbols-rounded">extension</span>
+              <h3 data-locale="landing.menu.buttons.mod_store">Obchod s modifikacemi</h3>
+            </button>
+            <button class="option manage-wg-account hidden-nospace">
+              <span class="material-symbols-rounded">manage_accounts</span>
+              <h3 data-locale="landing.menu.buttons.wg_acc_center"></h3>
+            </button>
+            <button class="option show-wg-support">
+              <span class="material-symbols-rounded">live_help</span>
+              <h3 data-locale="landing.menu.buttons.wg_support"></h3>
+            </button>
+            <button class="option restore-default-settings">
+              <span class="material-symbols-rounded">settings_backup_restore</span>
+              <h3
+                data-locale="landing.menu.buttons.default_set"
+              ></h3>
+            </button>
+            <button class="option developer-mode">
+              <span class="material-symbols-rounded">developer_mode</span>
+              <h3 data-locale="landing.menu.buttons.dev_mode"></h3>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -179,13 +214,13 @@
 
         <div class="economy-area">
           <button class="personal-reserves"></button>
-          <button class="crystal">
+          <button class="bonds">
             <img
               src="assets/gui/hangar/currency/bond.webp"
               height="16"
               width="16"
             />
-            <p>123 456</p>
+            <p class="bonds_amount">------</p>
           </button>
           <button class="gold">
             <img
@@ -193,7 +228,7 @@
               height="16"
               width="16"
             />
-            <p>789 132</p>
+            <p class="gold_amount">------</p>
           </button>
           <button class="credits">
             <img
@@ -201,15 +236,45 @@
               height="16"
               width="16"
             />
-            <p>512 256</p>
+            <p class="credits_amount">------</p>
           </button>
-          <button class="free-exp">
+          <button class="free_xp">
             <img
               src="assets/gui/hangar/currency/freeXP.webp"
               height="16"
               width="16"
             />
-            <p>128 313</p>
+            <p class="free_xp_amount">------</p>
+          </button>
+        </div>
+
+        <div class="top-nav">
+          <button>
+            <p>Garáž</p>
+          </button>
+          <button>
+            <p>Obchod</p>
+          </button>
+          <button>
+            <p>Sklad</p>
+          </button>
+          <button>
+            <p>Mise</p>
+          </button>
+          <button>
+            <p>Kampaně</p>
+          </button>
+          <button>
+            <p>Služební záznam</p>
+          </button>
+          <button>
+            <p>Výzkum</p>
+          </button>
+          <button>
+            <p>Kasárna</p>
+          </button>
+          <button>
+            <p>Klany</p>
           </button>
         </div>
       </div>
@@ -266,7 +331,7 @@
         <div class="user-comms"></div>
       </div>
 
-      <canvas id="hangarSceneRenderer" class="graphics-renderer"></canvas>
+      <canvas id="hangarSceneRenderer" class="graphics-renderer lobby_renderer"></canvas>
     </div>
 
     <div class="battle fullscreen hidden">
@@ -786,11 +851,112 @@
         </div>
       </form>
       <form class="content hidden graphics">
+        <fieldset class="graphics_mode">
+          <legend>Grafika</legend>
+          <div class="setting">
+            <input type="radio" name="graphics_mode" id="graphics_mode_standard" checked>
+            <label for="graphics_mode_standard">Stadnardní grafika</label>
+            <input type="radio" name="graphics_mode" id="graphics_mode_improved">
+            <label for="graphics_mode_improved">Vylepšená grafika</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Hlavní</legend>
+          <div class="setting">
+            <input type="range" name="graphics_antialiasing" id="graphics_antialiasing" step="33.3" value="0">
+            <label for="graphics_antialiasing">Antialiasing</label>
+          </div>
+          <div class="setting disabled">
+            <input type="range" name="graphics_texture_quality" id="graphics_texture_quality" step="20" value="0">
+            <label for="graphics_texture_quality">Kvalita textur</label>
+          </div>
+          <div class="setting disabled">
+            <input type="range" name="graphics_lod" id="graphics_lod" step="20" value="0">
+            <label for="graphics_lod">Kvalita detailů objektů</label>
+          </div>
+          <div class="setting">
+            <input type="range" name="graphics_draw_distance" id="graphics_draw_distance" step="33.3" value="0">
+            <label for="graphics_draw_distance">Vzdálenost vykreslování</label>
+          </div>
+        </fieldset>
         <fieldset>
           <legend>stíny a osvětlení</legend>
           <div class="setting">
-            <input type="range" name="itest012" id="" step="25" />
-            <label for="itest012">kvalita stínů</label>
+            <input type="range" name="graphics_light_quality" id="graphics_light_quality" step="33.3" value="0">
+            <label for="graphics_light_quality">Kvalita osvětlení</label>
+          </div>
+          <div class="setting">
+            <input type="range" id="graphics_shadow_quality" name="graphics_shadow_quality" step="20" value="0">
+            <label for="graphics_shadow_quality">Kvalita stínů</label>
+          </div>
+          <div class="setting">
+            <input type="range" id="graphics_post_processing" name="graphics_post_processing" step="50" value="0">
+            <label for="graphics_post_processing">Post-processing</label>
+          </div>
+          <div class="setting">
+            <input type="range" id="graphics_motion_blur" name="graphics_motion_blur" step="33.3" value="0">
+            <label for="graphics_motion_blur">Efekt pohybové neostrosti</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>terén a voda</legend>
+          <div class="setting disabled">
+            <input type="range" id="graphics_water_quality" name="graphics_water_quality" step="33.3" value="0">
+            <label for="graphics_water_quality">Kvalita vody</label>
+          </div>
+          <div class="setting disabled">
+            <input type="range" id="graphics_terrain_quality" name="graphics_terrain_quality" step="33.3" value="0">
+            <label for="graphics_terrain_quality">Kvalita terénu</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_terrain_tesselation" id="graphics_terrain_tesselation">
+            <label for="graphics_terrain_tesselation">Mozaikování terénu</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_terrain_tesselation_sniper" id="graphics_terrain_tesselation_sniper">
+            <label for="graphics_terrain_tesselation_sniper">Mozaikování terénu v zaměřovacím režimu</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>vegetace</legend>
+          <div class="setting disabled">
+            <input type="range" id="graphics_vegetation_quality" name="graphics_vegetation_quality" step="33.3" value="0">
+            <label for="graphics_vegetation_quality">Kvalita vegetace</label>
+          </div>
+          <div class="setting disabled">
+            <input type="range" id="graphics_grass_density" name="graphics_grass_density" step="33.3" value="0">
+            <label for="graphics_grass_density">Hustota trávy</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_foliage_transparency" id="graphics_foliage_transparency">
+            <label for="graphics_foliage_transparency">Průhlednost listoví</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_grass_sniper" id="graphics_grass_sniper">
+            <label for="graphics_grass_sniper">Tráva v zaměřovacím režimu</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>efekty</legend>
+          <div class="setting disabled">
+            <input type="range" id="graphics_efx_quality" name="graphics_efx_quality" step="33.3" value="0">
+            <label for="graphics_efx_quality">Kvalita efektů</label>
+          </div>
+          <div class="setting disabled">
+            <input type="range" id="graphics_efx_sniper" name="graphics_efx_sniper" step="33.3" value="0">
+            <label for="graphics_efx_sniper">Efekty v zaměřovacím režimu</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_destruction_physics" id="graphics_destruction_physics">
+            <label for="graphics_destruction_physics">Vylepšená fyzika ničení</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_track_efx" id="graphics_track_efx">
+            <label for="graphics_track_efx">Efekty pásů a kol</label>
+          </div>
+          <div class="setting disabled">
+            <input type="checkbox" name="graphics_track_tracesr" id="graphics_track_tracesr">
+            <label for="graphics_track_tracesr">Stopy pásů a kol</label>
           </div>
         </fieldset>
 
@@ -812,6 +978,16 @@
       <form class="content hidden markers"></form>
       <form class="content hidden notifications"></form>
     </div>
+
     <script type="module" src="/main.js"></script>
+    <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+    <script>
+      let havokInstance;
+      if(window.location.origin == "http://localhost:1000"){
+        HavokPhysics().then((havok) => {
+          havokInstance = havok;
+        });
+      }
+    </script>
   </body>
 </html>

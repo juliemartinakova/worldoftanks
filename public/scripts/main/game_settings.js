@@ -89,6 +89,7 @@ let defaultSettings = {
     },
     graphics: {
         preset: 0,
+        mode: "standard",
         renderQuality: 100,
         fpsCap: Infinity,
         screen: {

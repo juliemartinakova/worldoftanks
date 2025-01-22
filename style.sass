@@ -15,11 +15,11 @@ $bg-tp-black-dark: rgba(0,0,0,0.45)
 $bg-tp-black-mediumdark: rgba(0,0,0,0.3)
 $bg-tp-black-medium: rgba(0,0,0,0.2)
 $bg-tp-black-light: rgba(0,0,0,0.1)
-$cursor-arrow: url("cursors/wot_arrow.cur"), default
-$cursor-pointer: url("cursors/wot_link.cur"), pointer
-$cursor-move-horz: url("cursors/wot_horz.cur"), e-resize
-$cursor-text: url("cursors/wot_text.cur"), text
-$cursor-pen: url("cursors/wot_writ.cur"), pointer
+$cursor-arrow: url("/assets/cursors/wot_arrow.cur"), default
+$cursor-pointer: url("/assets/cursors/wot_link.cur"), pointer
+$cursor-move-horz: url("/assets/cursors/wot_horz.cur"), e-resize
+$cursor-text: url("/assets/cursors/wot_text.cur"), text
+$cursor-pen: url("/assets/cursors/wot_writ.cur"), pointer
 $underline-yellow: 0 1px 0 0 $yellow
 $border-yellow: 0 0 0 1px $yellow
 $padding-normal: 10px 15px
@@ -38,10 +38,10 @@ $fast: 0.2s
 
 @font-face
     font-family: "Warhelios"
-    src: url("fonts/Warhelios-Regular.ttf")
+    src: url("/assets/fonts/Warhelios-Regular.ttf")
 @font-face
     font-family: "WarheliosBold"
-    src: url("fonts/Warhelios-Bold.ttf")
+    src: url("/assets/fonts/Warhelios-Bold.ttf")
 *
     margin: 0
     padding: 0
@@ -109,6 +109,13 @@ $fast: 0.2s
     &:hover
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgba(249, 183, 35, 1)'><polygon points='0,0 100,0 50,50'/></svg>")
         transition: $fast
+
+#inspector-host
+    position: absolute !important
+
+#scene-explorer-host
+    position: absolute !important
+    z-index: 1 !important
 
 body
     background-color: $black-dark
@@ -225,7 +232,7 @@ a:hover, a:focus
         .logo
             content: ''
             display: block
-            background-image: url(gui/loading/spinner.webp)
+            background-image: url(/assets/gui/loading/spinner.webp)
             background-position: bottom center
             position: absolute
             height: 260px
@@ -407,25 +414,54 @@ input[type="radio"]
         box-shadow: 0 0 20px $yellow
         opacity: 1
         transition: $fast
+    &:not(:checked)::after
+        background-color: transparent
+        box-shadow: none
+        opacity: 1
+        transition: $fast
 
 //** Custom slider input
 
-input[type="range"]
+.range_slider 
     height: 38px
-    border-radius: $border-radius
-    appearance: none
-    background-color: $bg-tp-black-dark
-    box-shadow: $box-shadow
-    &::-webkit-slider-thumb
-        box-shadow: -435px 0 50px 425px $yellow-tp-opaque, $box-shadow
-        width: 10px
-        appearance: none
-        height: 38px
-        background-color: $yellow
-    &::-webkit-slider-runnable-track
-        border-radius: $border-radius
-        overflow: hidden
-        height: 38px
+    display: flex
+    align-items: center
+    gap: 15px
+    .range_progress_ticks_container
+        width: 100%
+        .range_slider_progress
+            content: ''
+            display: block
+            height: 10px
+            position: relative
+            background: linear-gradient(to right, #f9b723, #ff5400)
+            z-index: -1
+            border-radius: 10px
+            margin-bottom: 10px
+            box-shadow: 0 0 20px #ff5400
+        .range_slider_ticks
+            content: ''
+            display: block
+            width: 100%
+            height: 5px
+            margin-bottom: -32px
+            background: linear-gradient(to right, #f9b723 1px, transparent 1px) repeat-x
+            background-position-x: calc(10px / 2 - 1px / 2)
+        input[type="range"]
+            appearance: none
+            background-color: transparent
+            width: 100%
+            &::-webkit-slider-thumb
+                appearance: none
+                width: 10px
+                height: 25px
+                border-radius: 10px
+                background-color: #f9b723
+                box-shadow: 0 0 20px #f9b723
+            &::-webkit-slider-container
+                background-color: rgba(0, 0, 0, 0.2)
+                height: 10px
+                border-radius: 10px
 
 //* Custom text-based inputs
 
@@ -647,7 +683,7 @@ button.large:hover
         li::before
             display: block
             content: ""
-            background-image: url(gui/icons/24x24/command.webp)
+            background-image: url(/assets/gui/icons/24x24/command.webp)
             height: 20px
             min-width: 20px
             width: 20px
@@ -661,7 +697,7 @@ button.large:hover
             height: 20px
             width: 20px
             content: ""
-            background-image: url(gui/icons/24x24/return.webp)
+            background-image: url(/assets/gui/icons/24x24/return.webp)
         li.time
             color: $white
             box-shadow: 0 -1px #999
@@ -672,7 +708,7 @@ button.large:hover
             height: 20px
             width: 20px
             content: ""
-            background-image: url(gui/icons/24x24/time.webp)
+            background-image: url(/assets/gui/icons/24x24/time.webp)
         li.time:first-child
             box-shadow: none
             padding-top: 0
@@ -686,7 +722,7 @@ button.large:hover
             height: 20px
             width: 20px
             content: ""
-            background-image: url(gui/icons/24x24/special.webp)
+            background-image: url(/assets/gui/icons/24x24/special.webp)
         li.error
             user-select: all
             div p
@@ -697,7 +733,7 @@ button.large:hover
             height: 20px
             width: 20px
             content: ""
-            background-image: url("gui/icons/24x24/error.webp")
+            background-image: url("/assets/gui/icons/24x24/error.webp")
 
 //* Window pop-ups
 
@@ -816,7 +852,7 @@ button.large:hover
             flex-direction: column
             width: 300px
             height: 300px
-            background-image: url(gui/slides/15.webp)
+            background-image: url(/assets/gui/slides/15.webp)
             background-position: center
             background-size: auto 300px
             background-repeat: no-repeat
@@ -1040,6 +1076,50 @@ button.large:hover
             width: 30%
             position: fixed
             bottom: 10vh
+    .landing_menu
+        .content
+            top: 44px
+            padding: 40px
+            grid-template-columns: 2fr 1fr
+            gap: 40px
+            .account-info
+                grid-area: 1 / 1 / 2 / 2
+                padding: 10px 15px
+                background-color: $bg-tp-black-dark
+                border-radius: 10px
+                box-shadow: $box-shadow
+                background-image: url(./assets/gui/slides/26.webp)
+                color: $white
+                background-position: center
+                background-size: cover
+                filter: saturate(2)
+                overflow: hidden
+                .currencies
+                    display: flex
+                    backdrop-filter: $glassmorphism
+                    justify-content: space-evenly
+                    background-color: $bg-tp-black-dark
+                    margin: -10px -15px 10px
+                    padding: 10px
+                    .currency
+                        display: flex
+                        gap: 5px
+            .options
+                display: grid
+                grid-template-columns: 1fr 1fr
+                grid-template-rows: repeat(5, calc(25% - 15px))
+                gap: 20px
+                overflow-y: auto
+                border-radius: $border-radius
+                overflow-x: hidden
+                padding-right: 20px
+                margin-right: -20px
+                button
+                    justify-content: center
+                    flex-direction: column
+                    > span
+                        color: $yellow !important
+                        font-size: 5em
 .landing .loading::after, .landing .authentication::after
     content: ""
     display: block
@@ -1097,6 +1177,19 @@ button.large:hover
         gap: 10px
         align-items: center
         height: min-content
+    .setting:has(input[type="range"])
+        display: flex
+        justify-content: center
+        height: min-content
+        flex-direction: column
+        align-items: initial
+        gap: 0px
+
+.settings .content.graphics
+    grid-template-rows: min-content auto
+    fieldset.graphics_mode
+        padding-bottom: 20px
+        grid-area: 1 / 1 / 2 / 3
 
 //** Hangar
 
@@ -1104,15 +1197,17 @@ button.large:hover
     color: $white
     background-color: $black-dark
     .top
-        display: flex
+        display: grid
         align-items: center
         position: fixed
         inset: 0 0 auto 0
-        height: 60px
-        gap: 20px
         backdrop-filter: $glassmorphism
         background-color: $bg-tp-black-dark
         justify-content: space-between
+        grid-template-rows: auto auto
+        grid-template-columns: 1fr 1fr 1fr
+        justify-items: center
+        padding: 10px 10px 0
         .user-area
             display: grid
             grid-template-rows: 1fr
@@ -1131,11 +1226,11 @@ button.large:hover
                 &.show-settings
                     grid-area: 1 / 1 / 3 / 2
                 &.wot-premium
-                    background-image: url("gui/hangar/premium/noPremium.webp")
+                    background-image: url("/assets/gui/hangar/premium/noPremium.webp")
                 &.wot-premium-shop
-                    background-image: url("gui/hangar/premium/premiumShop.webp")
+                    background-image: url("/assets/gui/hangar/premium/premiumShop.webp")
                 &.wot-plus
-                    background-image: url("gui/hangar/premium/wotPlus.webp")
+                    background-image: url("/assets/gui/hangar/premium/wotPlus.webp")
                 &.account-center
                     padding: 0 10px
         .economy-area
@@ -1155,7 +1250,25 @@ button.large:hover
                 background-repeat: no-repeat
                 flex-direction: column
                 &.personal-reserves
-                    background-image: url("assets/gui/pkgs/gui-part3/gui/maps/icons/personal_reserves/entry_icon_boosters.png")
+                    background-image: url("assets//assets/gui/pkgs/gui-part3//assets/gui/maps/icons/personal_reserves/entry_icon_boosters.png")
+        .top-nav
+            display: flex
+            grid-area: 2 / 1 / 3 / 4
+            flex-direction: row
+            justify-content: center
+            button
+                background-color: transparent
+                box-shadow: none
+                backdrop-filter: none
+                p
+                    text-transform: uppercase
+                    letter-spacing: 0.5px
+                    transition: $fast
+                &:hover p
+                    text-shadow: $text-shadow-yellow
+                    transition: $fast
+                    color: $yellow
+
 
     .bottom
         position: fixed
@@ -1186,7 +1299,7 @@ button.large:hover
                 min-width: 140px
                 padding: 5px
                 box-shadow: none
-                background-image: url(gui/hangar/vehicleSelector/vehicleSelectorTanks/leichttraktor.webp), url(gui/hangar/vehicleSelector/nations/germany.png)
+                background-image: url(/assets/gui/hangar/vehicleSelector/vehicleSelectorTanks/leichttraktor.webp), url(/assets/gui/hangar/vehicleSelector/nations/germany.png)
                 background-position: center
                 background-size: 150%, cover
                 p.vehicle-name
@@ -1206,17 +1319,17 @@ button.large:hover
                     align-items: center
                     justify-content: center
                 &.buy-slots
-                    background-image: url(gui/hangar/vehicleSelector/slots.png)
+                    background-image: url(/assets/gui/hangar/vehicleSelector/slots.png)
                     background-position: center
                     background-repeat: no-repeat
                     background-size: 70px
         .left-button
-            background-image: url(gui/hangar/vehicleSelector/left.webp)
+            background-image: url(/assets/gui/hangar/vehicleSelector/left.webp)
             background-position: center
             background-repeat: no-repeat
             background-size: 35px
         .right-button
-            background-image: url(gui/hangar/vehicleSelector/right.webp)
+            background-image: url(/assets/gui/hangar/vehicleSelector/right.webp)
             background-position: center
             background-repeat: no-repeat
             background-size: 35px
@@ -1251,7 +1364,7 @@ button.large:hover
 //* Babylon.js renderer
 
 .graphics-renderer
-    background-image: url("gui/hangar/default.webp")
+    background-image: url("/assets/gui/hangar/default.webp")
     background-position: center
     background-size: cover
     filter: contrast(1.25)

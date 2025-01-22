@@ -34,7 +34,7 @@ export default defineConfig({
     },
 
     workbox: {
-      globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+      globPatterns: ['**/*.{js,css,html,svg,png,ico,wasm}'],
       cleanupOutdatedCaches: true,
       clientsClaim: true,
       maximumFileSizeToCacheInBytes: 30000000,
@@ -47,4 +47,9 @@ export default defineConfig({
       type: 'module',
     },
   })],
+  server: {
+    mimeTypes: {
+      '.wasm': 'application/wasm',
+    },
+  },
 })
