@@ -40,6 +40,8 @@ export const gold_amount = document.querySelectorAll(".gold_amount")
 export const bonds_amount = document.querySelectorAll(".bonds_amount")
 export const free_xp_amount = document.querySelectorAll(".free_xp_amount")
 export const lobby_nick_display = document.querySelector(".user-area .account-center p")
+export const vehicle_list_vehicles = document.querySelector(".hangar .vehicle-list .vehicles")
+export const vehicle_list_scrollable = document.querySelector(".hangar .vehicle-list")
 
 //* FORMS
 export const setting_section = document.querySelectorAll(".setting")

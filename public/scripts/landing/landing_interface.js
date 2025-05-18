@@ -17,6 +17,7 @@ if(app_load_data){
         show(wargaming_logout)
         show(wargaming_manageacc)
         enable(enter_lobby)
+        show(enter_lobby)
         disable(wargaming_login)
         enable(enter_lobby)
         landing_nickname.innerText = app_load_data.nickname
@@ -24,8 +25,11 @@ if(app_load_data){
         let user_data = await __JSON_REQUEST(`https://api.worldoftanks.eu/wot/account/info/?application_id=25bcedbb27d8357ac39a775c59eaefc6&account_id=${app_load_data.account_id}&access_token=${app_load_data.access_token}`)
     
         wargaming_manageacc.addEventListener("click",()=>window.open("https://eu.wargaming.net/personal/", "_blank"))
+        landing_change_background(account_info_bg)
     }
     _landing_gui_init()
+} else {
+    enter_lobby.remove()
 }
 
 enter_lobby.addEventListener("click", ()=>hangar_init())
@@ -62,7 +66,6 @@ function lobby_load_animation(){
 }
 
 landing_change_background(landing)
-landing_change_background(account_info_bg)
 setInterval(()=>{
     landing_change_background(landing)
 }, sec_to_ms(30))

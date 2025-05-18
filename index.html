@@ -55,8 +55,11 @@
       <div class="loading fullscreen">
         <div class="screen fullscreen">
           <img src="assets/gui/loading/login_logo_big.webp" />
-          <button tabindex="1" class="interactive0 large enter_game_lobby disabled">
+          <button tabindex="1" class="interactive0 large enter_game_lobby disabled hidden">
             <h1 data-locale="landing.loading.bt_play.content"></h1>
+          </button>
+          <button class="interactive0 large wargaming_acc_login">
+            <h1>Prihlasit se</h1>
           </button>
         </div>
         <div class="screen fullscreen hidden">
@@ -86,7 +89,7 @@
         </div>
       </div>
 
-      <div class="landing_menu window fullscreen">
+      <div class="landing_menu hidden window fullscreen">
         <div class="header">
           <div class="top">
             <div class="description">
@@ -142,10 +145,6 @@
             <button class="option show-settings">
               <span class="material-symbols-rounded">settings</span>
               <h3 data-locale="landing.menu.buttons.settings"></h3>
-            </button>
-            <button class="option wargaming_acc_login show-nospace">
-              <span class="material-symbols-rounded">login</span>
-              <h3 data-locale="landing.menu.buttons.log_in"></h3>
             </button>
             <button class="option wargaming_acc_logout hidden-nospace">
               <span class="material-symbols-rounded">logout</span>
@@ -291,41 +290,27 @@
         </div>
         <button class="left-button"></button>
         <div class="vehicle-list">
-          <button class="tank-slot">
+          <div class="vehicles"></div>
+          <!--<button class="tank-slot">
             <img src="assets/gui/hangar/types/small/medium.webp">
             <img src="assets/gui/hangar/tiers/level_6.webp">
             <p class="battle-pass-points">0/100</p>
             <p class="vehicle-name">T-34-85 DEMO</p>
-          </button>
-          <button class="tank-slot">
-            <img src="assets/gui/hangar/types/small/medium.webp">
-            <img src="assets/gui/hangar/tiers/level_6.webp">
-            <p class="battle-pass-points">0/100</p>
-            <p class="vehicle-name">T-34-85 DEMO</p>
-          </button>
-          <button class="tank-slot">
-            <img src="assets/gui/hangar/types/small/medium.webp">
-            <img src="assets/gui/hangar/tiers/level_6.webp">
-            <p class="battle-pass-points">0/100</p>
-            <p class="vehicle-name">T-34-85 DEMO</p>
-          </button>
-          <button class="tank-slot">
-            <img src="assets/gui/hangar/types/small/medium.webp">
-            <img src="assets/gui/hangar/tiers/level_6.webp">
-            <p class="battle-pass-points">0/100</p>
-            <p class="vehicle-name">T-34-85 DEMO</p>
-          </button>
-          <button class="tank-slot">
-            <img src="assets/gui/hangar/types/small/medium.webp">
-            <img src="assets/gui/hangar/tiers/level_6.webp">
-            <p class="battle-pass-points">0/100</p>
-            <p class="vehicle-name">T-34-85 DEMO</p>
-          </button>
-          <button class="buy-slots">
-            <p class="additional-info"><img src="assets/gui/hangar/currency/credits.webp">250000</pc>
-            <p class="vehicle-name">Zakoupit stání</p>
-          </button>
-          <button class="recover-vehicle"></button>
+          </button>-->
+          <div class="slots-special">
+            <button class="buy-slots">
+              <p class="additional-info"><img src="assets/gui/hangar/currency/credits.webp">250000</pc>
+              <p class="vehicle-name">Zakoupit stání</p>
+            </button>
+            <button class="buy-vehicles">
+              <p>Zakoupit vozidla</p>
+              <p>Volných míst: XX</p>
+            </button>
+            <button class="recover-vehicles">
+              <p>Obnovit vozidla</p>
+              <p>Vozidel k obnovení: XX</p>
+            </button>
+          </div>
         </div>
         <button class="right-button"></button>
         <div class="user-comms"></div>
